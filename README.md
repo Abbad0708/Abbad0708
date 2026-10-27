@@ -30,19 +30,19 @@ I like small surface areas, few dependencies, data that stays on your own machin
 
 <table>
   <tr>
-    <td width="36" valign="top"><img src="assets/icons/now.svg" width="22" height="22" alt="" /></td>
+    <td width="36" valign="top"><img src="assets/icons/now.svg" width="28" height="28" alt="" /></td>
     <td><strong>Now</strong> &nbsp;·&nbsp; building <a href="https://github.com/Abbad0708/Muster">Muster</a>, a self-hosted app that sends one prompt to up to 12 LLMs and lays the answers out side by side</td>
   </tr>
   <tr>
-    <td valign="top"><img src="assets/icons/learning.svg" width="22" height="22" alt="" /></td>
+    <td valign="top"><img src="assets/icons/learning.svg" width="28" height="28" alt="" /></td>
     <td><strong>Learning</strong> &nbsp;·&nbsp; local-first application design, provider SDKs and streaming APIs, and tests that catch real bugs rather than decorate a repo</td>
   </tr>
   <tr>
-    <td valign="top"><img src="assets/icons/ask.svg" width="22" height="22" alt="" /></td>
+    <td valign="top"><img src="assets/icons/ask.svg" width="28" height="28" alt="" /></td>
     <td><strong>Ask me about</strong> &nbsp;·&nbsp; comparing LLM providers fairly, Node.js without a build step, SQLite as an app database</td>
   </tr>
   <tr>
-    <td valign="top"><img src="assets/icons/principle.svg" width="22" height="22" alt="" /></td>
+    <td valign="top"><img src="assets/icons/principle.svg" width="28" height="28" alt="" /></td>
     <td><strong>Working principle</strong> &nbsp;·&nbsp; if it needs a sign-in, a cloud account and a bundler before it does anything useful, it is not finished yet</td>
   </tr>
 </table>
@@ -56,16 +56,16 @@ I like small surface areas, few dependencies, data that stays on your own machin
 
 <table>
   <tr>
-    <td width="200" valign="middle"><strong>Languages &amp; runtime</strong></td>
-    <td><a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=js,nodejs,html,css,bash,powershell&theme=dark" alt="JavaScript, Node.js, HTML, CSS, Bash, PowerShell" height="44" /></a></td>
+    <td width="190" valign="middle"><strong>Languages &amp; runtime</strong></td>
+    <td><img src="assets/stack/languages.svg" alt="JavaScript, Node.js, HTML, CSS, Bash, PowerShell" height="86" /></td>
   </tr>
   <tr>
     <td valign="middle"><strong>Backend &amp; data</strong></td>
-    <td><a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=express,sqlite,npm,postman&theme=dark" alt="Express, SQLite, npm, Postman" height="44" /></a></td>
+    <td><img src="assets/stack/backend.svg" alt="Express, SQLite, npm, REST APIs, LLM provider SDKs" height="86" /></td>
   </tr>
   <tr>
     <td valign="middle"><strong>Workflow</strong></td>
-    <td><a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=git,github,githubactions,vscode,md,windows&theme=dark" alt="Git, GitHub, GitHub Actions, VS Code, Markdown, Windows" height="44" /></a></td>
+    <td><img src="assets/stack/workflow.svg" alt="Git, GitHub, GitHub Actions, VS Code, Markdown, Windows" height="86" /></td>
   </tr>
 </table>
 
@@ -105,7 +105,7 @@ I like small surface areas, few dependencies, data that stays on your own machin
       </p>
       <table>
         <tr>
-          <td width="30" valign="top"><img src="assets/icons/status.svg" width="22" height="22" alt="" /></td>
+          <td width="30" valign="top"><img src="assets/icons/status.svg" width="28" height="28" alt="" /></td>
           <td><strong>Open source, actively developed.</strong> Clone it, run <code>npm install &amp;&amp; npm start</code>, open <code>localhost:3000</code>, add the API keys you have, and start comparing.</td>
         </tr>
       </table>
