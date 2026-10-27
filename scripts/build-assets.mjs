@@ -1,5 +1,6 @@
-// Generates every SVG under assets/ so the README has one consistent look
-// without depending on third-party badge services. Run: node scripts/build-assets.mjs
+// Generates every SVG under assets/{dark,light}/ for the profile README: section and project
+// headings, flat contact / metric / tech badges, stack logos (vendored brand icons plus drawn
+// glyphs) and the two status emoji. Run: node scripts/build-assets.mjs
 import { mkdirSync, writeFileSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -26,51 +27,9 @@ let DIR = "dark";     // assets/<DIR>/...
 const SANS = `ui-sans-serif,-apple-system,'Segoe UI',Inter,Roboto,Helvetica,Arial,sans-serif`;
 const MONO = `ui-monospace,'Cascadia Code','Fira Code',Consolas,'Liberation Mono',monospace`;
 const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-// Rough text-width estimates so chips size themselves; generous so nothing clips.
-const wSans = (s, size) => Math.ceil(s.length * size * 0.58);
-const wMono = (s, size) => Math.ceil(s.length * size * 0.62);
 
 const build = () => {
-/* -------------------------------------------------------------- monogram */
-// Personal mark: an "A" cut from two gradient bars, used in the banner and footer.
-const MARK_GRAD = `<linearGradient id="markGrad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#14b8a6"/><stop offset="1" stop-color="#22d3ee"/></linearGradient>`;
-const mark = (size, x = 0, y = 0) => `
-  <g transform="translate(${x} ${y}) scale(${size / 48})">
-    <rect width="48" height="48" rx="13" fill="#0b1220" stroke="#1e293b"/>
-    <path d="M14 36 L24 11 L34 36" fill="none" stroke="url(#markGrad)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M18.5 27.5h11" stroke="#e5eaf3" stroke-width="3.2" stroke-linecap="round"/>
-    <circle cx="24" cy="11" r="2.6" fill="#22d3ee"/>
-  </g>`;
-out("mark.svg", `
-<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 48 48" role="img" aria-label="Abbad monogram">
-  <defs>${MARK_GRAD}</defs>${mark(48)}
-</svg>`);
-
-/* ---------------------------------------------------------------- glyphs */
-// Hand-drawn 24x24 line icons (stroke-based, dark ink on the teal tile).
 const INK = "#06201e";
-const GLYPH = {
-  person: `<circle cx="12" cy="8.5" r="3.6"/><path d="M4.5 20c0-3.9 3.2-6.4 7.5-6.4s7.5 2.5 7.5 6.4"/>`,
-  layers: `<path d="M12 4l8.5 4.5L12 13 3.5 8.5z" fill="${INK}" stroke="none"/><path d="M3.5 12.5L12 17l8.5-4.5"/><path d="M3.5 16.5L12 21l8.5-4.5"/>`,
-  spark: `<path d="M12 3.5l2.2 6.3 6.3 2.2-6.3 2.2L12 20.5l-2.2-6.3-6.3-2.2 6.3-2.2z" fill="${INK}" stroke="none"/>`,
-  pulse: `<path d="M3 12.5h4l2.5-6 4 12 2.5-6H21"/>`,
-  mail: `<rect x="3.5" y="6" width="17" height="12.5" rx="2.5"/><path d="M4 7.5l8 6 8-6"/>`,
-  now: `<circle cx="12" cy="12" r="3.2" fill="${INK}" stroke="none"/><circle cx="12" cy="12" r="7.2" opacity="0.7"/>`,
-  learning: `<path d="M5 19.5h3.2v-5H5zM10.4 19.5h3.2v-9h-3.2zM15.8 19.5H19V5.5h-3.2z" fill="${INK}" stroke="none"/>`,
-  ask: `<path d="M4.5 6.5h15v9h-8l-3.8 3v-3H4.5z"/><path d="M8.5 11h7" opacity="0.7"/>`,
-  principle: `<path d="M12 3.5l8.5 8.5-8.5 8.5L3.5 12z"/><path d="M8.5 12h7" opacity="0.7"/>`,
-  check: `<path d="M5 12.5l4.5 4.5 9.5-10"/>`,
-  terminal: `<rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M7 10l3 2.5-3 2.5M12 15h5"/>`,
-  pin: `<path d="M12 20.5s-6-5.3-6-9.8a6 6 0 0112 0c0 4.5-6 9.8-6 9.8z"/><circle cx="12" cy="10.5" r="2"/>`,
-  handshake: `<path d="M3.5 11l4-4 4.5 1.5L16 5l4.5 4.5-6 6.5-3-1.5-3 1.5z"/><path d="M10 13.5l2.5 2.5M12.5 11l2.5 2.5"/>`,
-};
-// A rounded gradient tile with a glyph centred in it.
-const tile = (name, size, x = 0, y = 0, radius = size * 0.26) => `
-  <g transform="translate(${x} ${y})">
-    <rect width="${size}" height="${size}" rx="${radius}" fill="url(#tileGrad)"/>
-    <g transform="translate(${size * 0.17} ${size * 0.17}) scale(${(size * 0.66) / 24})" fill="none" stroke="${INK}" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">${GLYPH[name]}</g>
-  </g>`;
-const TILE_GRAD = `<linearGradient id="tileGrad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="${C.teal}"/><stop offset="1" stop-color="${C.cyan}"/></linearGradient>`;
 
 /* -------------------------------------------------------------- headings */
 // Section headings: one stroked line icon in an accent colour beside bold 24px text. 42px tall.
@@ -239,25 +198,7 @@ const emoji = (slug) => out(`emoji/${slug}.svg`, `
   <rect x="0.5" y="0.5" width="31" height="31" rx="9" fill="${C.bg2}" stroke="${C.line}"/>
   <g transform="translate(4.5 4.5) scale(${23 / 24})">${EMOJI[slug]}</g>
 </svg>`);
-Object.keys(EMOJI).forEach(emoji);
-
-// Contact sheet of the whole set, handy for previews and for reuse in other repos.
-{
-  const keys = Object.keys(EMOJI), per = 7, cell = 72;
-  const W = 24 + per * cell, H = 24 + Math.ceil(keys.length / per) * (cell + 14);
-  const cells = keys.map((k, i) => {
-    const x = 12 + (i % per) * cell, y = 12 + Math.floor(i / per) * (cell + 14);
-    return `<g transform="translate(${x + 8} ${y})"><g transform="scale(${44 / 24})">
-      <rect x="0.4" y="0.4" width="23.2" height="23.2" rx="6.5" fill="${C.bg2}" stroke="${C.line}" stroke-width="0.6"/>
-      <g transform="translate(3.2 3.2) scale(0.73)">${EMOJI[k]}</g></g>
-      <text x="22" y="62" text-anchor="middle" font-family="${MONO}" font-size="10.5" fill="${C.muted}">${k}</text></g>`;
-  }).join("");
-  out("emoji/sheet.svg", `
-<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Custom emoji set">
-  <rect width="${W}" height="${H}" rx="14" fill="${C.bg}"/>${cells}
-</svg>`);
-}
-
+["terminal", "briefcase"].forEach(emoji);
 
 };
 for (const [name, theme] of Object.entries(THEMES)) { DIR = name; C = theme; build(); }
