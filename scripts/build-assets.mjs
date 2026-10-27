@@ -212,21 +212,54 @@ const TECH = {
   python: `<path d="M12 2.5c-4 0-4.6 1.8-4.6 3.3v2h4.8v.7H5.4C3.6 8.5 2.5 9.9 2.5 12s1.1 3.5 2.9 3.5h1.8v-2.4c0-1.9 1.6-3.4 3.5-3.4h4.5c1.6 0 2.9-1.3 2.9-2.9V5.8C18.1 4 16 2.5 12 2.5z" fill="#3b82f6"/><circle cx="9.6" cy="5.3" r="1" fill="#fff"/><path d="M12 21.5c4 0 4.6-1.8 4.6-3.3v-2h-4.8v-.7h6.8c1.8 0 2.9-1.4 2.9-3.5s-1.1-3.5-2.9-3.5h-1.8v2.4c0 1.9-1.6 3.4-3.5 3.4H8.8c-1.6 0-2.9 1.3-2.9 2.9v1C5.9 20 8 21.5 12 21.5z" fill="#fbbf24"/><circle cx="14.4" cy="18.7" r="1" fill="#fff"/>`,
   cpp: `<path d="${HEX}" fill="#5c8dbc"/><path d="M10.2 9.2a3.4 3.4 0 100 5.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/><path d="M13.6 10.2v3.6M11.8 12h3.6M17.4 10.2v3.6M15.6 12h3.6" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>`,
   sql: `<rect x="3" y="4" width="18" height="16" rx="2.5" fill="none" stroke="#f59e0b" stroke-width="1.8"/><path d="M3 9.2h18M9 9.2V20M15 9.2V20M3 14.6h18" stroke="#f59e0b" stroke-width="1.4"/><path d="M5.5 4h13A2.5 2.5 0 0121 6.5v2.7H3V6.5A2.5 2.5 0 015.5 4z" fill="#f59e0b"/>`,
-  duckdb: `<path d="M4.5 7v10.2c0 1.7 3.4 3.1 7.5 3.1s7.5-1.4 7.5-3.1V7z" fill="#facc15"/><path d="M4.5 12.2c0 1.7 3.4 3.1 7.5 3.1s7.5-1.4 7.5-3.1" fill="none" stroke="#a16207" stroke-width="1.2"/><ellipse cx="12" cy="7" rx="7.5" ry="3" fill="#fef08a"/><circle cx="15" cy="7" r="1.1" fill="#a16207"/>`,
+  duckdb: `<path d="M4.5 7v10.2c0 1.7 3.4 3.1 7.5 3.1s7.5-1.4 7.5-3.1V7z" fill="#facc15"/><path d="M4.5 12.2c0 1.7 3.4 3.1 7.5 3.1s7.5-1.4 7.5-3.1" fill="none" stroke="#a16207" stroke-width="1.2"/><ellipse cx="12" cy="7" rx="7.5" ry="3" fill="#fde047"/><circle cx="15" cy="7" r="1.1" fill="#a16207"/>`,
+  prompt: `<path d="M3 5.5h18v11H10l-4.5 3.5v-3.5H3z" fill="#0b1220" stroke="${C.teal}" stroke-width="1.7" stroke-linejoin="round"/><path d="M7.5 9.5l2.5 1.8-2.5 1.8M12 13.2h4.5" fill="none" stroke="${C.teal}" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>`,
   ml: `<path d="M12 5L6.5 13M12 5l5.5 8M6.5 13L4 19.5M6.5 13L9 19.5M17.5 13L15 19.5M17.5 13l2.5 6.5" stroke="#a78bfa" stroke-width="1.3"/><circle cx="12" cy="5" r="2.5" fill="#a78bfa"/><circle cx="6.5" cy="13" r="2.4" fill="#a78bfa"/><circle cx="17.5" cy="13" r="2.4" fill="#a78bfa"/><g fill="#c4b5fd"><circle cx="4" cy="19.8" r="1.8"/><circle cx="9" cy="19.8" r="1.8"/><circle cx="15" cy="19.8" r="1.8"/><circle cx="20" cy="19.8" r="1.8"/></g>`,
 };
-// One small icon per tool (44px tile) for the stack rows in the README.
-for (const key of Object.keys(TECH)) {
+// App-icon style tool icons: a gradient tile in the tool's colour, a top highlight, and the
+// pictogram re-inked (light parts to white, dark parts to a translucent shadow) so it reads at 38px.
+const TECH_COLOR = {
+  js: "#eab308", node: "#5fa04e", html: "#e34f26", css: "#2965f1", bash: "#3f9d2a", powershell: "#3b82f6",
+  express: "#64748b", sqlite: "#0ea5e9", npm: "#cb3837", api: "#14b8a6", llm: "#06b6d4", git: "#f05032",
+  github: "#475569", actions: "#2088ff", vscode: "#2f8fe0", markdown: "#64748b", windows: "#0ea5e9",
+  python: "#3b82f6", cpp: "#5c8dbc", sql: "#f59e0b", duckdb: "#eab308", ml: "#8b5cf6", prompt: "#14b8a6",
+};
+const hexLum = (h) => {
+  let x = h.replace("#", ""); if (x.length === 3) x = x.split("").map((c) => c + c).join("");
+  const [r, g, b] = [0, 2, 4].map((i) => parseInt(x.slice(i, i + 2), 16) / 255).map((v) => (v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4));
+  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+};
+const mix = (h, t, amt) => { // move hex h toward grey level t (0..255) by amt
+  const x = h.replace("#", ""); const c = [0, 2, 4].map((i) => parseInt(x.slice(i, i + 2), 16));
+  return "#" + c.map((v) => Math.round(v + (t - v) * amt).toString(16).padStart(2, "0")).join("");
+};
+const reink = (svg) => svg.replace(/(fill|stroke)="(#[0-9a-fA-F]{3,6})"/g, (m, attr, hex) => {
+  const L = hexLum(hex);
+  return (L >= 0.85 || L < 0.25) ? `${attr}="#0b1220" ${attr}-opacity="0.55"` : `${attr}="#ffffff"`;
+});
+for (const [key, glyph] of Object.entries(TECH)) {
+  const col = TECH_COLOR[key] || C.teal;
   out(`stack/${key}.svg`, `
-<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" role="img" aria-hidden="true">${TECH[key]}</svg>`);
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" role="img" aria-hidden="true">
+  <defs>
+    <linearGradient id="t" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${mix(col, 255, 0.22)}"/><stop offset="1" stop-color="${mix(col, 0, 0.28)}"/></linearGradient>
+    <linearGradient id="hl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0.28"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></linearGradient>
+  </defs>
+  <rect width="40" height="40" rx="11" fill="url(#t)"/>
+  <path d="M0 11a11 11 0 0111-11h18a11 11 0 0111 11v9H0z" fill="url(#hl)"/>
+  <rect x="0.5" y="0.5" width="39" height="39" rx="10.5" fill="none" stroke="#000000" stroke-opacity="0.18"/>
+  <g transform="translate(7 7) scale(1.0833)">${reink(glyph)}</g>
+</svg>`);
 }
 
 // Small line icons for the stack category headers.
 const CAT = {
-  data: `<ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"/>`,
-  web: `<path d="M9 6.5L4.5 12 9 17.5M15 6.5l4.5 5.5-4.5 5.5M13.5 4l-3 16"/>`,
-  backend: `<rect x="3.5" y="4" width="17" height="6.5" rx="2"/><rect x="3.5" y="13.5" width="17" height="6.5" rx="2"/><path d="M7 7.2h.01M7 16.7h.01" stroke-width="2.6"/>`,
-  workflow: `<circle cx="6" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="9" r="2.5"/><path d="M6 8.5v7M18 11.5c0 3.5-4 4-8.5 4.8"/>`,
+  code: `<path d="M9 6.5L4.5 12 9 17.5M15 6.5l4.5 5.5-4.5 5.5"/>`,
+  ds: `<path d="M6 6l12 12M18 6L6 18"/><circle cx="12" cy="12" r="2.2" fill="${C.teal}" stroke="none"/>`,
+  db: `<ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"/>`,
+  globe: `<circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c3 3 3 14 0 17M12 3.5c-3 3-3 14 0 17"/>`,
+  spark: `<path d="M12 3.5l1.8 5.2 5.2 1.8-5.2 1.8L12 17.5l-1.8-5.2L5 10.5l5.2-1.8z"/><path d="M19 17.5v3M17.5 19h3"/>`,
+  gear: `<circle cx="12" cy="12" r="3"/><path d="M12 3v2.5M12 18.5V21M3 12h2.5M18.5 12H21M5.6 5.6l1.8 1.8M16.6 16.6l1.8 1.8M5.6 18.4l1.8-1.8M16.6 7.4l1.8-1.8"/>`,
 };
 for (const [k, body] of Object.entries(CAT)) out(`stack/cat-${k}.svg`, `
 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="img" aria-hidden="true"><g fill="none" stroke="${C.teal}" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">${body}</g></svg>`);
@@ -297,35 +330,6 @@ Object.keys(EMOJI).forEach(emoji);
 </svg>`);
 }
 
-/* ----------------------------------------------------------------- banner */
-// Wave banner: navy-to-teal gradient with a curved bottom edge, name centred, soft fade-in.
-{
-  const W = 1200, H = 270;
-  out("banner.svg", `
-<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Muhammad Abbad Ur Rehman. ML intern at FlyRank AI, ICS student in Lahore, Pakistan.">
-  <defs>
-    <linearGradient id="wave" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0f172a"/><stop offset="0.55" stop-color="#0e7490"/><stop offset="1" stop-color="#14b8a6"/>
-    </linearGradient>
-    <linearGradient id="wave2" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#14b8a6" stop-opacity="0.35"/><stop offset="1" stop-color="#22d3ee" stop-opacity="0.35"/>
-    </linearGradient>
-    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1.2" cy="1.2" r="1.2" fill="#ffffff" opacity="0.07"/></pattern>
-    <clipPath id="shape"><path d="M0 0H${W}V196C1040 258 860 150 640 196C420 242 230 170 0 206Z"/></clipPath>
-  </defs>
-  <g clip-path="url(#shape)">
-    <rect width="${W}" height="${H}" fill="url(#wave)"/>
-    <rect width="${W}" height="${H}" fill="url(#dots)"/>
-  </g>
-  <path d="M0 218C230 182 420 254 640 208C860 162 1040 270 ${W} 208V222C1040 284 860 176 640 222C420 268 230 196 0 232Z" fill="url(#wave2)"/>
-
-  <g opacity="0">
-    <text x="${W / 2}" y="110" text-anchor="middle" font-family="${SANS}" font-size="46" font-weight="700" fill="#f8fafc" letter-spacing="-0.5">Muhammad Abbad Ur Rehman</text>
-    <text x="${W / 2}" y="150" text-anchor="middle" font-family="${SANS}" font-size="19" fill="#ccfbf1">ML intern at FlyRank AI  ·  ICS student, Lahore, Pakistan</text>
-    <animate attributeName="opacity" from="0" to="1" dur="1.1s" begin="0.15s" fill="freeze"/>
-  </g>
-</svg>`);
-}
 
 };
 for (const [name, theme] of Object.entries(THEMES)) { DIR = name; C = theme; build(); }
