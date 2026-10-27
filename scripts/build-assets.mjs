@@ -225,11 +225,18 @@ const TECH = {
 // One small icon per tool (44px tile) for the stack rows in the README.
 for (const key of Object.keys(TECH)) {
   out(`stack/${key}.svg`, `
-<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" role="img" aria-hidden="true">
-  <rect x="0.5" y="0.5" width="43" height="43" rx="11" fill="${C.bg2}" stroke="${C.line}"/>
-  <g transform="translate(8 8) scale(1.1667)">${TECH[key]}</g>
-</svg>`);
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" role="img" aria-hidden="true">${TECH[key]}</svg>`);
 }
+
+// Small line icons for the stack category headers.
+const CAT = {
+  data: `<ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"/>`,
+  web: `<path d="M9 6.5L4.5 12 9 17.5M15 6.5l4.5 5.5-4.5 5.5M13.5 4l-3 16"/>`,
+  backend: `<rect x="3.5" y="4" width="17" height="6.5" rx="2"/><rect x="3.5" y="13.5" width="17" height="6.5" rx="2"/><path d="M7 7.2h.01M7 16.7h.01" stroke-width="2.6"/>`,
+  workflow: `<circle cx="6" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="9" r="2.5"/><path d="M6 8.5v7M18 11.5c0 3.5-4 4-8.5 4.8"/>`,
+};
+for (const [k, body] of Object.entries(CAT)) out(`stack/cat-${k}.svg`, `
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="img" aria-hidden="true"><g fill="none" stroke="${C.teal}" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">${body}</g></svg>`);
 
 /* ----------------------------------------------------- flyrank bar chart */
 // One measure (precision@50) across three approaches: single hue, direct labels, no legend.
@@ -298,19 +305,44 @@ Object.keys(EMOJI).forEach(emoji);
 }
 
 /* ----------------------------------------------------------------- banner */
-// A flat, quiet banner: name, one line of context, the monogram. Nothing moves.
+// Banner: gradient surface, two-line name, role, three fact pills, one quiet graphic. No animation.
 {
-  const W = 1200, H = 270;
+  const W = 1200, H = 300;
+  const pill = (x, y, t) => {
+    const w = wSans(t, 12.5) + 26;
+    return [`<rect x="${x}" y="${y}" width="${w}" height="26" rx="13" fill="none" stroke="${C.teal}" stroke-opacity="0.55"/><text x="${x + w / 2}" y="${y + 17.5}" text-anchor="middle" font-family="${SANS}" font-size="12.5" font-weight="600" fill="${C.text}">${esc(t)}</text>`, w];
+  };
+  let px = 148, pills = "";
+  for (const t of ["Machine learning", "Python · SQL · DuckDB", "Node.js · local-first tools"]) { const [svg, w] = pill(px, 228, t); pills += svg; px += w + 10; }
+  // Ascending bars: the Muster mark, grown up; a nod to the ranking work.
+  const bars = [[0, 70], [1, 104], [2, 142], [3, 118], [4, 176]].map(([i, h]) =>
+    `<rect x="${900 + i * 46}" y="${232 - h}" width="30" height="${h}" rx="8" fill="url(#tileGrad)" opacity="${(0.35 + i * 0.16).toFixed(2)}"/>`).join("");
   out("banner.svg", `
-<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Muhammad Abbad ur Rehman. ML intern at FlyRank AI, ICS student in Lahore. Builds Muster, one prompt to 12 LLMs side by side.">
-  <defs>${TILE_GRAD}${MARK_GRAD}</defs>
-  <rect x="0.5" y="0.5" width="${W - 1}" height="${H - 1}" rx="20" fill="${C.bg2}" stroke="${C.line}"/>
-  <path d="M20 ${H - 1} h${W - 40}" stroke="url(#tileGrad)" stroke-width="3" stroke-linecap="round"/>
-  ${mark(64, 56, 103)}
-  <text x="148" y="92" font-family="${SANS}" font-size="44" font-weight="700" fill="${C.text}" letter-spacing="-1">Muhammad</text>
-  <text x="148" y="140" font-family="${SANS}" font-size="44" font-weight="700" fill="url(#tileGrad)" letter-spacing="-1">Abbad Ur Rehman</text>
-  <text x="148" y="178" font-family="${SANS}" font-size="19" fill="${C.muted}">ML intern at FlyRank AI  ·  ICS student, Lahore</text>
-  <text x="148" y="210" font-family="${MONO}" font-size="14" fill="${C.teal}">builds Muster: one prompt → 12 LLMs → side by side</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Muhammad Abbad Ur Rehman. ML intern at FlyRank AI, ICS student in Lahore. Machine learning, Python, SQL, DuckDB, Node.js, local-first tools.">
+  <defs>
+    ${TILE_GRAD}${MARK_GRAD}
+    <linearGradient id="surf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${C.bg2}"/><stop offset="1" stop-color="${C.bg3}"/></linearGradient>
+    <radialGradient id="glow" cx="0.82" cy="0.1" r="0.55"><stop offset="0" stop-color="${C.teal}" stop-opacity="0.25"/><stop offset="1" stop-color="${C.teal}" stop-opacity="0"/></radialGradient>
+    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1.2" cy="1.2" r="1.2" fill="${C.muted}" opacity="0.18"/></pattern>
+    <clipPath id="clip"><rect width="${W}" height="${H}" rx="22"/></clipPath>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="${W}" height="${H}" fill="url(#surf)"/>
+    <rect width="${W}" height="${H}" fill="url(#dots)"/>
+    <rect width="${W}" height="${H}" fill="url(#glow)"/>
+    <rect x="0" y="${H - 5}" width="${W}" height="5" fill="url(#tileGrad)"/>
+  </g>
+  <rect x="0.5" y="0.5" width="${W - 1}" height="${H - 1}" rx="22" fill="none" stroke="${C.line}"/>
+
+  ${mark(64, 56, 72)}
+  <text x="148" y="98" font-family="${SANS}" font-size="46" font-weight="700" fill="${C.text}" letter-spacing="-1">Muhammad</text>
+  <text x="148" y="148" font-family="${SANS}" font-size="46" font-weight="700" fill="url(#tileGrad)" letter-spacing="-1">Abbad Ur Rehman</text>
+  <text x="148" y="190" font-family="${SANS}" font-size="19" fill="${C.muted}">ML intern at FlyRank AI  ·  ICS student, Lahore, Pakistan</text>
+  ${pills}
+
+  <line x1="900" y1="232" x2="1114" y2="232" stroke="${C.line}" stroke-width="2" stroke-linecap="round"/>
+  ${bars}
+  <circle cx="1099" cy="44" r="6" fill="${C.cyan}"/>
 </svg>`);
 }
 
