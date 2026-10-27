@@ -33,6 +33,7 @@ I work on the part of machine learning that decides whether a number can be trus
     <td width="50%" valign="top">
       <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/cat-code.svg" /><img src="assets/light/stack/cat-code.svg" width="18" height="18" align="absmiddle" alt=""/></picture>&nbsp; <strong>Languages</strong></p>
       <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/python.svg" /><img src="assets/light/stack/python.svg" width="36" height="36" alt="Python" title="Python"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/c.svg" /><img src="assets/light/stack/c.svg" width="36" height="36" alt="C" title="C"/></picture>&nbsp;&nbsp;
       <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/cpp.svg" /><img src="assets/light/stack/cpp.svg" width="36" height="36" alt="C++" title="C++"/></picture>&nbsp;&nbsp;
       <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/js.svg" /><img src="assets/light/stack/js.svg" width="36" height="36" alt="JavaScript" title="JavaScript"/></picture>&nbsp;&nbsp;
       <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/sql.svg" /><img src="assets/light/stack/sql.svg" width="36" height="36" alt="SQL" title="SQL"/></picture>&nbsp;&nbsp;
