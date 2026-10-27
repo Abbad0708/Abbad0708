@@ -108,7 +108,6 @@ const heading = (slug, title, tagline, glyph) => {
 heading("about", "About", "// who I am", "badge");
 heading("work", "Featured work", "// what I've shipped", "rocket");
 heading("stack", "Stack", "// what I build with", "cube");
-heading("contact", "Contact", "// say hello", "plane");
 
 // Flat contact badges in the reference profile's exact style: 20px, square corners, solid brand
 // colour, white logo and Verdana text; a 28px uppercase call-to-action for the bottom.
