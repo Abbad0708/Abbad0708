@@ -1,10 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" role="img" aria-hidden="true">
-  <defs>
-    <linearGradient id="t" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#80a6cb"/><stop offset="1" stop-color="#426687"/></linearGradient>
-    <linearGradient id="hl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0.28"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></linearGradient>
-  </defs>
-  <rect width="40" height="40" rx="11" fill="url(#t)"/>
-  <path d="M0 11a11 11 0 0111-11h18a11 11 0 0111 11v9H0z" fill="url(#hl)"/>
-  <rect x="0.5" y="0.5" width="39" height="39" rx="10.5" fill="none" stroke="#000000" stroke-opacity="0.18"/>
-  <g transform="translate(7 7) scale(1.0833)"><path d="M12 2.5l8.2 4.7v9.6L12 21.5l-8.2-4.7V7.2z" fill="#0b1220" fill-opacity="0.55"/><path d="M10.2 9.2a3.4 3.4 0 100 5.6" fill="none" stroke="#0b1220" stroke-opacity="0.55" stroke-width="1.9" stroke-linecap="round"/><path d="M13.6 10.2v3.6M11.8 12h3.6M17.4 10.2v3.6M15.6 12h3.6" stroke="#0b1220" stroke-opacity="0.55" stroke-width="1.5" stroke-linecap="round"/></g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" role="img" aria-label="C++"><path fill="#00599C" d="M22.394 6c-.167-.29-.398-.543-.652-.69L12.926.22c-.509-.294-1.34-.294-1.848 0L2.26 5.31c-.508.293-.923 1.013-.923 1.6v10.18c0 .294.104.62.271.91.167.29.398.543.652.69l8.816 5.09c.508.293 1.34.293 1.848 0l8.816-5.09c.254-.147.485-.4.652-.69.167-.29.27-.616.27-.91V6.91c.003-.294-.1-.62-.268-.91zM12 19.11c-3.92 0-7.109-3.19-7.109-7.11 0-3.92 3.19-7.11 7.11-7.11a7.133 7.133 0 016.156 3.553l-3.076 1.78a3.567 3.567 0 00-3.08-1.78A3.56 3.56 0 008.444 12 3.56 3.56 0 0012 15.555a3.57 3.57 0 003.08-1.778l3.078 1.78A7.135 7.135 0 0112 19.11zm7.11-6.715h-.79v.79h-.79v-.79h-.79v-.79h.79v-.79h.79v.79h.79zm2.962 0h-.79v.79h-.79v-.79h-.79v-.79h.79v-.79h.79v.79h.79z"/></svg>

@@ -1,6 +1,6 @@
 // Generates every SVG under assets/ so the README has one consistent look
 // without depending on third-party badge services. Run: node scripts/build-assets.mjs
-import { mkdirSync, writeFileSync } from "node:fs";
+import { mkdirSync, writeFileSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -94,6 +94,7 @@ const DUO = {
   trophy: `<path d="M7.5 3.5h9v5.2a4.5 4.5 0 01-9 0z" fill="${AMBER}"/><path d="M7.5 5H4.8c0 2.7 1.2 4.4 3.2 4.8M16.5 5h2.7c0 2.7-1.2 4.4-3.2 4.8" fill="none" stroke="${AMBER}" stroke-width="1.6" stroke-linecap="round"/><path d="M12 13.2v3" stroke="${INK}" stroke-width="2.2" stroke-linecap="round"/><rect x="8" y="16" width="8" height="2.6" rx="1.1" fill="${INK}"/><rect x="6" y="18.8" width="12" height="2.4" rx="1.2" fill="#fff"/><path d="M10.5 6.5l1-1.5 1 1.5" fill="none" stroke="${INK}" stroke-width="1.2" opacity="0.5"/>`,
   trend: `<g fill="${INK}"><rect x="3.5" y="13" width="3.4" height="8" rx="1.1"/><rect x="8.8" y="10" width="3.4" height="11" rx="1.1"/><rect x="14.1" y="12" width="3.4" height="9" rx="1.1"/></g><path d="M4 9.5l5-4 4.6 3 5.4-5" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19.6" cy="3.2" r="2" fill="${AMBER}"/>`,
   plane: `<path d="M3 10.8L21 3.5l-5.2 17-4.3-6.2z" fill="#fff"/><path d="M21 3.5L11.5 14.3" stroke="${INK}" stroke-width="1.5" stroke-linecap="round"/><path d="M3 10.8l8.5 3.5" stroke="${INK}" stroke-width="1.2" opacity="0.5"/><path d="M11.5 14.3l-.8 5.2 2.8-3.1" fill="${AMBER}"/>`,
+  rocket: `<path d="M12 2.5c3.2 2.6 4.8 6.3 4.8 11L14.4 17H9.6l-2.4-3.5C7.2 8.8 8.8 5.1 12 2.5z" fill="#fff"/><circle cx="12" cy="10.2" r="2.1" fill="${INK}"/><path d="M7.4 13.3L4.8 17.6l3.7-.9zM16.6 13.3l2.6 4.3-3.7-.9z" fill="${AMBER}"/><path d="M10 17.4h4L12 21.5z" fill="${AMBER}"/>`,
   briefcase: `<rect x="3" y="7.5" width="18" height="12.5" rx="2.6" fill="${INK}"/><path d="M9 7.5V5.6A1.6 1.6 0 0110.6 4h2.8A1.6 1.6 0 0115 5.6v1.9" fill="none" stroke="${INK}" stroke-width="1.8"/><rect x="3" y="11.2" width="18" height="1.8" fill="#fff" opacity="0.9"/><rect x="9.8" y="10.2" width="4.4" height="3.8" rx="1" fill="${AMBER}"/>`,
   cap: `<path d="M12 4l10 4.6-10 4.6L2 8.6z" fill="#fff"/><path d="M6 11.3v4.2c0 1.6 2.7 2.9 6 2.9s6-1.3 6-2.9v-4.2L12 14z" fill="${INK}"/><path d="M20.4 9.2v5.6" stroke="${AMBER}" stroke-width="1.8" stroke-linecap="round"/><circle cx="20.4" cy="16.4" r="1.7" fill="${AMBER}"/>`,
 };
@@ -118,8 +119,7 @@ const heading = (slug, title, tagline, glyph) => {
   }
 };
 heading("about", "About", "// who I am", "badge");
-heading("experience", "Experience", "// where I've worked", "briefcase");
-heading("work", "Featured work", "// what I've shipped", "trophy");
+heading("work", "Featured work", "// what I've shipped", "rocket");
 heading("stack", "Stack", "// what I build with", "cube");
 heading("contact", "Contact", "// say hello", "plane");
 
@@ -170,9 +170,9 @@ const tech = (slug, label, dot) => {
 tech("node", "Node.js", "#5fa04e");
 tech("sqlite", "node:sqlite", "#5cb7f0");
 tech("vanilla", "Vanilla JS", "#f7df1e");
-tech("python", "Python", "#3b82f6");
-tech("duckdb", "DuckDB (79M rows)", "#facc15");
-tech("rf", "Random forest", "#a78bfa");
+tech("express", "Express", C.fg);
+tech("html", "HTML + CSS", "#e34f26");
+tech("llm", "LLM provider SDKs", C.cyan);
 
 // Contact buttons
 const button = (slug, label, bg, fg = "#ffffff") => {
@@ -184,9 +184,6 @@ const button = (slug, label, bg, fg = "#ffffff") => {
   <text x="32" y="22" font-family="${SANS}" font-size="${size}" font-weight="700" fill="${fg}">${esc(label)}</text>
 </svg>`);
 };
-button("linkedin", "LinkedIn", "#0a66c2");
-button("message", "Message me on LinkedIn", "#0a66c2");
-button("email", "m.abbad0708@gmail.com", C.teal, "#06201e");
 
 /* ------------------------------------------------------------ tech tiles */
 // Original pictograms for each language / tool (24-unit grid), no wordmarks.
@@ -214,42 +211,26 @@ const TECH = {
   sql: `<rect x="3" y="4" width="18" height="16" rx="2.5" fill="none" stroke="#f59e0b" stroke-width="1.8"/><path d="M3 9.2h18M9 9.2V20M15 9.2V20M3 14.6h18" stroke="#f59e0b" stroke-width="1.4"/><path d="M5.5 4h13A2.5 2.5 0 0121 6.5v2.7H3V6.5A2.5 2.5 0 015.5 4z" fill="#f59e0b"/>`,
   duckdb: `<path d="M4.5 7v10.2c0 1.7 3.4 3.1 7.5 3.1s7.5-1.4 7.5-3.1V7z" fill="#facc15"/><path d="M4.5 12.2c0 1.7 3.4 3.1 7.5 3.1s7.5-1.4 7.5-3.1" fill="none" stroke="#a16207" stroke-width="1.2"/><ellipse cx="12" cy="7" rx="7.5" ry="3" fill="#fde047"/><circle cx="15" cy="7" r="1.1" fill="#a16207"/>`,
   prompt: `<path d="M3 5.5h18v11H10l-4.5 3.5v-3.5H3z" fill="#0b1220" stroke="${C.teal}" stroke-width="1.7" stroke-linejoin="round"/><path d="M7.5 9.5l2.5 1.8-2.5 1.8M12 13.2h4.5" fill="none" stroke="${C.teal}" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>`,
+  openai: `<path d="M12 3.2l7.6 4.4v8.8L12 20.8l-7.6-4.4V7.6z" fill="none" stroke="#10a37f" stroke-width="2" stroke-linejoin="round"/><path d="M12 7.5l3.9 2.25v4.5L12 16.5l-3.9-2.25v-4.5z" fill="#10a37f"/>`,
   ml: `<path d="M12 5L6.5 13M12 5l5.5 8M6.5 13L4 19.5M6.5 13L9 19.5M17.5 13L15 19.5M17.5 13l2.5 6.5" stroke="#a78bfa" stroke-width="1.3"/><circle cx="12" cy="5" r="2.5" fill="#a78bfa"/><circle cx="6.5" cy="13" r="2.4" fill="#a78bfa"/><circle cx="17.5" cy="13" r="2.4" fill="#a78bfa"/><g fill="#c4b5fd"><circle cx="4" cy="19.8" r="1.8"/><circle cx="9" cy="19.8" r="1.8"/><circle cx="15" cy="19.8" r="1.8"/><circle cx="20" cy="19.8" r="1.8"/></g>`,
 };
-// App-icon style tool icons: a gradient tile in the tool's colour, a top highlight, and the
-// pictogram re-inked (light parts to white, dark parts to a translucent shadow) so it reads at 38px.
-const TECH_COLOR = {
-  js: "#eab308", node: "#5fa04e", html: "#e34f26", css: "#2965f1", bash: "#3f9d2a", powershell: "#3b82f6",
-  express: "#64748b", sqlite: "#0ea5e9", npm: "#cb3837", api: "#14b8a6", llm: "#06b6d4", git: "#f05032",
-  github: "#475569", actions: "#2088ff", vscode: "#2f8fe0", markdown: "#64748b", windows: "#0ea5e9",
-  python: "#3b82f6", cpp: "#5c8dbc", sql: "#f59e0b", duckdb: "#eab308", ml: "#8b5cf6", prompt: "#14b8a6",
-};
-const hexLum = (h) => {
-  let x = h.replace("#", ""); if (x.length === 3) x = x.split("").map((c) => c + c).join("");
-  const [r, g, b] = [0, 2, 4].map((i) => parseInt(x.slice(i, i + 2), 16) / 255).map((v) => (v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4));
+// Stack icons. Brand logos come from scripts/brand-icons.json (Simple Icons, CC0), vendored so
+// the build is offline and deterministic. Logos that are near-black switch to the theme's text
+// colour in dark mode. Tools without an official logo use the drawn glyphs from TECH.
+const BRAND = JSON.parse(readFileSync(join(root, "scripts", "brand-icons.json"), "utf8"));
+const lum = (h) => {
+  const x = h.replace("#", ""); const [r, g, b] = [0, 2, 4].map((i) => parseInt(x.slice(i, i + 2), 16) / 255).map((v) => (v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4));
   return 0.2126 * r + 0.7152 * g + 0.0722 * b;
 };
-const mix = (h, t, amt) => { // move hex h toward grey level t (0..255) by amt
-  const x = h.replace("#", ""); const c = [0, 2, 4].map((i) => parseInt(x.slice(i, i + 2), 16));
-  return "#" + c.map((v) => Math.round(v + (t - v) * amt).toString(16).padStart(2, "0")).join("");
-};
-const reink = (svg) => svg.replace(/(fill|stroke)="(#[0-9a-fA-F]{3,6})"/g, (m, attr, hex) => {
-  const L = hexLum(hex);
-  return (L >= 0.85 || L < 0.25) ? `${attr}="#0b1220" ${attr}-opacity="0.55"` : `${attr}="#ffffff"`;
-});
-for (const [key, glyph] of Object.entries(TECH)) {
-  const col = TECH_COLOR[key] || C.teal;
+for (const [key, { title, hex, path }] of Object.entries(BRAND)) {
+  const fill = DIR === "dark" && lum(hex) < 0.12 ? C.text : hex;
   out(`stack/${key}.svg`, `
-<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" role="img" aria-hidden="true">
-  <defs>
-    <linearGradient id="t" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${mix(col, 255, 0.22)}"/><stop offset="1" stop-color="${mix(col, 0, 0.28)}"/></linearGradient>
-    <linearGradient id="hl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0.28"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></linearGradient>
-  </defs>
-  <rect width="40" height="40" rx="11" fill="url(#t)"/>
-  <path d="M0 11a11 11 0 0111-11h18a11 11 0 0111 11v9H0z" fill="url(#hl)"/>
-  <rect x="0.5" y="0.5" width="39" height="39" rx="10.5" fill="none" stroke="#000000" stroke-opacity="0.18"/>
-  <g transform="translate(7 7) scale(1.0833)">${reink(glyph)}</g>
-</svg>`);
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" role="img" aria-label="${esc(title)}"><path fill="${fill}" d="${path}"/></svg>`);
+}
+for (const key of ["powershell", "vscode", "windows", "sql", "ml", "api", "llm", "prompt", "openai"]) {
+  if (BRAND[key]) continue;
+  out(`stack/${key}.svg`, `
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" role="img" aria-hidden="true">${TECH[key]}</svg>`);
 }
 
 // Small line icons for the stack category headers.
@@ -263,29 +244,6 @@ const CAT = {
 };
 for (const [k, body] of Object.entries(CAT)) out(`stack/cat-${k}.svg`, `
 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="img" aria-hidden="true"><g fill="none" stroke="${C.teal}" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">${body}</g></svg>`);
-
-/* ----------------------------------------------------- flyrank bar chart */
-// One measure (precision@50) across three approaches: single hue, direct labels, no legend.
-{
-  const rows = [["Random forest (mine)", 0.80, true], ["Rule already in production", 0.61, false], ["Base rate", 0.49, false]];
-  const W = 460, H = 196, left = 20, labelW = 190, barX = left + labelW, barMax = W - barX - 64, top = 52, rowH = 36, bh = 16;
-  const bars = rows.map(([label, v, mine], i) => {
-    const y = top + i * rowH, w = Math.round(barMax * v);
-    return `
-    <text x="${left}" y="${y + bh / 2 + 4.5}" font-family="${SANS}" font-size="12.5" font-weight="${mine ? 700 : 500}" fill="${C.text}">${esc(label)}</text>
-    <rect x="${barX}" y="${y}" width="${barMax}" height="${bh}" rx="4" fill="${C.line}" opacity="0.45"/>
-    <rect x="${barX}" y="${y}" width="${w}" height="${bh}" rx="4" fill="${C.teal}" opacity="${mine ? 1 : 0.55}"/>
-    <text x="${barX + w + 8}" y="${y + bh / 2 + 4.5}" font-family="${MONO}" font-size="12.5" font-weight="700" fill="${C.text}">${v.toFixed(2)}</text>`;
-  }).join("");
-  const ticks = [0, 0.25, 0.5, 0.75, 1].map((t) => `<line x1="${barX + barMax * t}" y1="${top - 6}" x2="${barX + barMax * t}" y2="${top + rows.length * rowH - 14}" stroke="${C.line}" stroke-width="1" opacity="0.6"/>`).join("");
-  out("ranker-chart.svg", `
-<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Precision at 50 on client-grouped splits: random forest 0.80, rule in production 0.61, base rate 0.49.">
-  <rect x="0.5" y="0.5" width="${W - 1}" height="${H - 1}" rx="14" fill="${C.bg2}" stroke="${C.line}"/>
-  <text x="${left}" y="26" font-family="${SANS}" font-size="12" font-weight="700" fill="${C.muted}" letter-spacing="1.2">PRECISION@50  ·  CLIENT-GROUPED SPLITS</text>
-  ${ticks}${bars}
-  <text x="${left}" y="${H - 16}" font-family="${MONO}" font-size="11" fill="${C.muted}">won 7 of 8 splits  ·  30,000 pages  ·  32 client sites</text>
-</svg>`);
-}
 
 /* ------------------------------------------------------------------ emoji */
 // A bespoke, multi-colour "emoji" set (32px) drawn on the same dark tile, used
