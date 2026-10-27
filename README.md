@@ -6,7 +6,7 @@
 
 <div align="center">
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/bento.svg" /><img src="assets/light/bento.svg" alt="Muhammad Abbad ur Rehman: Computer Science student who builds small, self-hosted developer tools. Now building Muster, one prompt to 12 LLMs side by side. 12 providers, 0 build steps, 100% local data. Open to collaborating on dev tools and LLM experiments." width="100%" /></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/hero.svg" /><img src="assets/light/hero.svg" alt="Muhammad Abbad ur Rehman: Computer Science student who builds small, self-hosted developer tools. Latest ship: Muster, one prompt to 12 LLMs side by side. 12 providers, 0 build steps, 100% local, open source." width="100%" /></picture>
 
 <br/><br/>
 
@@ -48,20 +48,7 @@ I like small surface areas, few dependencies, data that stays on your own machin
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/headings/stack.svg" /><img src="assets/light/headings/stack.svg" alt="Stack" width="720" /></picture>
 
-<table>
-  <tr>
-    <td width="190" valign="middle"><strong>Languages &amp; runtime</strong></td>
-    <td><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/languages.svg" /><img src="assets/light/stack/languages.svg" alt="JavaScript, Node.js, HTML, CSS, Bash, PowerShell" height="86" /></picture></td>
-  </tr>
-  <tr>
-    <td valign="middle"><strong>Backend &amp; data</strong></td>
-    <td><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/backend.svg" /><img src="assets/light/stack/backend.svg" alt="Express, SQLite, npm, REST APIs, LLM provider SDKs" height="86" /></picture></td>
-  </tr>
-  <tr>
-    <td valign="middle"><strong>Workflow</strong></td>
-    <td><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/workflow.svg" /><img src="assets/light/stack/workflow.svg" alt="Git, GitHub, GitHub Actions, VS Code, Markdown, Windows" height="86" /></picture></td>
-  </tr>
-</table>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack-map.svg" /><img src="assets/light/stack-map.svg" alt="Stack map. Languages: JavaScript, Node.js, HTML, CSS, Bash, PowerShell. Backend: Express, SQLite, npm, REST APIs, LLM SDKs. Workflow: Git, GitHub, Actions, VS Code, Markdown, Windows." width="100%" /></picture>
 
 <br/>
 
