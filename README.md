@@ -139,7 +139,7 @@ Ranked **30,000 pages from 32 client sites** on anonymised **Search Console** an
 ![Random forest](assets/light/badges/t-rf.svg)
 ![Search Console data](assets/light/badges/t-gsc.svg)
 
-> <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/emoji/briefcase.svg" /><img src="assets/light/emoji/briefcase.svg" width="20" height="20" align="absmiddle" alt=""/></picture> Built in a professional setting (ML engineering internship, Jul–Aug 2026)
+> <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/emoji/briefcase.svg" /><img src="assets/light/emoji/briefcase.svg" width="20" height="20" align="absmiddle" alt=""/></picture> Built in a professional setting
 
 <br/>
 
