@@ -94,6 +94,8 @@ const DUO = {
   trophy: `<path d="M7.5 3.5h9v5.2a4.5 4.5 0 01-9 0z" fill="${AMBER}"/><path d="M7.5 5H4.8c0 2.7 1.2 4.4 3.2 4.8M16.5 5h2.7c0 2.7-1.2 4.4-3.2 4.8" fill="none" stroke="${AMBER}" stroke-width="1.6" stroke-linecap="round"/><path d="M12 13.2v3" stroke="${INK}" stroke-width="2.2" stroke-linecap="round"/><rect x="8" y="16" width="8" height="2.6" rx="1.1" fill="${INK}"/><rect x="6" y="18.8" width="12" height="2.4" rx="1.2" fill="#fff"/><path d="M10.5 6.5l1-1.5 1 1.5" fill="none" stroke="${INK}" stroke-width="1.2" opacity="0.5"/>`,
   trend: `<g fill="${INK}"><rect x="3.5" y="13" width="3.4" height="8" rx="1.1"/><rect x="8.8" y="10" width="3.4" height="11" rx="1.1"/><rect x="14.1" y="12" width="3.4" height="9" rx="1.1"/></g><path d="M4 9.5l5-4 4.6 3 5.4-5" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19.6" cy="3.2" r="2" fill="${AMBER}"/>`,
   plane: `<path d="M3 10.8L21 3.5l-5.2 17-4.3-6.2z" fill="#fff"/><path d="M21 3.5L11.5 14.3" stroke="${INK}" stroke-width="1.5" stroke-linecap="round"/><path d="M3 10.8l8.5 3.5" stroke="${INK}" stroke-width="1.2" opacity="0.5"/><path d="M11.5 14.3l-.8 5.2 2.8-3.1" fill="${AMBER}"/>`,
+  briefcase: `<rect x="3" y="7.5" width="18" height="12.5" rx="2.6" fill="${INK}"/><path d="M9 7.5V5.6A1.6 1.6 0 0110.6 4h2.8A1.6 1.6 0 0115 5.6v1.9" fill="none" stroke="${INK}" stroke-width="1.8"/><rect x="3" y="11.2" width="18" height="1.8" fill="#fff" opacity="0.9"/><rect x="9.8" y="10.2" width="4.4" height="3.8" rx="1" fill="${AMBER}"/>`,
+  cap: `<path d="M12 4l10 4.6-10 4.6L2 8.6z" fill="#fff"/><path d="M6 11.3v4.2c0 1.6 2.7 2.9 6 2.9s6-1.3 6-2.9v-4.2L12 14z" fill="${INK}"/><path d="M20.4 9.2v5.6" stroke="${AMBER}" stroke-width="1.8" stroke-linecap="round"/><circle cx="20.4" cy="16.4" r="1.7" fill="${AMBER}"/>`,
 };
 const tileDuo = (name, size, x = 0, y = 0) => `
   <g transform="translate(${x} ${y})">
@@ -116,24 +118,27 @@ const heading = (slug, title, tagline, glyph) => {
   }
 };
 heading("about", "About", "// who I am", "badge");
-heading("stack", "Stack", "// what I build with", "cube");
+heading("experience", "Experience", "// where I've worked", "briefcase");
 heading("work", "Featured work", "// what I've shipped", "trophy");
+heading("stack", "Stack", "// what I build with", "cube");
+heading("education", "Education", "// what I've studied", "cap");
 heading("activity", "Activity", "// what I've been doing", "trend");
 heading("contact", "Contact", "// say hello", "plane");
 
-/* ------------------------------------------------------- project heading */
-{
-  out(`headings/h-muster.svg`, `
-<svg xmlns="http://www.w3.org/2000/svg" width="720" height="64" viewBox="0 0 720 64" role="img" aria-label="Muster: one prompt, twelve models, side by side">
-  <defs><linearGradient id="a" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="${C.teal}"/><stop offset="1" stop-color="${C.cyan}"/></linearGradient></defs>
-  <rect x="0" y="8" width="48" height="48" rx="12" fill="url(#a)"/>
-  <g fill="${INK}">
-    <rect x="11" y="20" width="7" height="24" rx="2"/><rect x="20.5" y="26" width="7" height="18" rx="2"/><rect x="30" y="16" width="7" height="28" rx="2"/>
-  </g>
-  <text x="64" y="32" font-family="${SANS}" font-size="28" font-weight="800" fill="${C.text}" letter-spacing="-0.4">Muster</text>
-  <text x="64" y="54" font-family="${MONO}" font-size="13" fill="${C.muted}">one prompt  →  up to 12 LLMs  →  answers side by side</text>
+/* ------------------------------------------------------- project headings */
+// Title lockup for a featured project: a gradient tile with its own mark, name and one-line pitch.
+const projectHeading = (slug, title, pitch, markSvg) => out(`headings/h-${slug}.svg`, `
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="64" viewBox="0 0 720 64" role="img" aria-label="${esc(title)}: ${esc(pitch)}">
+  <defs>${TILE_GRAD}</defs>
+  <rect x="0" y="8" width="48" height="48" rx="12" fill="url(#tileGrad)"/>
+  <g fill="${INK}">${markSvg}</g>
+  <text x="64" y="32" font-family="${SANS}" font-size="28" font-weight="800" fill="${C.text}" letter-spacing="-0.4">${esc(title)}</text>
+  <text x="64" y="54" font-family="${MONO}" font-size="13" fill="${C.muted}">${esc(pitch)}</text>
 </svg>`);
-}
+projectHeading("muster", "Muster", "one prompt  →  up to 12 LLMs  →  answers side by side",
+  `<rect x="11" y="20" width="7" height="24" rx="2"/><rect x="20.5" y="26" width="7" height="18" rx="2"/><rect x="30" y="16" width="7" height="28" rx="2"/>`);
+projectHeading("ranker", "Content-decay ranker", "FlyRank AI  ·  ML engineering internship  ·  Jul–Aug 2026",
+  `<path d="M11 44V22l9 9 8-13 9 7" fill="none" stroke="${INK}" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="37" cy="25" r="4"/>`);
 
 /* ------------------------------------------------------------ chips */
 // Two-tone metric chip: LABEL | value
@@ -157,6 +162,19 @@ metric("adapters", "adapters", "4");
 metric("build", "build step", "none");
 metric("data", "chats stored", "locally");
 metric("runtime", "runtime", "Node 22+");
+// FlyRank ranker
+metric("p50", "precision@50", "0.80");
+metric("rule", "rule in prod", "0.61");
+metric("base", "base rate", "0.49");
+metric("splits", "splits won", "7 / 8");
+metric("pages", "pages ranked", "30,000");
+metric("rows", "rows in DuckDB", "79M");
+// Certifications: ISSUER | course
+metric("c-nasa101", "NASA", "Open Science 101");
+metric("c-nasa-ess", "NASA", "Open Science Essentials");
+metric("c-g-ai", "Google", "AI Essentials");
+metric("c-g-prompt", "Google", "Prompting Essentials");
+metric("c-g-python", "Google", "Crash Course on Python");
 
 // Tech chip with a coloured dot
 const tech = (slug, label, dot) => {
@@ -174,6 +192,11 @@ tech("sqlite", "node:sqlite", "#5cb7f0");
 tech("vanilla", "Vanilla JS", "#f7df1e");
 tech("markdown", "Custom Markdown renderer", C.cyan);
 tech("tests", "Mock providers + headless tests", C.teal);
+tech("python", "Python", "#3b82f6");
+tech("duckdb", "DuckDB (79M rows)", "#facc15");
+tech("rf", "Random forest", "#a78bfa");
+tech("grouped", "Client-grouped validation", C.cyan);
+tech("gsc", "Search Console + Analytics data", "#f59e0b");
 
 // Contact buttons
 const button = (slug, label, bg, fg = "#ffffff") => {
@@ -211,14 +234,20 @@ const TECH = {
   vscode: `<path d="M16.5 3L21 5.3v13.4L16.5 21 7.2 13.6 4.3 15.8 2.5 14.9V9.1l1.8-.9 2.9 2.2z" fill="#3fa7f3"/><path d="M16.5 3v18L7.2 13.6z" fill="#0b5fa5" opacity="0.55"/><path d="M16.5 7.2v9.6L10.5 12z" fill="#dbeafe" opacity="0.35"/>`,
   markdown: `<rect x="2" y="5.5" width="20" height="13" rx="2.6" fill="none" stroke="#a3b3cc" stroke-width="1.8"/><path d="M5.5 15.5v-7l3 3.4 3-3.4v7" fill="none" stroke="#a3b3cc" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M16.8 8.5v6.2M14.3 12.5l2.5 2.8 2.5-2.8" fill="none" stroke="${C.teal}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>`,
   windows: `<g fill="#38bdf8"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/></g><rect x="13" y="13" width="8" height="8" rx="2" fill="#0ea5e9"/>`,
+  python: `<path d="M12 2.5c-4 0-4.6 1.8-4.6 3.3v2h4.8v.7H5.4C3.6 8.5 2.5 9.9 2.5 12s1.1 3.5 2.9 3.5h1.8v-2.4c0-1.9 1.6-3.4 3.5-3.4h4.5c1.6 0 2.9-1.3 2.9-2.9V5.8C18.1 4 16 2.5 12 2.5z" fill="#3b82f6"/><circle cx="9.6" cy="5.3" r="1" fill="#fff"/><path d="M12 21.5c4 0 4.6-1.8 4.6-3.3v-2h-4.8v-.7h6.8c1.8 0 2.9-1.4 2.9-3.5s-1.1-3.5-2.9-3.5h-1.8v2.4c0 1.9-1.6 3.4-3.5 3.4H8.8c-1.6 0-2.9 1.3-2.9 2.9v1C5.9 20 8 21.5 12 21.5z" fill="#fbbf24"/><circle cx="14.4" cy="18.7" r="1" fill="#fff"/>`,
+  cpp: `<path d="${HEX}" fill="#5c8dbc"/><path d="M10.2 9.2a3.4 3.4 0 100 5.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/><path d="M13.6 10.2v3.6M11.8 12h3.6M17.4 10.2v3.6M15.6 12h3.6" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>`,
+  sql: `<rect x="3" y="4" width="18" height="16" rx="2.5" fill="none" stroke="#f59e0b" stroke-width="1.8"/><path d="M3 9.2h18M9 9.2V20M15 9.2V20M3 14.6h18" stroke="#f59e0b" stroke-width="1.4"/><path d="M5.5 4h13A2.5 2.5 0 0121 6.5v2.7H3V6.5A2.5 2.5 0 015.5 4z" fill="#f59e0b"/>`,
+  duckdb: `<path d="M4.5 7v10.2c0 1.7 3.4 3.1 7.5 3.1s7.5-1.4 7.5-3.1V7z" fill="#facc15"/><path d="M4.5 12.2c0 1.7 3.4 3.1 7.5 3.1s7.5-1.4 7.5-3.1" fill="none" stroke="#a16207" stroke-width="1.2"/><ellipse cx="12" cy="7" rx="7.5" ry="3" fill="#fef08a"/><circle cx="15" cy="7" r="1.1" fill="#a16207"/>`,
+  ml: `<path d="M12 5L6.5 13M12 5l5.5 8M6.5 13L4 19.5M6.5 13L9 19.5M17.5 13L15 19.5M17.5 13l2.5 6.5" stroke="#a78bfa" stroke-width="1.3"/><circle cx="12" cy="5" r="2.5" fill="#a78bfa"/><circle cx="6.5" cy="13" r="2.4" fill="#a78bfa"/><circle cx="17.5" cy="13" r="2.4" fill="#a78bfa"/><g fill="#c4b5fd"><circle cx="4" cy="19.8" r="1.8"/><circle cx="9" cy="19.8" r="1.8"/><circle cx="15" cy="19.8" r="1.8"/><circle cx="20" cy="19.8" r="1.8"/></g>`,
 };
 // The stack as a metro map: one line per category, one station per tool.
 {
-  const W = 1200, H = 340, step = 170, x0 = 150;
+  const W = 1200, H = 440, step = 170, x0 = 150;
   const lines = [
-    { name: "LANGUAGES", color: C.teal, y: 70, first: 0, items: [["js", "JavaScript"], ["node", "Node.js"], ["html", "HTML"], ["css", "CSS"], ["bash", "Bash"], ["powershell", "PowerShell"]] },
-    { name: "BACKEND", color: C.cyan, y: 170, first: 1, items: [["express", "Express"], ["sqlite", "SQLite"], ["npm", "npm"], ["api", "REST APIs"], ["llm", "LLM SDKs"]] },
-    { name: "WORKFLOW", color: AMBER, y: 270, first: 0, items: [["git", "Git"], ["github", "GitHub"], ["actions", "Actions"], ["vscode", "VS Code"], ["markdown", "Markdown"], ["windows", "Windows"]] },
+    { name: "DATA & ML", color: "#a78bfa", y: 70, first: 0, items: [["python", "Python"], ["sql", "SQL"], ["duckdb", "DuckDB"], ["ml", "ML models"], ["cpp", "C++"]] },
+    { name: "WEB & SHELL", color: C.teal, y: 170, first: 0, items: [["js", "JavaScript"], ["node", "Node.js"], ["html", "HTML"], ["css", "CSS"], ["bash", "Bash"], ["powershell", "PowerShell"]] },
+    { name: "BACKEND", color: C.cyan, y: 270, first: 1, items: [["express", "Express"], ["sqlite", "SQLite"], ["npm", "npm"], ["api", "REST APIs"], ["llm", "LLM SDKs"]] },
+    { name: "WORKFLOW", color: AMBER, y: 370, first: 0, items: [["git", "Git"], ["github", "GitHub"], ["actions", "Actions"], ["vscode", "VS Code"], ["markdown", "Markdown"], ["windows", "Windows"]] },
   ];
   const tracks = lines.map((l, i) => {
     const xs = l.items.map((_, k) => x0 + (l.first + k) * step);
@@ -230,18 +259,41 @@ const TECH = {
     return `
     <path d="M124 ${l.y} H ${end}" fill="none" stroke="${l.color}" stroke-width="8" stroke-linecap="round" opacity="0.9"/>
     <rect x="16" y="${l.y - 13}" width="104" height="26" rx="13" fill="${l.color}"/>
-    <text x="68" y="${l.y + 4.5}" text-anchor="middle" font-family="${SANS}" font-size="11" font-weight="800" fill="${INK}" letter-spacing="1.2">${l.name}</text>
+    <text x="68" y="${l.y + 4.5}" text-anchor="middle" font-family="${SANS}" font-size="11" font-weight="800" fill="${INK}" letter-spacing="1.2">${esc(l.name)}</text>
     <circle r="5" fill="${C.fg}" stroke="${l.color}" stroke-width="2"><animateMotion dur="${9 + i * 2}s" repeatCount="indefinite" path="M124 ${l.y} H ${end}"/></circle>
     ${stations}`;
   }).join("");
   // Node.js and Express share a station column: an interchange.
   const ix = x0 + step;
   out("stack-map.svg", `
-<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Stack map. Languages: JavaScript, Node.js, HTML, CSS, Bash, PowerShell. Backend: Express, SQLite, npm, REST APIs, LLM SDKs. Workflow: Git, GitHub, Actions, VS Code, Markdown, Windows.">
+<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Stack map. Data and ML: Python, SQL, DuckDB, ML models, C++. Web and shell: JavaScript, Node.js, HTML, CSS, Bash, PowerShell. Backend: Express, SQLite, npm, REST APIs, LLM SDKs. Workflow: Git, GitHub, Actions, VS Code, Markdown, Windows.">
   <rect x="0.5" y="0.5" width="${W - 1}" height="${H - 1}" rx="20" fill="${C.bg}" stroke="${C.line}"/>
-  <rect x="${ix - 16}" y="70" width="32" height="100" rx="16" fill="none" stroke="${C.muted}" stroke-width="3" opacity="0.55"/>
+  <rect x="${ix - 16}" y="170" width="32" height="100" rx="16" fill="none" stroke="${C.muted}" stroke-width="3" opacity="0.55"/>
   ${tracks}
   <text x="${W - 24}" y="${H - 14}" text-anchor="end" font-family="${MONO}" font-size="10.5" fill="${C.muted}">interchange: Node.js ↔ Express</text>
+</svg>`);
+}
+
+/* ----------------------------------------------------- flyrank bar chart */
+// One measure (precision@50) across three approaches: single hue, direct labels, no legend.
+{
+  const rows = [["Random forest (mine)", 0.80, true], ["Rule already in production", 0.61, false], ["Base rate", 0.49, false]];
+  const W = 460, H = 196, left = 20, labelW = 190, barX = left + labelW, barMax = W - barX - 64, top = 52, rowH = 36, bh = 16;
+  const bars = rows.map(([label, v, mine], i) => {
+    const y = top + i * rowH, w = Math.round(barMax * v);
+    return `
+    <text x="${left}" y="${y + bh / 2 + 4.5}" font-family="${SANS}" font-size="12.5" font-weight="${mine ? 700 : 500}" fill="${C.text}">${esc(label)}</text>
+    <rect x="${barX}" y="${y}" width="${barMax}" height="${bh}" rx="4" fill="${C.line}" opacity="0.45"/>
+    <rect x="${barX}" y="${y}" width="${w}" height="${bh}" rx="4" fill="${C.teal}" opacity="${mine ? 1 : 0.55}"/>
+    <text x="${barX + w + 8}" y="${y + bh / 2 + 4.5}" font-family="${MONO}" font-size="12.5" font-weight="700" fill="${C.text}">${v.toFixed(2)}</text>`;
+  }).join("");
+  const ticks = [0, 0.25, 0.5, 0.75, 1].map((t) => `<line x1="${barX + barMax * t}" y1="${top - 6}" x2="${barX + barMax * t}" y2="${top + rows.length * rowH - 14}" stroke="${C.line}" stroke-width="1" opacity="0.6"/>`).join("");
+  out("ranker-chart.svg", `
+<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Precision at 50 on client-grouped splits: random forest 0.80, rule in production 0.61, base rate 0.49.">
+  <rect x="0.5" y="0.5" width="${W - 1}" height="${H - 1}" rx="14" fill="${C.bg2}" stroke="${C.line}"/>
+  <text x="${left}" y="26" font-family="${SANS}" font-size="12" font-weight="700" fill="${C.muted}" letter-spacing="1.2">PRECISION@50  ·  CLIENT-GROUPED SPLITS</text>
+  ${ticks}${bars}
+  <text x="${left}" y="${H - 16}" font-family="${MONO}" font-size="11" fill="${C.muted}">won 7 of 8 splits  ·  30,000 pages  ·  32 client sites</text>
 </svg>`);
 }
 
@@ -387,7 +439,7 @@ Object.keys(EMOJI).forEach(emoji);
     return [`<rect x="${x}" y="${y}" width="${w}" height="24" rx="12" fill="${C.bg}" stroke="${C.line}"/><text x="${x + w / 2}" y="${y + 16}" text-anchor="middle" font-family="${MONO}" font-size="11.5" fill="${C.teal}">${esc(t)}</text>`, w];
   };
   let x = 48, chips = "";
-  for (const t of ["12 providers", "0 build steps", "100% local", "open source"]) { const [svg, w] = chip(x, 318, t); chips += svg; x += w + 8; }
+  for (const t of ["ML @ FlyRank AI", "Python · SQL · Node.js", "Muster: 12-LLM compare", "open source"]) { const [svg, w] = chip(x, 318, t); chips += svg; x += w + 8; }
 
   out("hero.svg", `
 <svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Muhammad Abbad ur Rehman: Computer Science student who builds small, self-hosted developer tools. Latest ship: Muster, one prompt to 12 LLMs side by side.">
@@ -406,8 +458,8 @@ Object.keys(EMOJI).forEach(emoji);
 
   <!-- identity -->
   ${mark(38, 48, 40)}
-  <text x="98" y="58" font-family="${MONO}" font-size="12" fill="${C.muted}" letter-spacing="1.6">ABBAD0708  ·  COMPUTER SCIENCE STUDENT</text>
-  <text x="98" y="76" font-family="${MONO}" font-size="12" fill="${C.teal}">software that runs on your own machine</text>
+  <text x="98" y="58" font-family="${MONO}" font-size="12" fill="${C.muted}" letter-spacing="1.6">ABBAD0708  ·  ICS STUDENT  ·  LAHORE, PAKISTAN</text>
+  <text x="98" y="76" font-family="${MONO}" font-size="12" fill="${C.teal}">ML intern at FlyRank AI  ·  builds software that runs on your own machine</text>
 
   <text x="46" y="156" font-family="${SANS}" font-size="66" font-weight="900" fill="${C.text}" letter-spacing="-2.5">MUHAMMAD</text>
   <text x="46" y="220" font-family="${SANS}" font-size="66" font-weight="900" fill="url(#tileGrad)" letter-spacing="-2.5">ABBAD</text>

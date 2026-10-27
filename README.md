@@ -6,7 +6,7 @@
 
 <div align="center">
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/hero.svg" /><img src="assets/light/hero.svg" alt="Muhammad Abbad ur Rehman: Computer Science student who builds small, self-hosted developer tools. Latest ship: Muster, one prompt to 12 LLMs side by side. 12 providers, 0 build steps, 100% local, open source." width="100%" /></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/hero.svg" /><img src="assets/light/hero.svg" alt="Muhammad Abbad ur Rehman: ICS student in Lahore, ML intern at FlyRank AI, builds software that runs on your own machine. Muster: one prompt to 12 LLMs side by side." width="100%" /></picture>
 
 <br/><br/>
 
@@ -21,38 +21,112 @@
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/headings/about.svg" /><img src="assets/light/headings/about.svg" alt="About" width="720" /></picture>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/emoji/wave.svg" /><img src="assets/light/emoji/wave.svg" width="30" height="30" align="top" alt="" /></picture>&nbsp; **Hi, I'm Abbad.** A Computer Science student who turns curiosity about new technology into software people can actually run. My current obsession is **tooling around large language models**: instead of arguing about which model is "best", I built the instrument that lets you put twelve of them next to each other and see for yourself.
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/emoji/wave.svg" /><img src="assets/light/emoji/wave.svg" width="30" height="30" align="top" alt="" /></picture>&nbsp; **Hi, I'm Abbad.** An ICS student in Lahore who turns curiosity into software people can actually run. This summer I was an **ML engineering intern at FlyRank AI**, where I built the model that decides which of 30,000 decaying pages an editor should look at first. Before that I built **Muster**, a self-hosted tool that puts twelve LLMs side by side so you can measure them instead of arguing about them.
 
-I like small surface areas, few dependencies, data that stays on your own machine, and projects you can start with a single `npm start`.
+I like honest validation, small surface areas, few dependencies, and data that stays on the user's own machine.
 
 <table>
   <tr>
-    <td width="40" valign="top"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/emoji/rocket.svg" /><img src="assets/light/emoji/rocket.svg" width="30" height="30" alt="" /></picture></td>
-    <td><strong>Shipped</strong> &nbsp;·&nbsp; <a href="https://github.com/Abbad0708/Muster">Muster</a>, a self-hosted app that sends one prompt to up to 12 LLMs and lays the answers out side by side</td>
+    <td width="40" valign="top"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/emoji/bolt.svg" /><img src="assets/light/emoji/bolt.svg" width="30" height="30" alt="" /></picture></td>
+    <td><strong>Latest</strong> &nbsp;·&nbsp; shipped a content-decay ranker at FlyRank AI: 0.80 precision@50 against the 0.61 rule it replaced, on client-grouped splits</td>
+  </tr>
+  <tr>
+    <td valign="top"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/emoji/rocket.svg" /><img src="assets/light/emoji/rocket.svg" width="30" height="30" alt="" /></picture></td>
+    <td><strong>Shipped</strong> &nbsp;·&nbsp; <a href="https://github.com/Abbad0708/Muster">Muster</a>, one prompt to up to 12 LLMs with the answers laid out side by side, chats stored locally in SQLite</td>
   </tr>
   <tr>
     <td valign="top"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/emoji/sprout.svg" /><img src="assets/light/emoji/sprout.svg" width="30" height="30" alt="" /></picture></td>
-    <td><strong>Learning</strong> &nbsp;·&nbsp; local-first application design, provider SDKs and streaming APIs, and tests that catch real bugs rather than decorate a repo</td>
+    <td><strong>Learning</strong> &nbsp;·&nbsp; C++, deeper Python and applied ML, and local-first application design</td>
   </tr>
   <tr>
     <td valign="top"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/emoji/chat.svg" /><img src="assets/light/emoji/chat.svg" width="30" height="30" alt="" /></picture></td>
-    <td><strong>Ask me about</strong> &nbsp;·&nbsp; comparing LLM providers fairly, Node.js without a build step, SQLite as an app database</td>
+    <td><strong>Ask me about</strong> &nbsp;·&nbsp; why a 0.96 validation score can be a bug, comparing LLM providers fairly, SQLite and DuckDB as the whole database</td>
   </tr>
   <tr>
     <td valign="top"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/emoji/compass.svg" /><img src="assets/light/emoji/compass.svg" width="30" height="30" alt="" /></picture></td>
-    <td><strong>Working principle</strong> &nbsp;·&nbsp; if it needs a sign-in, a cloud account and a bundler before it does anything useful, it is not finished yet</td>
+    <td><strong>Working principle</strong> &nbsp;·&nbsp; a number you cannot defend is worse than no number; split by the thing that leaks, then report what is left</td>
   </tr>
 </table>
 
 <br/>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/headings/stack.svg" /><img src="assets/light/headings/stack.svg" alt="Stack" width="720" /></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/headings/experience.svg" /><img src="assets/light/headings/experience.svg" alt="Experience" width="720" /></picture>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack-map.svg" /><img src="assets/light/stack-map.svg" alt="Stack map. Languages: JavaScript, Node.js, HTML, CSS, Bash, PowerShell. Backend: Express, SQLite, npm, REST APIs, LLM SDKs. Workflow: Git, GitHub, Actions, VS Code, Markdown, Windows." width="100%" /></picture>
+<table>
+  <tr>
+    <td width="200" valign="top">
+      <strong>FlyRank AI</strong><br/>
+      ML Engineering Intern<br/>
+      <sub>Jul – Aug 2026 · remote</sub>
+    </td>
+    <td valign="top">
+      <p>About 10,000 pages in FlyRank's dataset were losing impressions while still pulling real traffic, and an editor clears maybe 50 a week. The list never empties, so the only thing anyone controls is what sits at the top of it. I built the thing that decides the order.</p>
+      <ul>
+        <li>Ranked review queue over <strong>30,000 pages from 32 client sites</strong>, on anonymised Search Console and Analytics data.</li>
+        <li>First version scored 0.96 and I threw it out: random row splits let the same client sit on both sides, so the model was learning <em>who the client was</em>, not whether the page was dying. Split by client and it fell to 0.80. That 0.16 was never mine to keep.</li>
+        <li>Fed the harness a feature built from the label window on purpose. It returned a perfect 1.000, which is what a leak should look like when validation is working.</li>
+        <li>Rebuilt the label forward-looking on the full 79-million-row release in DuckDB (March features, April outcome) to confirm the framing held on data I had never trained on.</li>
+        <li>Final, identical client-grouped splits: <strong>0.80 precision@50</strong> for the random forest vs <strong>0.61</strong> for the hand-written rule in production and a 0.49 base rate. Won 7 splits of 8. Roughly 12 more genuinely declining pages per editor-week.</li>
+        <li>Shipped with reason codes and archetypes on every row so editors can argue back, plus retrain and review triggers with exact thresholds, so it is clear when to stop trusting it.</li>
+        <li>Known limits, stated up front: weakest on the highest-traffic pages, and nothing proves a refresh brings traffic back. It orders a reading list, and does that well.</li>
+      </ul>
+      <p>
+        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/t-python.svg" /><img src="assets/light/badges/t-python.svg" alt="Python" height="26" /></picture>
+        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/t-duckdb.svg" /><img src="assets/light/badges/t-duckdb.svg" alt="DuckDB, 79M rows" height="26" /></picture>
+        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/t-rf.svg" /><img src="assets/light/badges/t-rf.svg" alt="Random forest" height="26" /></picture>
+        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/t-grouped.svg" /><img src="assets/light/badges/t-grouped.svg" alt="Client-grouped validation" height="26" /></picture>
+        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/t-gsc.svg" /><img src="assets/light/badges/t-gsc.svg" alt="Search Console and Analytics data" height="26" /></picture>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <strong>Allah Wale Foundation</strong><br/>
+      AWT Youth Fellow<br/>
+      <sub>Jul – Aug 2025 · Lahore</sub>
+    </td>
+    <td valign="top">
+      <p>Selected for the AWT Youth Fellowship, a leadership and personal-development programme built around experiential learning, mentorship and social-impact projects.</p>
+      <ul>
+        <li>Designed a Social Action Project on improving access to education, applying community-engagement strategies to promote equitable learning opportunities.</li>
+        <li>Sessions with industry professionals on public speaking, emotional intelligence, leadership, communication and digital transformation; an exposure visit to the Civil Services Academy on governance and public policy.</li>
+      </ul>
+    </td>
+  </tr>
+</table>
 
 <br/>
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/headings/work.svg" /><img src="assets/light/headings/work.svg" alt="Featured work" width="720" /></picture>
+
+<table>
+  <tr>
+    <td width="58%" valign="top">
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/headings/h-ranker.svg" /><img src="assets/light/headings/h-ranker.svg" alt="Content-decay ranker: FlyRank AI, ML engineering internship, July to August 2026" width="100%" /></picture>
+      <p><em>Which of 30,000 decaying pages should an editor open first?</em></p>
+      <p>A random-forest ranker over Search Console and Analytics features that orders the review queue by how likely a page is genuinely declining. The interesting work was the validation: client-grouped splits instead of random rows, a deliberate leak test that had to score 1.000, and a forward-looking label rebuilt on the full 79-million-row release before trusting the number.</p>
+      <p>
+        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/m-p50.svg" /><img src="assets/light/badges/m-p50.svg" alt="precision@50 0.80" height="28" /></picture>
+        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/m-rule.svg" /><img src="assets/light/badges/m-rule.svg" alt="rule in production 0.61" height="28" /></picture>
+        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/m-base.svg" /><img src="assets/light/badges/m-base.svg" alt="base rate 0.49" height="28" /></picture>
+        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/m-splits.svg" /><img src="assets/light/badges/m-splits.svg" alt="splits won 7 of 8" height="28" /></picture>
+        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/m-pages.svg" /><img src="assets/light/badges/m-pages.svg" alt="30,000 pages ranked" height="28" /></picture>
+        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/m-rows.svg" /><img src="assets/light/badges/m-rows.svg" alt="79 million rows in DuckDB" height="28" /></picture>
+      </p>
+      <table>
+        <tr>
+          <td width="34" valign="top"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/emoji/shield.svg" /><img src="assets/light/emoji/shield.svg" width="30" height="30" alt="" /></picture></td>
+          <td><strong>Built in a professional setting.</strong> The code and data belong to FlyRank AI, so there is no public repository; the write-up above is the part I can share.</td>
+        </tr>
+      </table>
+    </td>
+    <td width="42%" valign="top" align="center">
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/ranker-chart.svg" /><img src="assets/light/ranker-chart.svg" alt="Precision at 50 on client-grouped splits: random forest 0.80, rule in production 0.61, base rate 0.49" width="100%" /></picture>
+    </td>
+  </tr>
+</table>
+
+<br/>
 
 <table>
   <tr>
@@ -97,6 +171,36 @@ I like small surface areas, few dependencies, data that stays on your own machin
 
 <br/>
 
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/headings/stack.svg" /><img src="assets/light/headings/stack.svg" alt="Stack" width="720" /></picture>
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack-map.svg" /><img src="assets/light/stack-map.svg" alt="Stack map. Data and ML: Python, SQL, DuckDB, ML models, C++. Web and shell: JavaScript, Node.js, HTML, CSS, Bash, PowerShell. Backend: Express, SQLite, npm, REST APIs, LLM SDKs. Workflow: Git, GitHub, Actions, VS Code, Markdown, Windows." width="100%" /></picture>
+
+<br/>
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/headings/education.svg" /><img src="assets/light/headings/education.svg" alt="Education" width="720" /></picture>
+
+<table>
+  <tr>
+    <td width="200" valign="top">
+      <strong>Govt. Islamia Graduate College</strong><br/>
+      Civil Lines, Lahore<br/>
+      <sub>2024 – 2026</sub>
+    </td>
+    <td valign="top">
+      <p><strong>Intermediate in Computer Science (ICS), with Physics.</strong> Pre-university; the programming and maths foundation under everything above.</p>
+      <p><sub>CERTIFICATIONS</sub><br/>
+        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/m-c-g-ai.svg" /><img src="assets/light/badges/m-c-g-ai.svg" alt="Google AI Essentials" height="28" /></picture>
+        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/m-c-g-prompt.svg" /><img src="assets/light/badges/m-c-g-prompt.svg" alt="Google Prompting Essentials" height="28" /></picture>
+        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/m-c-g-python.svg" /><img src="assets/light/badges/m-c-g-python.svg" alt="Google Crash Course on Python" height="28" /></picture>
+        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/m-c-nasa101.svg" /><img src="assets/light/badges/m-c-nasa101.svg" alt="NASA Open Science 101" height="28" /></picture>
+        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/m-c-nasa-ess.svg" /><img src="assets/light/badges/m-c-nasa-ess.svg" alt="NASA Open Science Essentials" height="28" /></picture>
+      </p>
+    </td>
+  </tr>
+</table>
+
+<br/>
+
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/headings/activity.svg" /><img src="assets/light/headings/activity.svg" alt="Activity" width="720" /></picture>
 
 <div align="center">
@@ -127,7 +231,9 @@ I like small surface areas, few dependencies, data that stays on your own machin
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/headings/contact.svg" /><img src="assets/light/headings/contact.svg" alt="Contact" width="720" /></picture>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/emoji/handshake.svg" /><img src="assets/light/emoji/handshake.svg" width="30" height="30" align="top" alt="" /></picture>&nbsp; I'm open to collaborating on developer tools, LLM experiments and open-source projects where a student who ships can be useful. LinkedIn is the fastest way to reach me; for anything about Muster, open an issue and I'll see it.
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/emoji/handshake.svg" /><img src="assets/light/emoji/handshake.svg" width="30" height="30" align="top" alt="" /></picture>&nbsp; I'm open to ML and data internships, developer-tool collaborations and open-source projects where a student who ships can be useful. LinkedIn is the fastest way to reach me; for anything about Muster, open an issue and I'll see it.
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/emoji/pin.svg" /><img src="assets/light/emoji/pin.svg" width="30" height="30" align="top" alt="" /></picture>&nbsp; Lahore, Pakistan &nbsp;·&nbsp; UTC+5
 
 <div align="center">
 
