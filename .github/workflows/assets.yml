@@ -1,0 +1,39 @@
+name: Verify generated assets
+
+# Fails if anything under assets/ was hand-edited or is stale, so the SVGs
+# always match what scripts/build-assets.mjs produces.
+on:
+  pull_request:
+    paths:
+      - "assets/**"
+      - "scripts/**"
+      - ".github/workflows/assets.yml"
+  push:
+    branches: [main]
+    paths:
+      - "assets/**"
+      - "scripts/**"
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Regenerate assets
+        run: node scripts/build-assets.mjs
+
+      - name: Fail on drift
+        run: |
+          if ! git diff --exit-code --stat -- assets/; then
+            echo "::error::assets/ is out of date. Run 'node scripts/build-assets.mjs' and commit the result."
+            exit 1
+          fi
