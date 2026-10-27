@@ -4,7 +4,7 @@
   Each one is switched for the viewer's theme with <picture>.
 -->
 
-<img src="https://capsule-render.vercel.app/api?type=waving&height=200&color=0:0f172a,50:0e7490,100:14b8a6&text=Muhammad%20Abbad%20Ur%20Rehman&fontColor=f8fafc&fontSize=42&fontAlignY=38&desc=ML%20intern%20at%20FlyRank%20AI%20%C2%B7%20ICS%20student%2C%20Lahore&descAlignY=58&descSize=18&animation=fadeIn" alt="Muhammad Abbad Ur Rehman. ML intern at FlyRank AI, ICS student, Lahore." width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=waving&height=200&color=0:0f172a,50:0e7490,100:14b8a6&text=Muhammad%20Abbad%20Ur%20Rehman&fontColor=f8fafc&fontSize=42&fontAlignY=38&desc=Machine%20Learning%20%C2%B7%20Python%20%C2%B7%20SQL%20%C2%B7%20Data&descAlignY=58&descSize=18&animation=fadeIn" alt="Muhammad Abbad Ur Rehman. Machine Learning, Python, SQL, Data." width="100%" />
 
 <p align="center">
 <a href="https://www.linkedin.com/in/muhammad-abbadurrehman/"><img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&labelColor=0b1220&logo=linkedin&logoColor=white" alt="LinkedIn" height="28" /></a>&nbsp;
@@ -82,6 +82,14 @@ I work on the part of machine learning that decides whether a number can be trus
       <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/prompt.svg" /><img src="assets/light/stack/prompt.svg" width="36" height="36" alt="Prompt design" title="Prompt design"/></picture></p>
     </td>
     <td width="50%" valign="top">
+      <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/cat-chart.svg" /><img src="assets/light/stack/cat-chart.svg" width="18" height="18" align="absmiddle" alt=""/></picture>&nbsp; <strong>Analytics &amp; BI</strong></p>
+      <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/excel.svg" /><img src="assets/light/stack/excel.svg" width="36" height="36" alt="Microsoft Excel" title="Microsoft Excel"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/tableau.svg" /><img src="assets/light/stack/tableau.svg" width="36" height="36" alt="Tableau (basics)" title="Tableau (basics)"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/powerbi.svg" /><img src="assets/light/stack/powerbi.svg" width="36" height="36" alt="Power BI (basics)" title="Power BI (basics)"/></picture></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" colspan="2" valign="top">
       <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/cat-gear.svg" /><img src="assets/light/stack/cat-gear.svg" width="18" height="18" align="absmiddle" alt=""/></picture>&nbsp; <strong>Tools</strong></p>
       <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/git.svg" /><img src="assets/light/stack/git.svg" width="36" height="36" alt="Git" title="Git"/></picture>&nbsp;&nbsp;
       <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/github.svg" /><img src="assets/light/stack/github.svg" width="36" height="36" alt="GitHub" title="GitHub"/></picture>&nbsp;&nbsp;

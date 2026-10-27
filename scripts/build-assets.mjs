@@ -212,6 +212,9 @@ const TECH = {
   duckdb: `<path d="M4.5 7v10.2c0 1.7 3.4 3.1 7.5 3.1s7.5-1.4 7.5-3.1V7z" fill="#facc15"/><path d="M4.5 12.2c0 1.7 3.4 3.1 7.5 3.1s7.5-1.4 7.5-3.1" fill="none" stroke="#a16207" stroke-width="1.2"/><ellipse cx="12" cy="7" rx="7.5" ry="3" fill="#fde047"/><circle cx="15" cy="7" r="1.1" fill="#a16207"/>`,
   prompt: `<path d="M3 5.5h18v11H10l-4.5 3.5v-3.5H3z" fill="#0b1220" stroke="${C.teal}" stroke-width="1.7" stroke-linejoin="round"/><path d="M7.5 9.5l2.5 1.8-2.5 1.8M12 13.2h4.5" fill="none" stroke="${C.teal}" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>`,
   openai: `<path d="M12 3.2l7.6 4.4v8.8L12 20.8l-7.6-4.4V7.6z" fill="none" stroke="#10a37f" stroke-width="2" stroke-linejoin="round"/><path d="M12 7.5l3.9 2.25v4.5L12 16.5l-3.9-2.25v-4.5z" fill="#10a37f"/>`,
+  excel: `<path d="M3 5a2 2 0 012-2h8l8 3v13l-8 3H5a2 2 0 01-2-2z" fill="#217346"/><path d="M13 3l8 3v13l-8 3z" fill="#1a5c38"/><path d="M6 8.5l2.4 3.5L6 15.5h2l1.4-2.2 1.4 2.2h2l-2.4-3.5 2.4-3.5h-2L9.4 10.6 8 8.5z" fill="#fff"/><path d="M15 8h4v2h-4zM15 11h4v2h-4zM15 14h4v2h-4z" fill="#8fd4ae" opacity="0.9"/>`,
+  tableau: `<g fill="#E97627"><path d="M11 2.5h2v3.2h3.2v2H13v3.2h-2V7.7H7.8v-2H11z"/><path d="M11 13.1h2v3.2h3.2v2H13v3.2h-2v-3.2H7.8v-2H11z"/><path d="M3 9.8h1.6v2.2h2.2v1.4H4.6v2.2H3v-2.2H.8V12H3zM19.4 9.8H21v2.2h2.2v1.4H21v2.2h-1.6v-2.2h-2.2V12h2.2z"/></g>`,
+  powerbi: `<g fill="#F2C811"><rect x="4" y="13" width="4" height="8" rx="1"/><rect x="10" y="8" width="4" height="13" rx="1"/><rect x="16" y="3" width="4" height="18" rx="1"/></g><rect x="4" y="13" width="4" height="8" rx="1" fill="#e0b000" opacity="0.5"/>`,
   ml: `<path d="M12 5L6.5 13M12 5l5.5 8M6.5 13L4 19.5M6.5 13L9 19.5M17.5 13L15 19.5M17.5 13l2.5 6.5" stroke="#a78bfa" stroke-width="1.3"/><circle cx="12" cy="5" r="2.5" fill="#a78bfa"/><circle cx="6.5" cy="13" r="2.4" fill="#a78bfa"/><circle cx="17.5" cy="13" r="2.4" fill="#a78bfa"/><g fill="#c4b5fd"><circle cx="4" cy="19.8" r="1.8"/><circle cx="9" cy="19.8" r="1.8"/><circle cx="15" cy="19.8" r="1.8"/><circle cx="20" cy="19.8" r="1.8"/></g>`,
 };
 // Stack icons. Brand logos come from scripts/brand-icons.json (Simple Icons, CC0), vendored so
@@ -227,7 +230,7 @@ for (const [key, { title, hex, path }] of Object.entries(BRAND)) {
   out(`stack/${key}.svg`, `
 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" role="img" aria-label="${esc(title)}"><path fill="${fill}" d="${path}"/></svg>`);
 }
-for (const key of ["powershell", "vscode", "windows", "sql", "ml", "api", "llm", "prompt", "openai"]) {
+for (const key of ["powershell", "vscode", "windows", "sql", "ml", "api", "llm", "prompt", "openai", "excel", "tableau", "powerbi"]) {
   if (BRAND[key]) continue;
   out(`stack/${key}.svg`, `
 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" role="img" aria-hidden="true">${TECH[key]}</svg>`);
@@ -240,6 +243,7 @@ const CAT = {
   db: `<ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"/>`,
   globe: `<circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c3 3 3 14 0 17M12 3.5c-3 3-3 14 0 17"/>`,
   spark: `<path d="M12 3.5l1.8 5.2 5.2 1.8-5.2 1.8L12 17.5l-1.8-5.2L5 10.5l5.2-1.8z"/><path d="M19 17.5v3M17.5 19h3"/>`,
+  chart: `<path d="M4 20h16M7 16v-5M12 16V6M17 16v-8"/>`,
   gear: `<circle cx="12" cy="12" r="3"/><path d="M12 3v2.5M12 18.5V21M3 12h2.5M18.5 12H21M5.6 5.6l1.8 1.8M16.6 16.6l1.8 1.8M5.6 18.4l1.8-1.8M16.6 7.4l1.8-1.8"/>`,
 };
 for (const [k, body] of Object.entries(CAT)) out(`stack/cat-${k}.svg`, `
