@@ -142,12 +142,18 @@ const lum = (h) => {
   const x = h.replace("#", ""); const [r, g, b] = [0, 2, 4].map((i) => parseInt(x.slice(i, i + 2), 16) / 255).map((v) => (v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4));
   return 0.2126 * r + 0.7152 * g + 0.0722 * b;
 };
-for (const [key, { title, hex, path }] of Object.entries(BRAND)) {
-  const fill = DIR === "dark" && lum(hex) < 0.12 ? C.text : hex;
+for (const [key, entry] of Object.entries(BRAND)) {
+  const { title } = entry;
+  if (entry.inner) { // full-colour original artwork; currentColor follows the theme's text colour
+    out(`stack/${key}.svg`, `
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="${entry.viewBox}" color="${C.text}" role="img" aria-label="${esc(title)}">${entry.inner}</svg>`);
+    continue;
+  }
+  const fill = DIR === "dark" && lum(entry.hex) < 0.12 ? C.text : entry.hex;
   out(`stack/${key}.svg`, `
-<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" role="img" aria-label="${esc(title)}"><path fill="${fill}" d="${path}"/></svg>`);
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" role="img" aria-label="${esc(title)}"><path fill="${fill}" d="${entry.path}"/></svg>`);
 }
-for (const key of ["powershell", "vscode", "windows", "sql", "ml", "api", "llm", "prompt", "openai", "excel", "tableau", "powerbi"]) {
+for (const key of ["powershell", "vscode", "windows", "sql", "ml", "api", "llm", "prompt", "excel", "tableau", "powerbi"]) {
   if (BRAND[key]) continue;
   out(`stack/${key}.svg`, `
 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" role="img" aria-hidden="true">${TECH[key]}</svg>`);
