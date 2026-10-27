@@ -212,49 +212,38 @@ const TECH = {
   markdown: `<rect x="2" y="5.5" width="20" height="13" rx="2.6" fill="none" stroke="#a3b3cc" stroke-width="1.8"/><path d="M5.5 15.5v-7l3 3.4 3-3.4v7" fill="none" stroke="#a3b3cc" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M16.8 8.5v6.2M14.3 12.5l2.5 2.8 2.5-2.8" fill="none" stroke="${C.teal}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>`,
   windows: `<g fill="#38bdf8"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/></g><rect x="13" y="13" width="8" height="8" rx="2" fill="#0ea5e9"/>`,
 };
-// One SVG per stack row: 64px tiles with the pictogram and a label underneath.
-const techRow = (slug, items) => {
-  const T = 64, gap = 12, pad = 14;
-  const W = pad * 2 + items.length * T + (items.length - 1) * gap, H = T + 22;
-  const tiles = items.map(([key, label, color], i) => {
-    const x = pad + i * (T + gap);
+// The stack as a metro map: one line per category, one station per tool.
+{
+  const W = 1200, H = 340, step = 170, x0 = 150;
+  const lines = [
+    { name: "LANGUAGES", color: C.teal, y: 70, first: 0, items: [["js", "JavaScript"], ["node", "Node.js"], ["html", "HTML"], ["css", "CSS"], ["bash", "Bash"], ["powershell", "PowerShell"]] },
+    { name: "BACKEND", color: C.cyan, y: 170, first: 1, items: [["express", "Express"], ["sqlite", "SQLite"], ["npm", "npm"], ["api", "REST APIs"], ["llm", "LLM SDKs"]] },
+    { name: "WORKFLOW", color: AMBER, y: 270, first: 0, items: [["git", "Git"], ["github", "GitHub"], ["actions", "Actions"], ["vscode", "VS Code"], ["markdown", "Markdown"], ["windows", "Windows"]] },
+  ];
+  const tracks = lines.map((l, i) => {
+    const xs = l.items.map((_, k) => x0 + (l.first + k) * step);
+    const end = xs[xs.length - 1] + 56;
+    const stations = l.items.map(([key, label], k) => `
+      <circle cx="${xs[k]}" cy="${l.y}" r="24" fill="${C.bg2}" stroke="${l.color}" stroke-width="4"/>
+      <g transform="translate(${xs[k] - 15} ${l.y - 15}) scale(1.25)">${TECH[key]}</g>
+      <text x="${xs[k]}" y="${l.y + 44}" text-anchor="middle" font-family="${SANS}" font-size="12.5" font-weight="600" fill="${C.text}">${esc(label)}</text>`).join("");
     return `
-    <g transform="translate(${x} 0)">
-      <rect width="${T}" height="${T}" rx="16" fill="${C.bg2}" stroke="${C.line}"/>
-      <rect x="1" y="1" width="${T - 2}" height="${T - 2}" rx="15" fill="none" stroke="${color}" stroke-opacity="0.35"/>
-      <circle cx="${T / 2}" cy="${T / 2}" r="22" fill="${color}" opacity="0.1"/>
-      <g transform="translate(14 14) scale(1.5)">${TECH[key]}</g>
-      <text x="${T / 2}" y="${T + 16}" text-anchor="middle" font-family="${SANS}" font-size="11.5" font-weight="600" fill="${C.muted}">${esc(label)}</text>
-    </g>`;
+    <path d="M124 ${l.y} H ${end}" fill="none" stroke="${l.color}" stroke-width="8" stroke-linecap="round" opacity="0.9"/>
+    <rect x="16" y="${l.y - 13}" width="104" height="26" rx="13" fill="${l.color}"/>
+    <text x="68" y="${l.y + 4.5}" text-anchor="middle" font-family="${SANS}" font-size="11" font-weight="800" fill="${INK}" letter-spacing="1.2">${l.name}</text>
+    <circle r="5" fill="${C.fg}" stroke="${l.color}" stroke-width="2"><animateMotion dur="${9 + i * 2}s" repeatCount="indefinite" path="M124 ${l.y} H ${end}"/></circle>
+    ${stations}`;
   }).join("");
-  out(`stack/${slug}.svg`, `
-<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(items.map((i) => i[1]).join(", "))}">
-  ${tiles}
+  // Node.js and Express share a station column: an interchange.
+  const ix = x0 + step;
+  out("stack-map.svg", `
+<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Stack map. Languages: JavaScript, Node.js, HTML, CSS, Bash, PowerShell. Backend: Express, SQLite, npm, REST APIs, LLM SDKs. Workflow: Git, GitHub, Actions, VS Code, Markdown, Windows.">
+  <rect x="0.5" y="0.5" width="${W - 1}" height="${H - 1}" rx="20" fill="${C.bg}" stroke="${C.line}"/>
+  <rect x="${ix - 16}" y="70" width="32" height="100" rx="16" fill="none" stroke="${C.muted}" stroke-width="3" opacity="0.55"/>
+  ${tracks}
+  <text x="${W - 24}" y="${H - 14}" text-anchor="end" font-family="${MONO}" font-size="10.5" fill="${C.muted}">interchange: Node.js ↔ Express</text>
 </svg>`);
-};
-techRow("languages", [
-  ["js", "JavaScript", "#f7df1e"],
-  ["node", "Node.js", "#5fa04e"],
-  ["html", "HTML", "#e34f26"],
-  ["css", "CSS", "#3b82f6"],
-  ["bash", "Bash", "#4eaa25"],
-  ["powershell", "PowerShell", "#5391fe"],
-]);
-techRow("backend", [
-  ["express", "Express", C.fg],
-  ["sqlite", "SQLite", "#5cb7f0"],
-  ["npm", "npm", "#cb3837"],
-  ["api", "REST APIs", C.teal],
-  ["llm", "LLM SDKs", C.cyan],
-]);
-techRow("workflow", [
-  ["git", "Git", "#f05032"],
-  ["github", "GitHub", C.fg],
-  ["actions", "Actions", "#2088ff"],
-  ["vscode", "VS Code", "#3fa7f3"],
-  ["markdown", "Markdown", "#a3b3cc"],
-  ["windows", "Windows", "#38bdf8"],
-]);
+}
 
 /* -------------------------------------------------------- provider grid */
 {
@@ -374,95 +363,69 @@ Object.keys(EMOJI).forEach(emoji);
 </svg>`);
 }
 
-/* ------------------------------------------------------------------ bento */
-// The profile hero: six cards in a bento grid, 1200x414.
+/* ------------------------------------------------------------------- hero */
+// Profile hero: oversized typography on the left, Muster's provider orbit on the right.
 {
-  const W = 1200, H = 414;
-  const card = (x, y, w, h, inner = "") => `
-  <g>
-    <rect x="${x}" y="${y}" width="${w}" height="${h}" rx="18" fill="${C.bg2}" stroke="${C.line}"/>
-    ${inner}
-  </g>`;
-  const em = (slug, size, x, y) => `<g transform="translate(${x} ${y}) scale(${size / 24})">${EMOJI[slug]}</g>`;
-  const label = (x, y, t) => `<text x="${x}" y="${y}" font-family="${SANS}" font-size="11" font-weight="700" fill="${C.muted}" letter-spacing="1.3">${esc(t)}</text>`;
-  const chip = (x, y, t) => {
-    const w = wMono(t, 11) + 18;
-    return `<rect x="${x}" y="${y}" width="${w}" height="22" rx="11" fill="${C.bg}" stroke="${C.line}"/><text x="${x + w / 2}" y="${y + 15}" text-anchor="middle" font-family="${MONO}" font-size="11" fill="${C.teal}">${esc(t)}</text>`;
-  };
-
-  // A: identity
-  const chips = ["Node.js", "local-first", "LLM tooling", "open source"];
-  let cx = 28;
-  const chipRow = chips.map((t) => { const s = chip(cx, 206, t); cx += wMono(t, 11) + 18 + 8; return s; }).join("");
-  const A = card(0, 0, 560, 250, `
-    <rect x="0.5" y="0.5" width="559" height="249" rx="18" fill="url(#heroGlow)"/>
-    ${mark(44, 28, 26)}
-    <text x="84" y="45" font-family="${MONO}" font-size="12" fill="${C.muted}" letter-spacing="1.5">ABBAD0708</text>
-    <text x="84" y="63" font-family="${MONO}" font-size="12" fill="${C.teal}">software that runs on your own machine</text>
-    <text x="28" y="124" font-family="${SANS}" font-size="38" font-weight="800" fill="${C.text}" letter-spacing="-0.8">Muhammad Abbad</text>
-    <text x="28" y="164" font-family="${SANS}" font-size="38" font-weight="800" fill="url(#tileGrad)" letter-spacing="-0.8">ur Rehman</text>
-    <text x="28" y="190" font-family="${SANS}" font-size="14.5" fill="${C.muted}">Computer Science student  ·  builds small, self-hosted developer tools</text>
-    ${chipRow}`);
-
-  // B: terminal
-  const term = [
-    ["$ ", "npm start", C.text],
-    ["", "muster listening on :3000", C.teal],
-    ["", "12 providers · 4 adapters", C.muted],
-    ["", "0 build steps", C.muted],
-    ["$ ", "git push origin main", C.text],
+  const W = 1200, H = 380, cx = 940, cy = 186;
+  const providers = [
+    ["Claude", "#d97757"], ["GPT", "#9ca3af"], ["Gemini", "#4f8df7"], ["Grok", C.fg],
+    ["DeepSeek", "#4d6bfe"], ["Perplexity", "#1fb8cd"], ["Mistral", "#fa520f"], ["Llama", "#f55036"],
+    ["Qwen", "#8b7cf6"], ["Kimi", "#c4b5fd"], ["Command", "#6ee7b7"], ["OpenRouter", C.teal],
   ];
-  const termLines = term.map(([p, t, col], i) => `
-      <text x="596" y="${78 + i * 26}" font-family="${MONO}" font-size="13.5" opacity="0"><tspan fill="${C.muted}">${esc(p)}</tspan><tspan fill="${col}">${esc(t)}</tspan>
-        <animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="${0.5 + i * 0.45}s" fill="freeze"/></text>`).join("");
-  const B = card(574, 0, 320, 250, `
-    <path d="M574 18a18 18 0 0118-18h284a18 18 0 0118 18v16H574z" fill="${C.bg3}"/>
-    <circle cx="596" cy="17" r="5" fill="#f87171"/><circle cx="614" cy="17" r="5" fill="#fbbf24"/><circle cx="632" cy="17" r="5" fill="#34d399"/>
-    <text x="734" y="21" text-anchor="middle" font-family="${MONO}" font-size="11.5" fill="${C.muted}">abbad@dev — muster</text>
-    ${termLines}
-    <rect x="596" y="196" width="8" height="15" fill="${C.teal}"><animate attributeName="opacity" values="1;0;1" dur="1.1s" repeatCount="indefinite"/></rect>`);
+  const ring = (r, items, dur, reverse) => {
+    const dots = items.map(([name, col], i) => {
+      const a = (i / items.length) * Math.PI * 2 - Math.PI / 2;
+      const x = (cx + r * Math.cos(a)).toFixed(1), y = (cy + r * Math.sin(a)).toFixed(1);
+      return `<circle cx="${x}" cy="${y}" r="9" fill="${col}" stroke="${C.bg2}" stroke-width="2.5"><title>${esc(name)}</title></circle>`;
+    }).join("");
+    return `
+    <circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${C.line}" stroke-width="1.5" stroke-dasharray="2 7" stroke-linecap="round"/>
+    <g>${dots}<animateTransform attributeName="transform" type="rotate" from="${reverse ? 360 : 0} ${cx} ${cy}" to="${reverse ? 0 : 360} ${cx} ${cy}" dur="${dur}s" repeatCount="indefinite"/></g>`;
+  };
+  const chip = (x, y, t) => {
+    const w = wMono(t, 11.5) + 20;
+    return [`<rect x="${x}" y="${y}" width="${w}" height="24" rx="12" fill="${C.bg}" stroke="${C.line}"/><text x="${x + w / 2}" y="${y + 16}" text-anchor="middle" font-family="${MONO}" font-size="11.5" fill="${C.teal}">${esc(t)}</text>`, w];
+  };
+  let x = 48, chips = "";
+  for (const t of ["12 providers", "0 build steps", "100% local", "open source"]) { const [svg, w] = chip(x, 318, t); chips += svg; x += w + 8; }
 
-  // C: now building
-  const dotColors = ["#d97757", "#9ca3af", "#4f8df7", C.fg, "#4d6bfe", "#1fb8cd", "#fa520f", "#f55036", "#8b7cf6", "#c4b5fd", "#6ee7b7", C.teal];
-  const dots = dotColors.map((c, i) => `<circle cx="${936 + (i % 6) * 26}" cy="${152 + Math.floor(i / 6) * 26}" r="7" fill="${c}"><animate attributeName="r" values="7;8.5;7" dur="2.4s" begin="${i * 0.15}s" repeatCount="indefinite"/></circle>`).join("");
-  const Ccard = card(908, 0, 292, 250, `
-    ${label(936, 38, "LATEST SHIP")}
-    ${em("rocket", 30, 1140, 22)}
-    <text x="936" y="84" font-family="${SANS}" font-size="26" font-weight="800" fill="${C.text}" letter-spacing="-0.4">Muster</text>
-    <text x="936" y="106" font-family="${MONO}" font-size="12" fill="${C.teal}">one prompt → 12 LLMs, side by side</text>
-    ${label(936, 136, "PROVIDERS")}
-    ${dots}
-    <text x="936" y="222" font-family="${SANS}" font-size="12.5" fill="${C.muted}">Each model sees only its own history.</text>`);
-
-  // D: by the numbers
-  const nums = [["12", "providers"], ["0", "build steps"], ["100%", "local data"]];
-  const numCols = nums.map(([n, l], i) => `
-    <text x="${28 + i * 118}" y="356" font-family="${SANS}" font-size="34" font-weight="800" fill="url(#tileGrad)" letter-spacing="-1">${esc(n)}</text>
-    <text x="${28 + i * 118}" y="378" font-family="${MONO}" font-size="11.5" fill="${C.muted}">${esc(l)}</text>`).join("");
-  const D = card(0, 264, 380, 150, `${label(28, 296, "BY THE NUMBERS")}${numCols}`);
-
-  // E: how I build
-  const rules = [["bolt", "Ship small, ship runnable"], ["shield", "Data stays on the user's machine"], ["compass", "Measure models, don't argue about them"]];
-  const ruleRows = rules.map(([g, t], i) => `${em(g, 22, 422, 310 + i * 32)}<text x="454" y="${326 + i * 32}" font-family="${SANS}" font-size="14" font-weight="600" fill="${C.text}">${esc(t)}</text>`).join("");
-  const E = card(394, 264, 420, 150, `${label(422, 296, "HOW I BUILD")}${ruleRows}`);
-
-  // F: let's build
-  const F = card(828, 264, 372, 150, `
-    ${label(856, 296, "LET'S BUILD")}
-    ${em("handshake", 30, 1142, 282)}
-    <text x="856" y="330" font-family="${SANS}" font-size="15" font-weight="700" fill="${C.text}">Open to collaborating on dev tools</text>
-    <text x="856" y="350" font-family="${SANS}" font-size="15" font-weight="700" fill="${C.text}">and LLM experiments.</text>
-    <text x="856" y="384" font-family="${MONO}" font-size="12" fill="${C.teal}">in/muhammad-abbadurrehman  ·  @M_Abbad0708</text>`);
-
-  out("bento.svg", `
-<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Muhammad Abbad ur Rehman, Computer Science student who builds small, self-hosted developer tools. Now building Muster, one prompt to 12 LLMs side by side.">
+  out("hero.svg", `
+<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Muhammad Abbad ur Rehman: Computer Science student who builds small, self-hosted developer tools. Latest ship: Muster, one prompt to 12 LLMs side by side.">
   <defs>
     ${TILE_GRAD}${MARK_GRAD}
-    <radialGradient id="heroGlow" cx="0.95" cy="0.05" r="0.9"><stop offset="0" stop-color="${C.teal}" stop-opacity="0.18"/><stop offset="1" stop-color="${C.teal}" stop-opacity="0"/></radialGradient>
+    <radialGradient id="orbitGlow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="${C.teal}" stop-opacity="0.22"/><stop offset="1" stop-color="${C.teal}" stop-opacity="0"/></radialGradient>
+    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" fill="none" stroke="${C.line}" stroke-width="0.6" opacity="0.55"/></pattern>
+    <clipPath id="heroClip"><rect width="${W}" height="${H}" rx="22"/></clipPath>
   </defs>
-  ${A}${B}${Ccard}${D}${E}${F}
+  <g clip-path="url(#heroClip)">
+    <rect width="${W}" height="${H}" fill="${C.bg2}"/>
+    <rect width="${W}" height="${H}" fill="url(#grid)"/>
+    <circle cx="${cx}" cy="${cy}" r="200" fill="url(#orbitGlow)"/>
+  </g>
+  <rect x="0.5" y="0.5" width="${W - 1}" height="${H - 1}" rx="22" fill="none" stroke="${C.line}"/>
+
+  <!-- identity -->
+  ${mark(38, 48, 40)}
+  <text x="98" y="58" font-family="${MONO}" font-size="12" fill="${C.muted}" letter-spacing="1.6">ABBAD0708  ·  COMPUTER SCIENCE STUDENT</text>
+  <text x="98" y="76" font-family="${MONO}" font-size="12" fill="${C.teal}">software that runs on your own machine</text>
+
+  <text x="46" y="156" font-family="${SANS}" font-size="66" font-weight="900" fill="${C.text}" letter-spacing="-2.5">MUHAMMAD</text>
+  <text x="46" y="220" font-family="${SANS}" font-size="66" font-weight="900" fill="url(#tileGrad)" letter-spacing="-2.5">ABBAD</text>
+  <text x="46" y="284" font-family="${SANS}" font-size="66" font-weight="900" fill="none" stroke="${C.text}" stroke-width="1.6" letter-spacing="-2.5">UR REHMAN</text>
+  ${chips}
+
+  <!-- orbit -->
+  ${ring(128, providers.slice(4), 46, false)}
+  ${ring(78, providers.slice(0, 4), 28, true)}
+  <circle cx="${cx}" cy="${cy}" r="40" fill="url(#tileGrad)"/>
+  <g fill="${INK}" transform="translate(${cx - 17} ${cy - 16})">
+    <rect x="0" y="8" width="8" height="24" rx="2.5"/><rect x="13" y="14" width="8" height="18" rx="2.5"/><rect x="26" y="0" width="8" height="32" rx="2.5"/>
+  </g>
+  <text x="${cx}" y="${cy + 160}" text-anchor="middle" font-family="${SANS}" font-size="14" font-weight="700" fill="${C.text}">Muster</text>
+  <text x="${cx}" y="${cy + 178}" text-anchor="middle" font-family="${MONO}" font-size="11.5" fill="${C.muted}">one prompt → 12 LLMs → side by side</text>
 </svg>`);
 }
+
 
 };
 for (const [name, theme] of Object.entries(THEMES)) { DIR = name; C = theme; build(); }
