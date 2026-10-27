@@ -300,4 +300,71 @@ techRow("workflow", [
 </svg>`);
 }
 
+/* ------------------------------------------------------------ facts strip */
+{
+  const facts = [
+    ["person", "Computer Science student"],
+    ["terminal", "Builds self-hosted developer tools"],
+    ["layers", "Local-first, no build step, few deps"],
+    ["handshake", "Open to collaboration"],
+  ];
+  const W = 1200, H = 64, seg = W / facts.length;
+  const cells = facts.map(([g, label], i) => `
+    <g transform="translate(${i * seg} 0)">
+      ${i ? `<rect x="0" y="16" width="1" height="32" fill="${C.line}"/>` : ""}
+      ${tile(g, 30, 24, 17)}
+      <text x="66" y="37" font-family="${SANS}" font-size="14.5" font-weight="600" fill="${C.text}">${esc(label)}</text>
+    </g>`).join("");
+  out("facts.svg", `
+<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(facts.map((f) => f[1]).join(". "))}">
+  <defs>${TILE_GRAD}</defs>
+  <rect x="0.5" y="0.5" width="${W - 1}" height="${H - 1}" rx="14" fill="${C.bg2}" stroke="${C.line}"/>
+  ${cells}
+</svg>`);
+}
+
+/* ------------------------------------------------------------ muster flow */
+// How Muster works: one prompt fans out through four adapters to twelve providers,
+// and each model only ever sees its own history.
+{
+  const W = 640, H = 230;
+  const box = (x, y, w, h, label, sub, accent = false) => `
+    <rect x="${x}" y="${y}" width="${w}" height="${h}" rx="12" fill="${accent ? "url(#tileGrad)" : C.bg2}" stroke="${accent ? "none" : C.line}"/>
+    <text x="${x + w / 2}" y="${y + h / 2 - (sub ? 4 : -5)}" text-anchor="middle" font-family="${SANS}" font-size="14" font-weight="700" fill="${accent ? INK : C.text}">${esc(label)}</text>
+    ${sub ? `<text x="${x + w / 2}" y="${y + h / 2 + 14}" text-anchor="middle" font-family="${MONO}" font-size="11" fill="${accent ? INK : C.muted}" opacity="${accent ? 0.75 : 1}">${esc(sub)}</text>` : ""}`;
+  const midY = 96;
+  // adapters (4) and providers (12) as stacked pills on the right
+  const adapters = [0, 1, 2, 3].map((i) => {
+    const y = 28 + i * 40;
+    return `<path d="M312 ${midY} C340 ${midY} 340 ${y + 14} 368 ${y + 14}" fill="none" stroke="${C.teal}" stroke-width="1.5" opacity="0.7"/>
+            <rect x="368" y="${y}" width="86" height="28" rx="8" fill="${C.bg2}" stroke="${C.line}"/>
+            <text x="411" y="${y + 18}" text-anchor="middle" font-family="${MONO}" font-size="11" fill="${C.text}">adapter ${i + 1}</text>`;
+  }).join("");
+  const providers = [...Array(12).keys()].map((i) => {
+    const a = Math.floor(i / 3), y = 28 + a * 40 + 14, py = 16 + i * 13.5;
+    return `<path d="M454 ${y} C490 ${y} 490 ${py} 526 ${py}" fill="none" stroke="${C.cyan}" stroke-width="1.2" opacity="0.55"/>
+            <circle cx="530" cy="${py}" r="3.2" fill="${C.cyan}"/>`;
+  }).join("");
+  out("muster-flow.svg", `
+<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="One prompt goes to Muster, which fans out through four adapters to twelve providers. Each model only sees its own history.">
+  <defs>${TILE_GRAD}
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5 0 10z" fill="${C.teal}"/></marker>
+  </defs>
+  <rect x="0.5" y="0.5" width="${W - 1}" height="${H - 1}" rx="14" fill="${C.bg}" stroke="${C.line}"/>
+  <text x="18" y="22" font-family="${SANS}" font-size="11.5" font-weight="700" fill="${C.muted}" letter-spacing="1.2">HOW IT WORKS</text>
+
+  ${box(18, midY - 24, 112, 48, "one prompt", "you type once")}
+  <line x1="130" y1="${midY}" x2="186" y2="${midY}" stroke="${C.teal}" stroke-width="1.8" marker-end="url(#arr)"/>
+  ${box(188, midY - 26, 124, 52, "Muster", "fan-out + stream", true)}
+  ${adapters}
+  ${providers}
+  <text x="548" y="${midY - 2}" font-family="${SANS}" font-size="13" font-weight="700" fill="${C.text}">12</text>
+  <text x="548" y="${midY + 14}" font-family="${MONO}" font-size="10.5" fill="${C.muted}">providers</text>
+
+  <rect x="18" y="186" width="${W - 36}" height="28" rx="8" fill="${C.bg2}" stroke="${C.line}"/>
+  ${tile("check", 18, 26, 191)}
+  <text x="52" y="204.5" font-family="${SANS}" font-size="12.5" fill="${C.text}">On follow-ups each model sees <tspan font-weight="700">only its own history</tspan>, so the comparison stays a fair test.</text>
+</svg>`);
+}
+
 console.log("assets written");
