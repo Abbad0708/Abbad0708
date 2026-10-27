@@ -4,7 +4,7 @@
   Each one is switched for the viewer's theme with <picture>.
 -->
 
-<img src="https://capsule-render.vercel.app/api?type=waving&height=260&color=0:0f172a,50:0e7490,100:14b8a6&text=Muhammad%20Abbad%20Ur%20Rehman&fontColor=f8fafc&fontSize=50&fontAlignY=36&desc=Machine%20Learning%20%C2%B7%20Python%20%C2%B7%20SQL%20%C2%B7%20Data&descAlignY=56&descSize=20&animation=fadeIn" alt="Muhammad Abbad Ur Rehman. Machine Learning, Python, SQL, Data." width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=waving&height=260&color=0:0b1220,45:0e4a5f,100:0f766e&text=Muhammad%20Abbad%20Ur%20Rehman&fontColor=f8fafc&fontSize=50&fontAlignY=36&desc=Machine%20Learning%20%C2%B7%20Python%20%C2%B7%20SQL%20%C2%B7%20Data&descAlignY=56&descSize=20&animation=fadeIn" alt="Muhammad Abbad Ur Rehman. Machine Learning, Python, SQL, Data." width="100%" />
 
 <p align="center">
 <a href="https://www.linkedin.com/in/muhammad-abbadurrehman/"><img src="assets/light/badges/b-linkedin.svg" alt="LinkedIn"/></a>
