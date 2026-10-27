@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="85" height="26" viewBox="0 0 85 26" role="img" aria-label="Express">
+  <rect x="0.5" y="0.5" width="84" height="25" rx="13" fill="#111a2e" stroke="#1e293b"/>
+  <circle cx="14" cy="13" r="4" fill="#f8fafc"/>
+  <text x="25" y="17.5" font-family="ui-sans-serif,-apple-system,'Segoe UI',Inter,Roboto,Helvetica,Arial,sans-serif" font-size="12.5" font-weight="600" fill="#e5eaf3">Express</text>
+</svg>
