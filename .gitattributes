@@ -1,0 +1,8 @@
+# Keep generated SVGs and text files byte-identical across Windows/macOS/Linux
+# so `node scripts/build-assets.mjs` never produces line-ending-only diffs.
+* text=auto eol=lf
+*.svg text eol=lf
+*.md  text eol=lf
+*.mjs text eol=lf
+*.yml text eol=lf
+*.png binary
