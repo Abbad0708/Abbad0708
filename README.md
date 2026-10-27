@@ -143,13 +143,10 @@ Ranked **30,000 pages from 32 client sites** on anonymised **Search Console** an
 
 <br/>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/headings/contact.svg" /><img src="assets/light/headings/contact.svg" alt="Contact" width="720" /></picture>
+<div align="center">
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/emoji/handshake.svg" /><img src="assets/light/emoji/handshake.svg" width="28" height="28" align="top" alt="" /></picture>&nbsp; Open to ML and data internships, developer-tool collaborations and open-source projects where a student who ships can be useful. LinkedIn is the fastest way to reach me; for anything about Muster, open an issue.
+Open to data analysis & ML roles, remote or relocation.
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/emoji/pin.svg" /><img src="assets/light/emoji/pin.svg" width="28" height="28" align="top" alt="" /></picture>&nbsp; Lahore, Pakistan · UTC+5
+<a href="https://www.linkedin.com/messaging/compose/?recipient=muhammad-abbadurrehman"><img src="assets/light/badges/b-cta.svg" alt="Message me on LinkedIn"/></a>
 
-<p align="center">
-<a href="https://www.linkedin.com/in/muhammad-abbadurrehman/"><img src="assets/light/badges/b-cta.svg" alt="Message me on LinkedIn"/></a>
-<a href="mailto:m.abbad0708@gmail.com"><img src="assets/light/badges/b-email.svg" alt="Email m.abbad0708@gmail.com"/></a>
-</p>
+</div>
