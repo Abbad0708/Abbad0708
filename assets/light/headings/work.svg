@@ -1,12 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="720" height="60" viewBox="0 0 720 60" role="img" aria-label="Featured work: // what I've shipped">
-  <defs><linearGradient id="tileGrad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#0d9488"/><stop offset="1" stop-color="#0891b2"/></linearGradient></defs>
-  
-  <g transform="translate(4 10)">
-    <rect x="-3" y="-3" width="46" height="46" rx="12" fill="#0d9488" opacity="0.16"/>
-    <rect width="40" height="40" rx="10.4" fill="url(#tileGrad)"/>
-    <g transform="translate(6.4 6.4) scale(1.1333333333333335)"><path d="M12 2.5c3.2 2.6 4.8 6.3 4.8 11L14.4 17H9.6l-2.4-3.5C7.2 8.8 8.8 5.1 12 2.5z" fill="#fff"/><circle cx="12" cy="10.2" r="2.1" fill="#06201e"/><path d="M7.4 13.3L4.8 17.6l3.7-.9zM16.6 13.3l2.6 4.3-3.7-.9z" fill="#fbbf24"/><path d="M10 17.4h4L12 21.5z" fill="#fbbf24"/></g>
-  </g>
-  <text x="58" y="39" font-family="ui-sans-serif,-apple-system,'Segoe UI',Inter,Roboto,Helvetica,Arial,sans-serif" font-size="27" font-weight="800" fill="#0f172a" letter-spacing="-0.5">Featured work</text>
-  <text x="276" y="38" font-family="ui-monospace,'Cascadia Code','Fira Code',Consolas,'Liberation Mono',monospace" font-size="12.5" fill="#64748b">// what I've shipped</text>
-  <rect x="437" y="30" width="283" height="1.5" fill="#cbd5e1"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="227" height="42" viewBox="0 0 227 42" fill="none" role="img" aria-label="Featured Work"><g transform="translate(2.0,6.0) scale(1.25)" stroke="#F59E0B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C13 8 16 11 22 12 16 13 13 16 12 22 11 16 8 13 2 12 8 11 11 8 12 2Z" fill="#F59E0B" stroke="none"/></g><text x="42" y="29.4" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="24" font-weight="700" fill="#0f172a">Featured Work</text></svg>
