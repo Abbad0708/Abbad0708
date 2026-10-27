@@ -142,5 +142,3 @@ I work on the part of machine learning that decides whether a number can be trus
 <a href="https://www.linkedin.com/in/muhammad-abbadurrehman/"><img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&labelColor=0b1220&logo=linkedin&logoColor=white" alt="LinkedIn" height="28" /></a>&nbsp;
 <a href="mailto:m.abbad0708@gmail.com"><img src="https://img.shields.io/badge/Email-m.abbad0708%40gmail.com-14b8a6?style=for-the-badge&labelColor=0b1220&logo=gmail&logoColor=white" alt="Email m.abbad0708@gmail.com" height="28" /></a>
 </p>
-
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/footer.svg" /><img src="assets/light/footer.svg" alt="" width="100%" /></picture>
