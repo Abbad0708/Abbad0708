@@ -1,10 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" role="img" aria-hidden="true">
-  <defs>
-    <linearGradient id="t" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e97656"/><stop offset="1" stop-color="#a3391b"/></linearGradient>
-    <linearGradient id="hl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0.28"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></linearGradient>
-  </defs>
-  <rect width="40" height="40" rx="11" fill="url(#t)"/>
-  <path d="M0 11a11 11 0 0111-11h18a11 11 0 0111 11v9H0z" fill="url(#hl)"/>
-  <rect x="0.5" y="0.5" width="39" height="39" rx="10.5" fill="none" stroke="#000000" stroke-opacity="0.18"/>
-  <g transform="translate(7 7) scale(1.0833)"><path d="M4 3h16l-1.4 15.6L12 21l-6.6-2.4z" fill="#0b1220" fill-opacity="0.55"/><path d="M12 4.5v15" stroke="#ffffff" stroke-width="0.8" opacity="0.5"/><path d="M10 8.5L7.4 11.5 10 14.5M14 8.5l2.6 3-2.6 3" fill="none" stroke="#0b1220" stroke-opacity="0.55" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" role="img" aria-label="HTML5"><path fill="#E34F26" d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/></svg>

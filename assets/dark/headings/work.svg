@@ -4,7 +4,7 @@
   <g transform="translate(4 10)">
     <rect x="-3" y="-3" width="46" height="46" rx="12" fill="#14b8a6" opacity="0.16"/>
     <rect width="40" height="40" rx="10.4" fill="url(#tileGrad)"/>
-    <g transform="translate(6.4 6.4) scale(1.1333333333333335)"><path d="M7.5 3.5h9v5.2a4.5 4.5 0 01-9 0z" fill="#fbbf24"/><path d="M7.5 5H4.8c0 2.7 1.2 4.4 3.2 4.8M16.5 5h2.7c0 2.7-1.2 4.4-3.2 4.8" fill="none" stroke="#fbbf24" stroke-width="1.6" stroke-linecap="round"/><path d="M12 13.2v3" stroke="#06201e" stroke-width="2.2" stroke-linecap="round"/><rect x="8" y="16" width="8" height="2.6" rx="1.1" fill="#06201e"/><rect x="6" y="18.8" width="12" height="2.4" rx="1.2" fill="#fff"/><path d="M10.5 6.5l1-1.5 1 1.5" fill="none" stroke="#06201e" stroke-width="1.2" opacity="0.5"/></g>
+    <g transform="translate(6.4 6.4) scale(1.1333333333333335)"><path d="M12 2.5c3.2 2.6 4.8 6.3 4.8 11L14.4 17H9.6l-2.4-3.5C7.2 8.8 8.8 5.1 12 2.5z" fill="#fff"/><circle cx="12" cy="10.2" r="2.1" fill="#06201e"/><path d="M7.4 13.3L4.8 17.6l3.7-.9zM16.6 13.3l2.6 4.3-3.7-.9z" fill="#fbbf24"/><path d="M10 17.4h4L12 21.5z" fill="#fbbf24"/></g>
   </g>
   <text x="58" y="39" font-family="ui-sans-serif,-apple-system,'Segoe UI',Inter,Roboto,Helvetica,Arial,sans-serif" font-size="27" font-weight="800" fill="#e5eaf3" letter-spacing="-0.5">Featured work</text>
   <text x="276" y="38" font-family="ui-monospace,'Cascadia Code','Fira Code',Consolas,'Liberation Mono',monospace" font-size="12.5" fill="#8b98b1">// what I've shipped</text>

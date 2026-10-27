@@ -4,12 +4,12 @@
   Each one is switched for the viewer's theme with <picture>.
 -->
 
-<img src="https://capsule-render.vercel.app/api?type=waving&height=200&color=0:0f172a,50:0e7490,100:14b8a6&text=Muhammad%20Abbad%20Ur%20Rehman&fontColor=f8fafc&fontSize=42&fontAlignY=38&desc=ML%20intern%20at%20FlyRank%20AI%20%C2%B7%20ICS%20student%2C%20Lahore&descAlignY=58&descSize=18&animation=fadeIn" alt="Muhammad Abbad Ur Rehman. ML intern at FlyRank AI, ICS student, Lahore." width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=waving&height=200&color=0:0f172a,50:0e7490,100:14b8a6&text=Muhammad%20Abbad%20Ur%20Rehman&fontColor=f8fafc&fontSize=42&fontAlignY=38&desc=Machine%20Learning%20%C2%B7%20Python%20%C2%B7%20SQL%20%C2%B7%20Data&descAlignY=58&descSize=18&animation=fadeIn" alt="Muhammad Abbad Ur Rehman. Machine Learning, Python, SQL, Data." width="100%" />
 
 <p align="center">
-<a href="https://www.linkedin.com/in/muhammad-abbadurrehman/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/b-linkedin.svg" /><img src="assets/light/badges/b-linkedin.svg" alt="LinkedIn" height="34" /></picture></a>&nbsp;&nbsp;
-<a href="mailto:m.abbad0708@gmail.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/b-email.svg" /><img src="assets/light/badges/b-email.svg" alt="Email m.abbad0708@gmail.com" height="34" /></picture></a>&nbsp;&nbsp;
-<img src="https://komarev.com/ghpvc/?username=Abbad0708&style=for-the-badge&color=14b8a6&labelColor=0b1220&label=profile+views" alt="Profile views" height="34" />
+<a href="https://www.linkedin.com/in/muhammad-abbadurrehman/"><img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&labelColor=0b1220&logo=linkedin&logoColor=white" alt="LinkedIn" height="28" /></a>&nbsp;
+<a href="mailto:m.abbad0708@gmail.com"><img src="https://img.shields.io/badge/Email-m.abbad0708%40gmail.com-14b8a6?style=for-the-badge&labelColor=0b1220&logo=gmail&logoColor=white" alt="Email m.abbad0708@gmail.com" height="28" /></a>&nbsp;
+<img src="https://komarev.com/ghpvc/?username=Abbad0708&style=for-the-badge&color=14b8a6&labelColor=0b1220&label=profile+views" alt="Profile views" height="28" />
 </p>
 
 <br/>
@@ -32,102 +32,71 @@ I work on the part of machine learning that decides whether a number can be trus
   <tr>
     <td width="50%" valign="top">
       <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/cat-code.svg" /><img src="assets/light/stack/cat-code.svg" width="18" height="18" align="absmiddle" alt=""/></picture>&nbsp; <strong>Languages</strong></p>
-      <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/python.svg" /><img src="assets/light/stack/python.svg" width="38" height="38" alt="Python" title="Python"/></picture>&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/cpp.svg" /><img src="assets/light/stack/cpp.svg" width="38" height="38" alt="C++" title="C++"/></picture>&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/js.svg" /><img src="assets/light/stack/js.svg" width="38" height="38" alt="JavaScript" title="JavaScript"/></picture>&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/sql.svg" /><img src="assets/light/stack/sql.svg" width="38" height="38" alt="SQL" title="SQL"/></picture>&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/html.svg" /><img src="assets/light/stack/html.svg" width="38" height="38" alt="HTML" title="HTML"/></picture>&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/css.svg" /><img src="assets/light/stack/css.svg" width="38" height="38" alt="CSS" title="CSS"/></picture>&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/bash.svg" /><img src="assets/light/stack/bash.svg" width="38" height="38" alt="Bash" title="Bash"/></picture>&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/powershell.svg" /><img src="assets/light/stack/powershell.svg" width="38" height="38" alt="PowerShell" title="PowerShell"/></picture></p>
+      <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/python.svg" /><img src="assets/light/stack/python.svg" width="36" height="36" alt="Python" title="Python"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/cpp.svg" /><img src="assets/light/stack/cpp.svg" width="36" height="36" alt="C++" title="C++"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/js.svg" /><img src="assets/light/stack/js.svg" width="36" height="36" alt="JavaScript" title="JavaScript"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/sql.svg" /><img src="assets/light/stack/sql.svg" width="36" height="36" alt="SQL" title="SQL"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/html.svg" /><img src="assets/light/stack/html.svg" width="36" height="36" alt="HTML" title="HTML"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/css.svg" /><img src="assets/light/stack/css.svg" width="36" height="36" alt="CSS" title="CSS"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/bash.svg" /><img src="assets/light/stack/bash.svg" width="36" height="36" alt="Bash" title="Bash"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/powershell.svg" /><img src="assets/light/stack/powershell.svg" width="36" height="36" alt="PowerShell" title="PowerShell"/></picture></p>
     </td>
     <td width="50%" valign="top">
       <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/cat-ds.svg" /><img src="assets/light/stack/cat-ds.svg" width="18" height="18" align="absmiddle" alt=""/></picture>&nbsp; <strong>Data Science &amp; Machine Learning</strong></p>
-      <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/python.svg" /><img src="assets/light/stack/python.svg" width="38" height="38" alt="Python" title="Python"/></picture>&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/ml.svg" /><img src="assets/light/stack/ml.svg" width="38" height="38" alt="ML models (random forest)" title="ML models (random forest)"/></picture>&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/duckdb.svg" /><img src="assets/light/stack/duckdb.svg" width="38" height="38" alt="DuckDB" title="DuckDB"/></picture>&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/sql.svg" /><img src="assets/light/stack/sql.svg" width="38" height="38" alt="SQL" title="SQL"/></picture></p>
+      <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/python.svg" /><img src="assets/light/stack/python.svg" width="36" height="36" alt="Python" title="Python"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/anaconda.svg" /><img src="assets/light/stack/anaconda.svg" width="36" height="36" alt="Anaconda" title="Anaconda"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/colab.svg" /><img src="assets/light/stack/colab.svg" width="36" height="36" alt="Google Colab" title="Google Colab"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/ml.svg" /><img src="assets/light/stack/ml.svg" width="36" height="36" alt="ML models" title="ML models"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/duckdb.svg" /><img src="assets/light/stack/duckdb.svg" width="36" height="36" alt="DuckDB" title="DuckDB"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/sql.svg" /><img src="assets/light/stack/sql.svg" width="36" height="36" alt="SQL" title="SQL"/></picture></p>
     </td>
   </tr>
   <tr>
     <td width="50%" valign="top">
       <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/cat-db.svg" /><img src="assets/light/stack/cat-db.svg" width="18" height="18" align="absmiddle" alt=""/></picture>&nbsp; <strong>Data Engineering &amp; Databases</strong></p>
-      <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/duckdb.svg" /><img src="assets/light/stack/duckdb.svg" width="38" height="38" alt="DuckDB" title="DuckDB"/></picture>&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/sqlite.svg" /><img src="assets/light/stack/sqlite.svg" width="38" height="38" alt="SQLite" title="SQLite"/></picture>&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/sql.svg" /><img src="assets/light/stack/sql.svg" width="38" height="38" alt="SQL" title="SQL"/></picture>&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/api.svg" /><img src="assets/light/stack/api.svg" width="38" height="38" alt="REST APIs" title="REST APIs"/></picture></p>
+      <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/duckdb.svg" /><img src="assets/light/stack/duckdb.svg" width="36" height="36" alt="DuckDB" title="DuckDB"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/sqlite.svg" /><img src="assets/light/stack/sqlite.svg" width="36" height="36" alt="SQLite" title="SQLite"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/sql.svg" /><img src="assets/light/stack/sql.svg" width="36" height="36" alt="SQL" title="SQL"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/api.svg" /><img src="assets/light/stack/api.svg" width="36" height="36" alt="REST APIs" title="REST APIs"/></picture></p>
     </td>
     <td width="50%" valign="top">
       <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/cat-globe.svg" /><img src="assets/light/stack/cat-globe.svg" width="18" height="18" align="absmiddle" alt=""/></picture>&nbsp; <strong>Web &amp; Automation</strong></p>
-      <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/js.svg" /><img src="assets/light/stack/js.svg" width="38" height="38" alt="JavaScript" title="JavaScript"/></picture>&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/node.svg" /><img src="assets/light/stack/node.svg" width="38" height="38" alt="Node.js" title="Node.js"/></picture>&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/express.svg" /><img src="assets/light/stack/express.svg" width="38" height="38" alt="Express" title="Express"/></picture>&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/html.svg" /><img src="assets/light/stack/html.svg" width="38" height="38" alt="HTML" title="HTML"/></picture>&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/css.svg" /><img src="assets/light/stack/css.svg" width="38" height="38" alt="CSS" title="CSS"/></picture>&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/npm.svg" /><img src="assets/light/stack/npm.svg" width="38" height="38" alt="npm" title="npm"/></picture>&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/bash.svg" /><img src="assets/light/stack/bash.svg" width="38" height="38" alt="Bash" title="Bash"/></picture>&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/powershell.svg" /><img src="assets/light/stack/powershell.svg" width="38" height="38" alt="PowerShell" title="PowerShell"/></picture></p>
+      <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/js.svg" /><img src="assets/light/stack/js.svg" width="36" height="36" alt="JavaScript" title="JavaScript"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/node.svg" /><img src="assets/light/stack/node.svg" width="36" height="36" alt="Node.js" title="Node.js"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/express.svg" /><img src="assets/light/stack/express.svg" width="36" height="36" alt="Express" title="Express"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/html.svg" /><img src="assets/light/stack/html.svg" width="36" height="36" alt="HTML" title="HTML"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/css.svg" /><img src="assets/light/stack/css.svg" width="36" height="36" alt="CSS" title="CSS"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/npm.svg" /><img src="assets/light/stack/npm.svg" width="36" height="36" alt="npm" title="npm"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/bash.svg" /><img src="assets/light/stack/bash.svg" width="36" height="36" alt="Bash" title="Bash"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/powershell.svg" /><img src="assets/light/stack/powershell.svg" width="36" height="36" alt="PowerShell" title="PowerShell"/></picture></p>
     </td>
   </tr>
   <tr>
     <td width="50%" valign="top">
       <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/cat-spark.svg" /><img src="assets/light/stack/cat-spark.svg" width="18" height="18" align="absmiddle" alt=""/></picture>&nbsp; <strong>AI &amp; LLM Tooling</strong></p>
-      <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/llm.svg" /><img src="assets/light/stack/llm.svg" width="38" height="38" alt="LLM provider SDKs" title="LLM provider SDKs"/></picture>&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/prompt.svg" /><img src="assets/light/stack/prompt.svg" width="38" height="38" alt="Prompt design" title="Prompt design"/></picture>&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/api.svg" /><img src="assets/light/stack/api.svg" width="38" height="38" alt="REST APIs" title="REST APIs"/></picture>&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/node.svg" /><img src="assets/light/stack/node.svg" width="38" height="38" alt="Node.js" title="Node.js"/></picture></p>
+      <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/claude.svg" /><img src="assets/light/stack/claude.svg" width="36" height="36" alt="Claude" title="Claude"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/openai.svg" /><img src="assets/light/stack/openai.svg" width="36" height="36" alt="ChatGPT" title="ChatGPT"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/gemini.svg" /><img src="assets/light/stack/gemini.svg" width="36" height="36" alt="Google Gemini" title="Google Gemini"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/copilot.svg" /><img src="assets/light/stack/copilot.svg" width="36" height="36" alt="GitHub Copilot" title="GitHub Copilot"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/llm.svg" /><img src="assets/light/stack/llm.svg" width="36" height="36" alt="LLM provider SDKs" title="LLM provider SDKs"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/prompt.svg" /><img src="assets/light/stack/prompt.svg" width="36" height="36" alt="Prompt design" title="Prompt design"/></picture></p>
     </td>
     <td width="50%" valign="top">
+      <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/cat-chart.svg" /><img src="assets/light/stack/cat-chart.svg" width="18" height="18" align="absmiddle" alt=""/></picture>&nbsp; <strong>Analytics &amp; BI</strong></p>
+      <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/excel.svg" /><img src="assets/light/stack/excel.svg" width="36" height="36" alt="Microsoft Excel" title="Microsoft Excel"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/tableau.svg" /><img src="assets/light/stack/tableau.svg" width="36" height="36" alt="Tableau (basics)" title="Tableau (basics)"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/powerbi.svg" /><img src="assets/light/stack/powerbi.svg" width="36" height="36" alt="Power BI (basics)" title="Power BI (basics)"/></picture></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" colspan="2" valign="top">
       <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/cat-gear.svg" /><img src="assets/light/stack/cat-gear.svg" width="18" height="18" align="absmiddle" alt=""/></picture>&nbsp; <strong>Tools</strong></p>
-      <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/git.svg" /><img src="assets/light/stack/git.svg" width="38" height="38" alt="Git" title="Git"/></picture>&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/github.svg" /><img src="assets/light/stack/github.svg" width="38" height="38" alt="GitHub" title="GitHub"/></picture>&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/actions.svg" /><img src="assets/light/stack/actions.svg" width="38" height="38" alt="GitHub Actions" title="GitHub Actions"/></picture>&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/vscode.svg" /><img src="assets/light/stack/vscode.svg" width="38" height="38" alt="VS Code" title="VS Code"/></picture>&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/markdown.svg" /><img src="assets/light/stack/markdown.svg" width="38" height="38" alt="Markdown" title="Markdown"/></picture>&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/windows.svg" /><img src="assets/light/stack/windows.svg" width="38" height="38" alt="Windows" title="Windows"/></picture></p>
-    </td>
-  </tr>
-</table>
-
-<br/>
-
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/headings/experience.svg" /><img src="assets/light/headings/experience.svg" alt="Experience" width="720" /></picture>
-
-<table>
-  <tr>
-    <td width="200" valign="top">
-      <strong>FlyRank AI</strong><br/>
-      ML Engineering Intern<br/>
-      <sub>Jul – Aug 2026</sub>
-    </td>
-    <td valign="top">
-      <p>About 10,000 pages in FlyRank's dataset were losing impressions while still pulling real traffic, and an editor clears maybe 50 a week. The list never empties, so the only thing anyone controls is what sits at the top of it. I built the thing that decides the order.</p>
-      <ul>
-        <li>Ranked review queue over <strong>30,000 pages from 32 client sites</strong>, on anonymised Search Console and Analytics data.</li>
-        <li>First version scored 0.96 and I threw it out: random row splits let the same client sit on both sides, so the model was learning <em>who the client was</em>, not whether the page was dying. Split by client and it fell to 0.80. That 0.16 was never mine to keep.</li>
-        <li>Fed the harness a feature built from the label window on purpose. It returned a perfect 1.000, which is what a leak should look like when validation is working.</li>
-        <li>Rebuilt the label forward-looking on the full 79-million-row release in DuckDB to confirm the framing held on data I had never trained on.</li>
-        <li>Final, on identical client-grouped splits: <strong>0.80 precision@50</strong> for the random forest, 0.61 for the hand-written rule in production, 0.49 base rate. Won 7 splits of 8. Roughly 12 more genuinely declining pages per editor-week.</li>
-        <li>Shipped with reason codes on every row so editors can argue back, plus retrain and review triggers with exact thresholds, so it is clear when to stop trusting it.</li>
-        <li>Known limits, stated up front: weakest on the highest-traffic pages, and nothing proves a refresh brings traffic back. It orders a reading list, and does that well.</li>
-      </ul>
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/ranker-chart.svg" /><img src="assets/light/ranker-chart.svg" alt="Precision at 50 on client-grouped splits: random forest 0.80, rule in production 0.61, base rate 0.49" width="460" /></picture>
-      <p>
-        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/t-python.svg" /><img src="assets/light/badges/t-python.svg" alt="Python" height="26" /></picture>
-        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/t-duckdb.svg" /><img src="assets/light/badges/t-duckdb.svg" alt="DuckDB, 79M rows" height="26" /></picture>
-        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/t-rf.svg" /><img src="assets/light/badges/t-rf.svg" alt="Random forest" height="26" /></picture>
-      </p>
-      <p><sub>Built in a professional setting; the code and data belong to FlyRank AI.</sub></p>
-    </td>
-  </tr>
-  <tr>
-    <td valign="top">
-      <strong>Allah Wale Foundation</strong><br/>
-      AWT Youth Fellow<br/>
-      <sub>Jul – Aug 2025 · Lahore</sub>
-    </td>
-    <td valign="top">
-      <p>Selected for the AWT Youth Fellowship, a leadership and personal-development programme built around experiential learning, mentorship and social-impact projects. Designed a Social Action Project on improving access to education; sessions on public speaking, leadership and communication; an exposure visit to the Civil Services Academy.</p>
+      <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/git.svg" /><img src="assets/light/stack/git.svg" width="36" height="36" alt="Git" title="Git"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/github.svg" /><img src="assets/light/stack/github.svg" width="36" height="36" alt="GitHub" title="GitHub"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/actions.svg" /><img src="assets/light/stack/actions.svg" width="36" height="36" alt="GitHub Actions" title="GitHub Actions"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/vscode.svg" /><img src="assets/light/stack/vscode.svg" width="36" height="36" alt="VS Code" title="VS Code"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/markdown.svg" /><img src="assets/light/stack/markdown.svg" width="36" height="36" alt="Markdown" title="Markdown"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/windows.svg" /><img src="assets/light/stack/windows.svg" width="36" height="36" alt="Windows" title="Windows"/></picture></p>
     </td>
   </tr>
 </table>
@@ -149,10 +118,14 @@ I work on the part of machine learning that decides whether a number can be trus
   <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/m-providers.svg" /><img src="assets/light/badges/m-providers.svg" alt="12 providers" height="28" /></picture>
   <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/m-build.svg" /><img src="assets/light/badges/m-build.svg" alt="No build step" height="28" /></picture>
   <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/m-data.svg" /><img src="assets/light/badges/m-data.svg" alt="Chats stored locally" height="28" /></picture>
-  &nbsp;
+</p>
+<p>
   <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/t-node.svg" /><img src="assets/light/badges/t-node.svg" alt="Node.js" height="26" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/t-express.svg" /><img src="assets/light/badges/t-express.svg" alt="Express" height="26" /></picture>
   <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/t-sqlite.svg" /><img src="assets/light/badges/t-sqlite.svg" alt="node:sqlite" height="26" /></picture>
   <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/t-vanilla.svg" /><img src="assets/light/badges/t-vanilla.svg" alt="Vanilla JavaScript" height="26" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/t-html.svg" /><img src="assets/light/badges/t-html.svg" alt="HTML and CSS" height="26" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/t-llm.svg" /><img src="assets/light/badges/t-llm.svg" alt="LLM provider SDKs" height="26" /></picture>
 </p>
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/emoji/terminal.svg" /><img src="assets/light/emoji/terminal.svg" width="28" height="28" align="top" alt="" /></picture>&nbsp; **Version 1 is out and open source.** `npm install && npm start`, open `localhost:3000`, add the API keys you have, start comparing.
@@ -166,8 +139,6 @@ I work on the part of machine learning that decides whether a number can be trus
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/emoji/pin.svg" /><img src="assets/light/emoji/pin.svg" width="28" height="28" align="top" alt="" /></picture>&nbsp; Lahore, Pakistan · UTC+5
 
 <p align="center">
-<a href="https://www.linkedin.com/in/muhammad-abbadurrehman/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/b-message.svg" /><img src="assets/light/badges/b-linkedin.svg" alt="Message me on LinkedIn" height="34" /></picture></a>&nbsp;&nbsp;
-<a href="mailto:m.abbad0708@gmail.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/b-email.svg" /><img src="assets/light/badges/b-email.svg" alt="Email m.abbad0708@gmail.com" height="34" /></picture></a>
+<a href="https://www.linkedin.com/in/muhammad-abbadurrehman/"><img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&labelColor=0b1220&logo=linkedin&logoColor=white" alt="LinkedIn" height="28" /></a>&nbsp;
+<a href="mailto:m.abbad0708@gmail.com"><img src="https://img.shields.io/badge/Email-m.abbad0708%40gmail.com-14b8a6?style=for-the-badge&labelColor=0b1220&logo=gmail&logoColor=white" alt="Email m.abbad0708@gmail.com" height="28" /></a>
 </p>
-
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/footer.svg" /><img src="assets/light/footer.svg" alt="" width="100%" /></picture>
