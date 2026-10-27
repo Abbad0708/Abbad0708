@@ -15,6 +15,10 @@
 <a href="https://github.com/Abbad0708/Muster"><img src="assets/badges/b-muster.svg" alt="Explore Muster" height="34" /></a>&nbsp;&nbsp;
 <img src="https://komarev.com/ghpvc/?username=Abbad0708&style=flat-square&color=14b8a6&label=profile+views" alt="Profile views" height="22" />
 
+<br/><br/>
+
+<img src="assets/facts.svg" alt="Computer Science student. Builds self-hosted developer tools. Local-first, no build step, few dependencies. Open to collaboration." width="100%" />
+
 </div>
 
 <br/>
@@ -87,6 +91,7 @@ I like small surface areas, few dependencies, data that stays on your own machin
       </a>
       <p><em>To muster: to gather and assemble.</em></p>
       <p>A local, single-user web app for comparing language models honestly. Every model answers in its own column, and on follow-up turns each model sees <strong>only its own history</strong>, never the other models' answers, so the comparison stays a fair test instead of a group chat.</p>
+      <img src="assets/muster-flow.svg" alt="How it works: one prompt goes to Muster, which fans out through four adapters to twelve providers; each model only sees its own history" width="100%" />
       <p>Answers render as real Markdown (tables, code, headings), Perplexity citations become links, cards that hit a token limit say so, and a single failed model can be retried without re-running the rest. Every chat lives in one SQLite file on disk and is fully searchable.</p>
       <p>
         <img src="assets/badges/m-providers.svg" alt="12 providers" height="28" />
