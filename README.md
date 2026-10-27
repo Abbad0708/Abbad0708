@@ -4,7 +4,7 @@
   Each one is switched for the viewer's theme with <picture>.
 -->
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/banner.svg" /><img src="assets/light/banner.svg" alt="Muhammad Abbad ur Rehman. ML intern at FlyRank AI, ICS student in Lahore. Builds Muster, one prompt to 12 LLMs side by side." width="100%" /></picture>
+<img src="https://capsule-render.vercel.app/api?type=waving&height=200&color=0:0f172a,50:0e7490,100:14b8a6&text=Muhammad%20Abbad%20Ur%20Rehman&fontColor=f8fafc&fontSize=42&fontAlignY=38&desc=ML%20intern%20at%20FlyRank%20AI%20%C2%B7%20ICS%20student%2C%20Lahore&descAlignY=58&descSize=18&animation=fadeIn" alt="Muhammad Abbad Ur Rehman. ML intern at FlyRank AI, ICS student, Lahore." width="100%" />
 
 <p align="center">
 <a href="https://www.linkedin.com/in/muhammad-abbadurrehman/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/b-linkedin.svg" /><img src="assets/light/badges/b-linkedin.svg" alt="LinkedIn" height="34" /></picture></a>&nbsp;&nbsp;
@@ -31,40 +31,60 @@ I work on the part of machine learning that decides whether a number can be trus
 <table>
   <tr>
     <td width="50%" valign="top">
-      <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/cat-data.svg" /><img src="assets/light/stack/cat-data.svg" width="18" height="18" align="absmiddle" alt=""/></picture>&nbsp; <strong>Data &amp; Machine Learning</strong></p>
-      <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/python.svg" /><img src="assets/light/stack/python.svg" width="40" height="40" alt="Python" title="Python"/></picture>&nbsp;&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/sql.svg" /><img src="assets/light/stack/sql.svg" width="40" height="40" alt="SQL" title="SQL"/></picture>&nbsp;&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/duckdb.svg" /><img src="assets/light/stack/duckdb.svg" width="40" height="40" alt="DuckDB" title="DuckDB"/></picture>&nbsp;&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/ml.svg" /><img src="assets/light/stack/ml.svg" width="40" height="40" alt="ML models" title="ML models"/></picture>&nbsp;&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/cpp.svg" /><img src="assets/light/stack/cpp.svg" width="40" height="40" alt="C++" title="C++"/></picture></p>
+      <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/cat-code.svg" /><img src="assets/light/stack/cat-code.svg" width="18" height="18" align="absmiddle" alt=""/></picture>&nbsp; <strong>Languages</strong></p>
+      <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/python.svg" /><img src="assets/light/stack/python.svg" width="38" height="38" alt="Python" title="Python"/></picture>&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/cpp.svg" /><img src="assets/light/stack/cpp.svg" width="38" height="38" alt="C++" title="C++"/></picture>&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/js.svg" /><img src="assets/light/stack/js.svg" width="38" height="38" alt="JavaScript" title="JavaScript"/></picture>&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/sql.svg" /><img src="assets/light/stack/sql.svg" width="38" height="38" alt="SQL" title="SQL"/></picture>&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/html.svg" /><img src="assets/light/stack/html.svg" width="38" height="38" alt="HTML" title="HTML"/></picture>&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/css.svg" /><img src="assets/light/stack/css.svg" width="38" height="38" alt="CSS" title="CSS"/></picture>&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/bash.svg" /><img src="assets/light/stack/bash.svg" width="38" height="38" alt="Bash" title="Bash"/></picture>&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/powershell.svg" /><img src="assets/light/stack/powershell.svg" width="38" height="38" alt="PowerShell" title="PowerShell"/></picture></p>
     </td>
     <td width="50%" valign="top">
-      <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/cat-web.svg" /><img src="assets/light/stack/cat-web.svg" width="18" height="18" align="absmiddle" alt=""/></picture>&nbsp; <strong>Web &amp; Shell</strong></p>
-      <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/js.svg" /><img src="assets/light/stack/js.svg" width="40" height="40" alt="JavaScript" title="JavaScript"/></picture>&nbsp;&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/node.svg" /><img src="assets/light/stack/node.svg" width="40" height="40" alt="Node.js" title="Node.js"/></picture>&nbsp;&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/html.svg" /><img src="assets/light/stack/html.svg" width="40" height="40" alt="HTML" title="HTML"/></picture>&nbsp;&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/css.svg" /><img src="assets/light/stack/css.svg" width="40" height="40" alt="CSS" title="CSS"/></picture>&nbsp;&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/bash.svg" /><img src="assets/light/stack/bash.svg" width="40" height="40" alt="Bash" title="Bash"/></picture>&nbsp;&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/powershell.svg" /><img src="assets/light/stack/powershell.svg" width="40" height="40" alt="PowerShell" title="PowerShell"/></picture></p>
+      <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/cat-ds.svg" /><img src="assets/light/stack/cat-ds.svg" width="18" height="18" align="absmiddle" alt=""/></picture>&nbsp; <strong>Data Science &amp; Machine Learning</strong></p>
+      <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/python.svg" /><img src="assets/light/stack/python.svg" width="38" height="38" alt="Python" title="Python"/></picture>&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/ml.svg" /><img src="assets/light/stack/ml.svg" width="38" height="38" alt="ML models (random forest)" title="ML models (random forest)"/></picture>&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/duckdb.svg" /><img src="assets/light/stack/duckdb.svg" width="38" height="38" alt="DuckDB" title="DuckDB"/></picture>&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/sql.svg" /><img src="assets/light/stack/sql.svg" width="38" height="38" alt="SQL" title="SQL"/></picture></p>
     </td>
   </tr>
   <tr>
     <td width="50%" valign="top">
-      <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/cat-backend.svg" /><img src="assets/light/stack/cat-backend.svg" width="18" height="18" align="absmiddle" alt=""/></picture>&nbsp; <strong>Backend &amp; Data</strong></p>
-      <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/express.svg" /><img src="assets/light/stack/express.svg" width="40" height="40" alt="Express" title="Express"/></picture>&nbsp;&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/sqlite.svg" /><img src="assets/light/stack/sqlite.svg" width="40" height="40" alt="SQLite" title="SQLite"/></picture>&nbsp;&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/npm.svg" /><img src="assets/light/stack/npm.svg" width="40" height="40" alt="npm" title="npm"/></picture>&nbsp;&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/api.svg" /><img src="assets/light/stack/api.svg" width="40" height="40" alt="REST APIs" title="REST APIs"/></picture>&nbsp;&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/llm.svg" /><img src="assets/light/stack/llm.svg" width="40" height="40" alt="LLM SDKs" title="LLM SDKs"/></picture></p>
+      <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/cat-db.svg" /><img src="assets/light/stack/cat-db.svg" width="18" height="18" align="absmiddle" alt=""/></picture>&nbsp; <strong>Data Engineering &amp; Databases</strong></p>
+      <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/duckdb.svg" /><img src="assets/light/stack/duckdb.svg" width="38" height="38" alt="DuckDB" title="DuckDB"/></picture>&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/sqlite.svg" /><img src="assets/light/stack/sqlite.svg" width="38" height="38" alt="SQLite" title="SQLite"/></picture>&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/sql.svg" /><img src="assets/light/stack/sql.svg" width="38" height="38" alt="SQL" title="SQL"/></picture>&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/api.svg" /><img src="assets/light/stack/api.svg" width="38" height="38" alt="REST APIs" title="REST APIs"/></picture></p>
     </td>
     <td width="50%" valign="top">
-      <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/cat-workflow.svg" /><img src="assets/light/stack/cat-workflow.svg" width="18" height="18" align="absmiddle" alt=""/></picture>&nbsp; <strong>Tools &amp; Workflow</strong></p>
-      <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/git.svg" /><img src="assets/light/stack/git.svg" width="40" height="40" alt="Git" title="Git"/></picture>&nbsp;&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/github.svg" /><img src="assets/light/stack/github.svg" width="40" height="40" alt="GitHub" title="GitHub"/></picture>&nbsp;&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/actions.svg" /><img src="assets/light/stack/actions.svg" width="40" height="40" alt="GitHub Actions" title="GitHub Actions"/></picture>&nbsp;&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/vscode.svg" /><img src="assets/light/stack/vscode.svg" width="40" height="40" alt="VS Code" title="VS Code"/></picture>&nbsp;&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/markdown.svg" /><img src="assets/light/stack/markdown.svg" width="40" height="40" alt="Markdown" title="Markdown"/></picture>&nbsp;&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/windows.svg" /><img src="assets/light/stack/windows.svg" width="40" height="40" alt="Windows" title="Windows"/></picture></p>
+      <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/cat-globe.svg" /><img src="assets/light/stack/cat-globe.svg" width="18" height="18" align="absmiddle" alt=""/></picture>&nbsp; <strong>Web &amp; Automation</strong></p>
+      <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/js.svg" /><img src="assets/light/stack/js.svg" width="38" height="38" alt="JavaScript" title="JavaScript"/></picture>&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/node.svg" /><img src="assets/light/stack/node.svg" width="38" height="38" alt="Node.js" title="Node.js"/></picture>&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/express.svg" /><img src="assets/light/stack/express.svg" width="38" height="38" alt="Express" title="Express"/></picture>&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/html.svg" /><img src="assets/light/stack/html.svg" width="38" height="38" alt="HTML" title="HTML"/></picture>&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/css.svg" /><img src="assets/light/stack/css.svg" width="38" height="38" alt="CSS" title="CSS"/></picture>&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/npm.svg" /><img src="assets/light/stack/npm.svg" width="38" height="38" alt="npm" title="npm"/></picture>&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/bash.svg" /><img src="assets/light/stack/bash.svg" width="38" height="38" alt="Bash" title="Bash"/></picture>&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/powershell.svg" /><img src="assets/light/stack/powershell.svg" width="38" height="38" alt="PowerShell" title="PowerShell"/></picture></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/cat-spark.svg" /><img src="assets/light/stack/cat-spark.svg" width="18" height="18" align="absmiddle" alt=""/></picture>&nbsp; <strong>AI &amp; LLM Tooling</strong></p>
+      <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/llm.svg" /><img src="assets/light/stack/llm.svg" width="38" height="38" alt="LLM provider SDKs" title="LLM provider SDKs"/></picture>&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/prompt.svg" /><img src="assets/light/stack/prompt.svg" width="38" height="38" alt="Prompt design" title="Prompt design"/></picture>&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/api.svg" /><img src="assets/light/stack/api.svg" width="38" height="38" alt="REST APIs" title="REST APIs"/></picture>&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/node.svg" /><img src="assets/light/stack/node.svg" width="38" height="38" alt="Node.js" title="Node.js"/></picture></p>
+    </td>
+    <td width="50%" valign="top">
+      <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/cat-gear.svg" /><img src="assets/light/stack/cat-gear.svg" width="18" height="18" align="absmiddle" alt=""/></picture>&nbsp; <strong>Tools</strong></p>
+      <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/git.svg" /><img src="assets/light/stack/git.svg" width="38" height="38" alt="Git" title="Git"/></picture>&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/github.svg" /><img src="assets/light/stack/github.svg" width="38" height="38" alt="GitHub" title="GitHub"/></picture>&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/actions.svg" /><img src="assets/light/stack/actions.svg" width="38" height="38" alt="GitHub Actions" title="GitHub Actions"/></picture>&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/vscode.svg" /><img src="assets/light/stack/vscode.svg" width="38" height="38" alt="VS Code" title="VS Code"/></picture>&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/markdown.svg" /><img src="assets/light/stack/markdown.svg" width="38" height="38" alt="Markdown" title="Markdown"/></picture>&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/windows.svg" /><img src="assets/light/stack/windows.svg" width="38" height="38" alt="Windows" title="Windows"/></picture></p>
     </td>
   </tr>
 </table>
