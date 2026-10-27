@@ -146,7 +146,7 @@ for (const [key, entry] of Object.entries(BRAND)) {
   const { title } = entry;
   if (entry.inner) { // full-colour original artwork; currentColor follows the theme's text colour
     out(`stack/${key}.svg`, `
-<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="${entry.viewBox}" color="${C.text}" role="img" aria-label="${esc(title)}">${entry.inner}</svg>`);
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="${entry.viewBox}" fill="currentColor" color="${C.text}" role="img" aria-label="${esc(title)}">${entry.inner}</svg>`);
     continue;
   }
   const fill = DIR === "dark" && lum(entry.hex) < 0.12 ? C.text : entry.hex;
