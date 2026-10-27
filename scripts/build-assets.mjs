@@ -300,16 +300,17 @@ Object.keys(EMOJI).forEach(emoji);
 /* ----------------------------------------------------------------- banner */
 // A flat, quiet banner: name, one line of context, the monogram. Nothing moves.
 {
-  const W = 1200, H = 232;
+  const W = 1200, H = 270;
   out("banner.svg", `
 <svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Muhammad Abbad ur Rehman. ML intern at FlyRank AI, ICS student in Lahore. Builds Muster, one prompt to 12 LLMs side by side.">
   <defs>${TILE_GRAD}${MARK_GRAD}</defs>
   <rect x="0.5" y="0.5" width="${W - 1}" height="${H - 1}" rx="20" fill="${C.bg2}" stroke="${C.line}"/>
   <path d="M20 ${H - 1} h${W - 40}" stroke="url(#tileGrad)" stroke-width="3" stroke-linecap="round"/>
-  ${mark(64, 56, 84)}
-  <text x="148" y="94" font-family="${SANS}" font-size="44" font-weight="700" fill="${C.text}" letter-spacing="-1">Muhammad Abbad ur Rehman</text>
-  <text x="148" y="130" font-family="${SANS}" font-size="19" fill="${C.muted}">ML intern at FlyRank AI  ·  ICS student, Lahore</text>
-  <text x="148" y="164" font-family="${MONO}" font-size="14" fill="${C.teal}">builds Muster: one prompt → 12 LLMs → side by side</text>
+  ${mark(64, 56, 103)}
+  <text x="148" y="92" font-family="${SANS}" font-size="44" font-weight="700" fill="${C.text}" letter-spacing="-1">Muhammad</text>
+  <text x="148" y="140" font-family="${SANS}" font-size="44" font-weight="700" fill="url(#tileGrad)" letter-spacing="-1">Abbad Ur Rehman</text>
+  <text x="148" y="178" font-family="${SANS}" font-size="19" fill="${C.muted}">ML intern at FlyRank AI  ·  ICS student, Lahore</text>
+  <text x="148" y="210" font-family="${MONO}" font-size="14" fill="${C.teal}">builds Muster: one prompt → 12 LLMs → side by side</text>
 </svg>`);
 }
 
