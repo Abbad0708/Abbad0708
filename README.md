@@ -28,25 +28,25 @@
   <img src="assets/headings/about.svg" alt="About" width="720" />
 </picture>
 
-I'm a Computer Science student who turns curiosity about new technology into software people can actually run. My current obsession is **tooling around large language models**: instead of arguing about which model is "best", I built the instrument that lets you put twelve of them next to each other and see for yourself.
+<img src="assets/emoji/wave.svg" width="30" height="30" align="top" alt="" />&nbsp; **Hi, I'm Abbad.** A Computer Science student who turns curiosity about new technology into software people can actually run. My current obsession is **tooling around large language models**: instead of arguing about which model is "best", I built the instrument that lets you put twelve of them next to each other and see for yourself.
 
 I like small surface areas, few dependencies, data that stays on your own machine, and projects you can start with a single `npm start`.
 
 <table>
   <tr>
-    <td width="36" valign="top"><img src="assets/icons/now.svg" width="28" height="28" alt="" /></td>
+    <td width="40" valign="top"><img src="assets/emoji/rocket.svg" width="30" height="30" alt="" /></td>
     <td><strong>Now</strong> &nbsp;·&nbsp; building <a href="https://github.com/Abbad0708/Muster">Muster</a>, a self-hosted app that sends one prompt to up to 12 LLMs and lays the answers out side by side</td>
   </tr>
   <tr>
-    <td valign="top"><img src="assets/icons/learning.svg" width="28" height="28" alt="" /></td>
+    <td valign="top"><img src="assets/emoji/sprout.svg" width="30" height="30" alt="" /></td>
     <td><strong>Learning</strong> &nbsp;·&nbsp; local-first application design, provider SDKs and streaming APIs, and tests that catch real bugs rather than decorate a repo</td>
   </tr>
   <tr>
-    <td valign="top"><img src="assets/icons/ask.svg" width="28" height="28" alt="" /></td>
+    <td valign="top"><img src="assets/emoji/chat.svg" width="30" height="30" alt="" /></td>
     <td><strong>Ask me about</strong> &nbsp;·&nbsp; comparing LLM providers fairly, Node.js without a build step, SQLite as an app database</td>
   </tr>
   <tr>
-    <td valign="top"><img src="assets/icons/principle.svg" width="28" height="28" alt="" /></td>
+    <td valign="top"><img src="assets/emoji/compass.svg" width="30" height="30" alt="" /></td>
     <td><strong>Working principle</strong> &nbsp;·&nbsp; if it needs a sign-in, a cloud account and a bundler before it does anything useful, it is not finished yet</td>
   </tr>
 </table>
@@ -110,7 +110,7 @@ I like small surface areas, few dependencies, data that stays on your own machin
       </p>
       <table>
         <tr>
-          <td width="30" valign="top"><img src="assets/icons/status.svg" width="28" height="28" alt="" /></td>
+          <td width="34" valign="top"><img src="assets/emoji/terminal.svg" width="30" height="30" alt="" /></td>
           <td><strong>Open source, actively developed.</strong> Clone it, run <code>npm install &amp;&amp; npm start</code>, open <code>localhost:3000</code>, add the API keys you have, and start comparing.</td>
         </tr>
       </table>
@@ -162,7 +162,7 @@ I like small surface areas, few dependencies, data that stays on your own machin
   <img src="assets/headings/contact.svg" alt="Contact" width="720" />
 </picture>
 
-I'm open to collaborating on developer tools, LLM experiments and open-source projects where a student who ships can be useful. LinkedIn is the fastest way to reach me; for anything about Muster, open an issue and I'll see it.
+<img src="assets/emoji/handshake.svg" width="30" height="30" align="top" alt="" />&nbsp; I'm open to collaborating on developer tools, LLM experiments and open-source projects where a student who ships can be useful. LinkedIn is the fastest way to reach me; for anything about Muster, open an issue and I'll see it.
 
 <div align="center">
 

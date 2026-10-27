@@ -7,6 +7,7 @@
     <radialGradient id="glow" cx="0.85" cy="0.2" r="0.6"><stop offset="0" stop-color="#14b8a6" stop-opacity="0.22"/><stop offset="1" stop-color="#14b8a6" stop-opacity="0"/></radialGradient>
     <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r="1.5" fill="#ffffff" opacity="0.06"/></pattern>
     <clipPath id="r"><rect width="1200" height="320" rx="16"/></clipPath>
+    <linearGradient id="markGrad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#14b8a6"/><stop offset="1" stop-color="#22d3ee"/></linearGradient>
   </defs>
   <g clip-path="url(#r)">
     <rect width="1200" height="320" fill="url(#bg)"/>
@@ -15,7 +16,15 @@
     <rect x="0" y="0" width="1200" height="4" fill="url(#accent)"/>
 
     <!-- name block -->
-    <text x="64" y="126" font-family="ui-sans-serif,-apple-system,'Segoe UI',Inter,Roboto,Helvetica,Arial,sans-serif" font-size="40" font-weight="700" fill="#e5eaf3" letter-spacing="-0.5">Muhammad Abbad ur Rehman</text>
+    
+  <g transform="translate(64 50) scale(0.9166666666666666)">
+    <rect width="48" height="48" rx="13" fill="#0b1220" stroke="#1e293b"/>
+    <path d="M14 36 L24 11 L34 36" fill="none" stroke="url(#markGrad)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M18.5 27.5h11" stroke="#e5eaf3" stroke-width="3.2" stroke-linecap="round"/>
+    <circle cx="24" cy="11" r="2.6" fill="#22d3ee"/>
+  </g>
+    <text x="120" y="82" font-family="ui-monospace,'Cascadia Code','Fira Code',Consolas,'Liberation Mono',monospace" font-size="13" fill="#8b98b1" letter-spacing="1.5">ABBAD0708</text>
+    <text x="64" y="138" font-family="ui-sans-serif,-apple-system,'Segoe UI',Inter,Roboto,Helvetica,Arial,sans-serif" font-size="40" font-weight="700" fill="#e5eaf3" letter-spacing="-0.5">Muhammad Abbad ur Rehman</text>
     <rect x="64" y="148" width="0" height="4" rx="2" fill="url(#accent)"><animate attributeName="width" from="0" to="120" dur="0.8s" begin="0.2s" fill="freeze"/></rect>
     <text x="64" y="192" font-family="ui-sans-serif,-apple-system,'Segoe UI',Inter,Roboto,Helvetica,Arial,sans-serif" font-size="21" fill="#8b98b1">Computer Science student  ·  builds small, self-hosted developer tools</text>
     <text x="64" y="236" font-family="ui-monospace,'Cascadia Code','Fira Code',Consolas,'Liberation Mono',monospace" font-size="15" fill="#14b8a6">LLM tooling   ·   Node.js   ·   local-first apps   ·   learning in public</text>
