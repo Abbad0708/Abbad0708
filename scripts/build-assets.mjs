@@ -112,7 +112,7 @@ for (const [key, entry] of Object.entries(BRAND)) {
   out(`stack/${key}.svg`, `
 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" role="img" aria-label="${esc(title)}"><path fill="${fill}" d="${entry.path}"/></svg>`);
 }
-for (const key of ["powershell", "vscode", "windows", "sql", "ml", "api", "llm", "prompt", "excel", "tableau", "powerbi"]) {
+for (const key of ["powershell", "windows", "sql", "ml", "api", "llm", "prompt", "excel", "tableau", "powerbi"]) {
   if (BRAND[key]) continue;
   out(`stack/${key}.svg`, `
 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" role="img" aria-hidden="true">${TECH[key]}</svg>`);
