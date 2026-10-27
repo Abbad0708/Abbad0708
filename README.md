@@ -7,9 +7,9 @@
 <img src="https://capsule-render.vercel.app/api?type=waving&height=200&color=0:0f172a,50:0e7490,100:14b8a6&text=Muhammad%20Abbad%20Ur%20Rehman&fontColor=f8fafc&fontSize=42&fontAlignY=38&desc=Machine%20Learning%20%C2%B7%20Python%20%C2%B7%20SQL%20%C2%B7%20Data&descAlignY=58&descSize=18&animation=fadeIn" alt="Muhammad Abbad Ur Rehman. Machine Learning, Python, SQL, Data." width="100%" />
 
 <p align="center">
-<a href="https://www.linkedin.com/in/muhammad-abbadurrehman/"><img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&labelColor=0b1220&logo=linkedin&logoColor=white" alt="LinkedIn" height="28" /></a>&nbsp;
-<a href="mailto:m.abbad0708@gmail.com"><img src="https://img.shields.io/badge/Email-m.abbad0708%40gmail.com-14b8a6?style=for-the-badge&labelColor=0b1220&logo=gmail&logoColor=white" alt="Email m.abbad0708@gmail.com" height="28" /></a>&nbsp;
-<img src="https://komarev.com/ghpvc/?username=Abbad0708&style=for-the-badge&color=14b8a6&labelColor=0b1220&label=profile+views" alt="Profile views" height="28" />
+<a href="https://www.linkedin.com/in/muhammad-abbadurrehman/"><img src="assets/light/badges/b-linkedin.svg" alt="LinkedIn"/></a>
+<a href="mailto:m.abbad0708@gmail.com"><img src="assets/light/badges/b-email.svg" alt="Email m.abbad0708@gmail.com"/></a>
+<img src="https://komarev.com/ghpvc/?username=Abbad0708&style=flat-square&color=2DD4BF&label=Profile+Views" alt="profile views"/>
 </p>
 
 <br/>
@@ -139,6 +139,6 @@ I work on the part of machine learning that decides whether a number can be trus
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/emoji/pin.svg" /><img src="assets/light/emoji/pin.svg" width="28" height="28" align="top" alt="" /></picture>&nbsp; Lahore, Pakistan · UTC+5
 
 <p align="center">
-<a href="https://www.linkedin.com/in/muhammad-abbadurrehman/"><img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&labelColor=0b1220&logo=linkedin&logoColor=white" alt="LinkedIn" height="28" /></a>&nbsp;
-<a href="mailto:m.abbad0708@gmail.com"><img src="https://img.shields.io/badge/Email-m.abbad0708%40gmail.com-14b8a6?style=for-the-badge&labelColor=0b1220&logo=gmail&logoColor=white" alt="Email m.abbad0708@gmail.com" height="28" /></a>
+<a href="https://www.linkedin.com/in/muhammad-abbadurrehman/"><img src="assets/light/badges/b-cta.svg" alt="Message me on LinkedIn"/></a>
+<a href="mailto:m.abbad0708@gmail.com"><img src="assets/light/badges/b-email.svg" alt="Email m.abbad0708@gmail.com"/></a>
 </p>
