@@ -45,59 +45,6 @@ out("mark.svg", `
   <defs>${MARK_GRAD}</defs>${mark(48)}
 </svg>`);
 
-/* ---------------------------------------------------------------- banner */
-{
-  const W = 1200, H = 320;
-  const term = [
-    ["$ ", "npm start", C.muted, C.text],
-    ["", "muster listening on localhost:3000", "", C.teal],
-    ["", "12 providers · 4 adapters · 0 build steps", "", C.muted],
-    ["$ ", "git push origin main", C.muted, C.text],
-  ];
-  const lines = term.map(([p, t, pc, tc], i) => `
-    <text x="36" y="${64 + i * 30}" font-family="${MONO}" font-size="15" opacity="0">
-      <tspan fill="${pc || tc}">${esc(p)}</tspan><tspan fill="${tc}">${esc(t)}</tspan>
-      <animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="${0.6 + i * 0.45}s" fill="freeze"/>
-    </text>`).join("");
-  out("banner.svg", `
-<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Muhammad Abbad ur Rehman, Computer Science student who builds developer tools">
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0b1220"/><stop offset="0.6" stop-color="#0f1b33"/><stop offset="1" stop-color="#0b2a2f"/>
-    </linearGradient>
-    <linearGradient id="accent" x1="0" x2="1"><stop offset="0" stop-color="${C.teal}"/><stop offset="1" stop-color="${C.cyan}"/></linearGradient>
-    <radialGradient id="glow" cx="0.85" cy="0.2" r="0.6"><stop offset="0" stop-color="${C.teal}" stop-opacity="0.22"/><stop offset="1" stop-color="${C.teal}" stop-opacity="0"/></radialGradient>
-    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r="1.5" fill="#ffffff" opacity="0.06"/></pattern>
-    <clipPath id="r"><rect width="${W}" height="${H}" rx="16"/></clipPath>
-    ${MARK_GRAD}
-  </defs>
-  <g clip-path="url(#r)">
-    <rect width="${W}" height="${H}" fill="url(#bg)"/>
-    <rect width="${W}" height="${H}" fill="url(#dots)"/>
-    <rect width="${W}" height="${H}" fill="url(#glow)"/>
-    <rect x="0" y="0" width="${W}" height="4" fill="url(#accent)"/>
-
-    <!-- name block -->
-    ${mark(44, 64, 50)}
-    <text x="120" y="82" font-family="${MONO}" font-size="13" fill="${C.muted}" letter-spacing="1.5">ABBAD0708</text>
-    <text x="64" y="138" font-family="${SANS}" font-size="40" font-weight="700" fill="${C.text}" letter-spacing="-0.5">Muhammad Abbad ur Rehman</text>
-    <rect x="64" y="148" width="0" height="4" rx="2" fill="url(#accent)"><animate attributeName="width" from="0" to="120" dur="0.8s" begin="0.2s" fill="freeze"/></rect>
-    <text x="64" y="192" font-family="${SANS}" font-size="21" fill="${C.muted}">Computer Science student  ·  builds small, self-hosted developer tools</text>
-    <text x="64" y="236" font-family="${MONO}" font-size="15" fill="${C.teal}">LLM tooling   ·   Node.js   ·   local-first apps   ·   learning in public</text>
-
-    <!-- terminal -->
-    <g transform="translate(752 52)">
-      <rect width="400" height="196" rx="12" fill="${C.bg2}" stroke="${C.line}"/>
-      <rect width="400" height="34" rx="12" fill="#172036"/><rect y="22" width="400" height="12" fill="#172036"/>
-      <circle cx="20" cy="17" r="5" fill="#f87171"/><circle cx="38" cy="17" r="5" fill="#fbbf24"/><circle cx="56" cy="17" r="5" fill="#34d399"/>
-      <text x="200" y="22" text-anchor="middle" font-family="${MONO}" font-size="12" fill="${C.muted}">abbad@dev — muster</text>
-      ${lines}
-      <rect x="36" y="172" width="9" height="16" fill="${C.teal}"><animate attributeName="opacity" values="1;0;1" dur="1.1s" repeatCount="indefinite"/></rect>
-    </g>
-  </g>
-</svg>`);
-}
-
 /* ---------------------------------------------------------------- footer */
 out("footer.svg", `
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="72" viewBox="0 0 1200 72" role="img" aria-label="Built in the open">
@@ -226,22 +173,6 @@ button("x", "X / Twitter", "#0f172a");
 button("muster", "Explore Muster", C.teal, "#06201e");
 button("message", "Message me on LinkedIn", "#0a66c2");
 
-/* ------------------------------------------------------------ list icons */
-// 28px gradient tiles used instead of emoji in the About table; same family as the headings.
-const icon = (slug, glyph) => out(`icons/${slug}.svg`, `
-<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" role="img" aria-hidden="true">
-  <defs>${TILE_GRAD}</defs>
-  ${tile(glyph, 28)}
-</svg>`);
-icon("now", "now");
-icon("learning", "learning");
-icon("ask", "ask");
-icon("principle", "principle");
-icon("status", "check");
-icon("location", "pin");
-icon("terminal", "terminal");
-icon("handshake", "handshake");
-
 /* ------------------------------------------------------------ tech tiles */
 // One SVG per stack row: 64px tiles with a brand-coloured monogram and a label.
 const techRow = (slug, items) => {
@@ -362,29 +293,6 @@ Object.keys(EMOJI).forEach(emoji);
 </svg>`);
 }
 
-/* ------------------------------------------------------------ facts strip */
-{
-  const facts = [
-    ["person", "Computer Science student"],
-    ["terminal", "Builds self-hosted developer tools"],
-    ["layers", "Local-first, no build step, few deps"],
-    ["handshake", "Open to collaboration"],
-  ];
-  const W = 1200, H = 64, seg = W / facts.length;
-  const cells = facts.map(([g, label], i) => `
-    <g transform="translate(${i * seg} 0)">
-      ${i ? `<rect x="0" y="16" width="1" height="32" fill="${C.line}"/>` : ""}
-      ${tile(g, 30, 24, 17)}
-      <text x="66" y="37" font-family="${SANS}" font-size="14.5" font-weight="600" fill="${C.text}">${esc(label)}</text>
-    </g>`).join("");
-  out("facts.svg", `
-<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(facts.map((f) => f[1]).join(". "))}">
-  <defs>${TILE_GRAD}</defs>
-  <rect x="0.5" y="0.5" width="${W - 1}" height="${H - 1}" rx="14" fill="${C.bg2}" stroke="${C.line}"/>
-  ${cells}
-</svg>`);
-}
-
 /* ------------------------------------------------------------ muster flow */
 // How Muster works: one prompt fans out through four adapters to twelve providers,
 // and each model only ever sees its own history.
@@ -426,6 +334,96 @@ Object.keys(EMOJI).forEach(emoji);
   <rect x="18" y="186" width="${W - 36}" height="28" rx="8" fill="${C.bg2}" stroke="${C.line}"/>
   ${tile("check", 18, 26, 191)}
   <text x="52" y="204.5" font-family="${SANS}" font-size="12.5" fill="${C.text}">On follow-ups each model sees <tspan font-weight="700">only its own history</tspan>, so the comparison stays a fair test.</text>
+</svg>`);
+}
+
+/* ------------------------------------------------------------------ bento */
+// The profile hero: six cards in a bento grid, 1200x414.
+{
+  const W = 1200, H = 414;
+  const card = (x, y, w, h, inner = "") => `
+  <g>
+    <rect x="${x}" y="${y}" width="${w}" height="${h}" rx="18" fill="${C.bg2}" stroke="${C.line}"/>
+    ${inner}
+  </g>`;
+  const em = (slug, size, x, y) => `<g transform="translate(${x} ${y}) scale(${size / 24})">${EMOJI[slug]}</g>`;
+  const label = (x, y, t) => `<text x="${x}" y="${y}" font-family="${SANS}" font-size="11" font-weight="700" fill="${C.muted}" letter-spacing="1.3">${esc(t)}</text>`;
+  const chip = (x, y, t) => {
+    const w = wMono(t, 11) + 18;
+    return `<rect x="${x}" y="${y}" width="${w}" height="22" rx="11" fill="${C.bg}" stroke="${C.line}"/><text x="${x + w / 2}" y="${y + 15}" text-anchor="middle" font-family="${MONO}" font-size="11" fill="${C.teal}">${esc(t)}</text>`;
+  };
+
+  // A: identity
+  const chips = ["Node.js", "local-first", "LLM tooling", "open source"];
+  let cx = 28;
+  const chipRow = chips.map((t) => { const s = chip(cx, 206, t); cx += wMono(t, 11) + 18 + 8; return s; }).join("");
+  const A = card(0, 0, 560, 250, `
+    <rect x="0.5" y="0.5" width="559" height="249" rx="18" fill="url(#heroGlow)"/>
+    ${mark(44, 28, 26)}
+    <text x="84" y="45" font-family="${MONO}" font-size="12" fill="${C.muted}" letter-spacing="1.5">ABBAD0708</text>
+    <text x="84" y="63" font-family="${MONO}" font-size="12" fill="${C.teal}">software that runs on your own machine</text>
+    <text x="28" y="124" font-family="${SANS}" font-size="38" font-weight="800" fill="${C.text}" letter-spacing="-0.8">Muhammad Abbad</text>
+    <text x="28" y="164" font-family="${SANS}" font-size="38" font-weight="800" fill="url(#tileGrad)" letter-spacing="-0.8">ur Rehman</text>
+    <text x="28" y="190" font-family="${SANS}" font-size="14.5" fill="${C.muted}">Computer Science student  ·  builds small, self-hosted developer tools</text>
+    ${chipRow}`);
+
+  // B: terminal
+  const term = [
+    ["$ ", "npm start", C.text],
+    ["", "muster listening on :3000", C.teal],
+    ["", "12 providers · 4 adapters", C.muted],
+    ["", "0 build steps", C.muted],
+    ["$ ", "git push origin main", C.text],
+  ];
+  const termLines = term.map(([p, t, col], i) => `
+      <text x="596" y="${78 + i * 26}" font-family="${MONO}" font-size="13.5" opacity="0"><tspan fill="${C.muted}">${esc(p)}</tspan><tspan fill="${col}">${esc(t)}</tspan>
+        <animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="${0.5 + i * 0.45}s" fill="freeze"/></text>`).join("");
+  const B = card(574, 0, 320, 250, `
+    <path d="M574 18a18 18 0 0118-18h284a18 18 0 0118 18v16H574z" fill="#172036"/>
+    <circle cx="596" cy="17" r="5" fill="#f87171"/><circle cx="614" cy="17" r="5" fill="#fbbf24"/><circle cx="632" cy="17" r="5" fill="#34d399"/>
+    <text x="734" y="21" text-anchor="middle" font-family="${MONO}" font-size="11.5" fill="${C.muted}">abbad@dev — muster</text>
+    ${termLines}
+    <rect x="596" y="196" width="8" height="15" fill="${C.teal}"><animate attributeName="opacity" values="1;0;1" dur="1.1s" repeatCount="indefinite"/></rect>`);
+
+  // C: now building
+  const dotColors = ["#d97757", "#9ca3af", "#4f8df7", "#e5e7eb", "#4d6bfe", "#1fb8cd", "#fa520f", "#f55036", "#8b7cf6", "#c4b5fd", "#6ee7b7", C.teal];
+  const dots = dotColors.map((c, i) => `<circle cx="${936 + (i % 6) * 26}" cy="${152 + Math.floor(i / 6) * 26}" r="7" fill="${c}"><animate attributeName="r" values="7;8.5;7" dur="2.4s" begin="${i * 0.15}s" repeatCount="indefinite"/></circle>`).join("");
+  const Ccard = card(908, 0, 292, 250, `
+    ${label(936, 38, "NOW BUILDING")}
+    ${em("rocket", 30, 1140, 22)}
+    <text x="936" y="84" font-family="${SANS}" font-size="26" font-weight="800" fill="${C.text}" letter-spacing="-0.4">Muster</text>
+    <text x="936" y="106" font-family="${MONO}" font-size="12" fill="${C.teal}">one prompt → 12 LLMs, side by side</text>
+    ${label(936, 136, "PROVIDERS")}
+    ${dots}
+    <text x="936" y="222" font-family="${SANS}" font-size="12.5" fill="${C.muted}">Each model sees only its own history.</text>`);
+
+  // D: by the numbers
+  const nums = [["12", "providers"], ["0", "build steps"], ["100%", "local data"]];
+  const numCols = nums.map(([n, l], i) => `
+    <text x="${28 + i * 118}" y="356" font-family="${SANS}" font-size="34" font-weight="800" fill="url(#tileGrad)" letter-spacing="-1">${esc(n)}</text>
+    <text x="${28 + i * 118}" y="378" font-family="${MONO}" font-size="11.5" fill="${C.muted}">${esc(l)}</text>`).join("");
+  const D = card(0, 264, 380, 150, `${label(28, 296, "BY THE NUMBERS")}${numCols}`);
+
+  // E: how I build
+  const rules = [["bolt", "Ship small, ship runnable"], ["shield", "Data stays on the user's machine"], ["compass", "Measure models, don't argue about them"]];
+  const ruleRows = rules.map(([g, t], i) => `${em(g, 22, 422, 310 + i * 32)}<text x="454" y="${326 + i * 32}" font-family="${SANS}" font-size="14" font-weight="600" fill="${C.text}">${esc(t)}</text>`).join("");
+  const E = card(394, 264, 420, 150, `${label(422, 296, "HOW I BUILD")}${ruleRows}`);
+
+  // F: let's build
+  const F = card(828, 264, 372, 150, `
+    ${label(856, 296, "LET'S BUILD")}
+    ${em("handshake", 30, 1142, 282)}
+    <text x="856" y="330" font-family="${SANS}" font-size="15" font-weight="700" fill="${C.text}">Open to collaborating on dev tools</text>
+    <text x="856" y="350" font-family="${SANS}" font-size="15" font-weight="700" fill="${C.text}">and LLM experiments.</text>
+    <text x="856" y="384" font-family="${MONO}" font-size="12" fill="${C.teal}">in/muhammad-abbadurrehman  ·  @M_Abbad0708</text>`);
+
+  out("bento.svg", `
+<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Muhammad Abbad ur Rehman, Computer Science student who builds small, self-hosted developer tools. Now building Muster, one prompt to 12 LLMs side by side.">
+  <defs>
+    ${TILE_GRAD}${MARK_GRAD}
+    <radialGradient id="heroGlow" cx="0.95" cy="0.05" r="0.9"><stop offset="0" stop-color="${C.teal}" stop-opacity="0.18"/><stop offset="1" stop-color="${C.teal}" stop-opacity="0"/></radialGradient>
+  </defs>
+  ${A}${B}${Ccard}${D}${E}${F}
 </svg>`);
 }
 
