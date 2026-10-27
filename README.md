@@ -139,30 +139,6 @@ I work on the part of machine learning that decides whether a number can be trus
 
 <br/>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/headings/education.svg" /><img src="assets/light/headings/education.svg" alt="Education" width="720" /></picture>
-
-<table>
-  <tr>
-    <td width="200" valign="top">
-      <strong>Govt. Islamia Graduate College</strong><br/>
-      Civil Lines, Lahore<br/>
-      <sub>2024 – 2026</sub>
-    </td>
-    <td valign="top">
-      <p><strong>Intermediate in Computer Science (ICS), with Physics.</strong></p>
-      <p>
-        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/m-c-g-ai.svg" /><img src="assets/light/badges/m-c-g-ai.svg" alt="Google AI Essentials" height="28" /></picture>
-        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/m-c-g-prompt.svg" /><img src="assets/light/badges/m-c-g-prompt.svg" alt="Google Prompting Essentials" height="28" /></picture>
-        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/m-c-g-python.svg" /><img src="assets/light/badges/m-c-g-python.svg" alt="Google Crash Course on Python" height="28" /></picture>
-        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/m-c-nasa101.svg" /><img src="assets/light/badges/m-c-nasa101.svg" alt="NASA Open Science 101" height="28" /></picture>
-        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/m-c-nasa-ess.svg" /><img src="assets/light/badges/m-c-nasa-ess.svg" alt="NASA Open Science Essentials" height="28" /></picture>
-      </p>
-    </td>
-  </tr>
-</table>
-
-<br/>
-
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/headings/contact.svg" /><img src="assets/light/headings/contact.svg" alt="Contact" width="720" /></picture>
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/emoji/handshake.svg" /><img src="assets/light/emoji/handshake.svg" width="28" height="28" align="top" alt="" /></picture>&nbsp; Open to ML and data internships, developer-tool collaborations and open-source projects where a student who ships can be useful. LinkedIn is the fastest way to reach me; for anything about Muster, open an issue.

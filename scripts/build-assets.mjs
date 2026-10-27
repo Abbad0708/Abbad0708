@@ -121,7 +121,6 @@ heading("about", "About", "// who I am", "badge");
 heading("experience", "Experience", "// where I've worked", "briefcase");
 heading("work", "Featured work", "// what I've shipped", "trophy");
 heading("stack", "Stack", "// what I build with", "cube");
-heading("education", "Education", "// what I've studied", "cap");
 heading("contact", "Contact", "// say hello", "plane");
 
 /* ------------------------------------------------------- project headings */
@@ -157,12 +156,6 @@ const metric = (slug, label, value) => {
 metric("providers", "providers", "12");
 metric("build", "build step", "none");
 metric("data", "chats stored", "locally");
-// Certifications: ISSUER | course
-metric("c-nasa101", "NASA", "Open Science 101");
-metric("c-nasa-ess", "NASA", "Open Science Essentials");
-metric("c-g-ai", "Google", "AI Essentials");
-metric("c-g-prompt", "Google", "Prompting Essentials");
-metric("c-g-python", "Google", "Crash Course on Python");
 
 // Tech chip with a coloured dot
 const tech = (slug, label, dot) => {
@@ -305,44 +298,32 @@ Object.keys(EMOJI).forEach(emoji);
 }
 
 /* ----------------------------------------------------------------- banner */
-// Banner: gradient surface, two-line name, role, three fact pills, one quiet graphic. No animation.
+// Wave banner: navy-to-teal gradient with a curved bottom edge, name centred, soft fade-in.
 {
-  const W = 1200, H = 300;
-  const pill = (x, y, t) => {
-    const w = wSans(t, 12.5) + 26;
-    return [`<rect x="${x}" y="${y}" width="${w}" height="26" rx="13" fill="none" stroke="${C.teal}" stroke-opacity="0.55"/><text x="${x + w / 2}" y="${y + 17.5}" text-anchor="middle" font-family="${SANS}" font-size="12.5" font-weight="600" fill="${C.text}">${esc(t)}</text>`, w];
-  };
-  let px = 148, pills = "";
-  for (const t of ["Machine learning", "Python · SQL · DuckDB", "Node.js · local-first tools"]) { const [svg, w] = pill(px, 228, t); pills += svg; px += w + 10; }
-  // Ascending bars: the Muster mark, grown up; a nod to the ranking work.
-  const bars = [[0, 70], [1, 104], [2, 142], [3, 118], [4, 176]].map(([i, h]) =>
-    `<rect x="${900 + i * 46}" y="${232 - h}" width="30" height="${h}" rx="8" fill="url(#tileGrad)" opacity="${(0.35 + i * 0.16).toFixed(2)}"/>`).join("");
+  const W = 1200, H = 270;
   out("banner.svg", `
-<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Muhammad Abbad Ur Rehman. ML intern at FlyRank AI, ICS student in Lahore. Machine learning, Python, SQL, DuckDB, Node.js, local-first tools.">
+<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Muhammad Abbad Ur Rehman. ML intern at FlyRank AI, ICS student in Lahore, Pakistan.">
   <defs>
-    ${TILE_GRAD}${MARK_GRAD}
-    <linearGradient id="surf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${C.bg2}"/><stop offset="1" stop-color="${C.bg3}"/></linearGradient>
-    <radialGradient id="glow" cx="0.82" cy="0.1" r="0.55"><stop offset="0" stop-color="${C.teal}" stop-opacity="0.25"/><stop offset="1" stop-color="${C.teal}" stop-opacity="0"/></radialGradient>
-    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1.2" cy="1.2" r="1.2" fill="${C.muted}" opacity="0.18"/></pattern>
-    <clipPath id="clip"><rect width="${W}" height="${H}" rx="22"/></clipPath>
+    <linearGradient id="wave" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a"/><stop offset="0.55" stop-color="#0e7490"/><stop offset="1" stop-color="#14b8a6"/>
+    </linearGradient>
+    <linearGradient id="wave2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#14b8a6" stop-opacity="0.35"/><stop offset="1" stop-color="#22d3ee" stop-opacity="0.35"/>
+    </linearGradient>
+    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1.2" cy="1.2" r="1.2" fill="#ffffff" opacity="0.07"/></pattern>
+    <clipPath id="shape"><path d="M0 0H${W}V196C1040 258 860 150 640 196C420 242 230 170 0 206Z"/></clipPath>
   </defs>
-  <g clip-path="url(#clip)">
-    <rect width="${W}" height="${H}" fill="url(#surf)"/>
+  <g clip-path="url(#shape)">
+    <rect width="${W}" height="${H}" fill="url(#wave)"/>
     <rect width="${W}" height="${H}" fill="url(#dots)"/>
-    <rect width="${W}" height="${H}" fill="url(#glow)"/>
-    <rect x="0" y="${H - 5}" width="${W}" height="5" fill="url(#tileGrad)"/>
   </g>
-  <rect x="0.5" y="0.5" width="${W - 1}" height="${H - 1}" rx="22" fill="none" stroke="${C.line}"/>
+  <path d="M0 218C230 182 420 254 640 208C860 162 1040 270 ${W} 208V222C1040 284 860 176 640 222C420 268 230 196 0 232Z" fill="url(#wave2)"/>
 
-  ${mark(64, 56, 72)}
-  <text x="148" y="98" font-family="${SANS}" font-size="46" font-weight="700" fill="${C.text}" letter-spacing="-1">Muhammad</text>
-  <text x="148" y="148" font-family="${SANS}" font-size="46" font-weight="700" fill="url(#tileGrad)" letter-spacing="-1">Abbad Ur Rehman</text>
-  <text x="148" y="190" font-family="${SANS}" font-size="19" fill="${C.muted}">ML intern at FlyRank AI  ·  ICS student, Lahore, Pakistan</text>
-  ${pills}
-
-  <line x1="900" y1="232" x2="1114" y2="232" stroke="${C.line}" stroke-width="2" stroke-linecap="round"/>
-  ${bars}
-  <circle cx="1099" cy="44" r="6" fill="${C.cyan}"/>
+  <g opacity="0">
+    <text x="${W / 2}" y="110" text-anchor="middle" font-family="${SANS}" font-size="46" font-weight="700" fill="#f8fafc" letter-spacing="-0.5">Muhammad Abbad Ur Rehman</text>
+    <text x="${W / 2}" y="150" text-anchor="middle" font-family="${SANS}" font-size="19" fill="#ccfbf1">ML intern at FlyRank AI  ·  ICS student, Lahore, Pakistan</text>
+    <animate attributeName="opacity" from="0" to="1" dur="1.1s" begin="0.15s" fill="freeze"/>
+  </g>
 </svg>`);
 }
 
