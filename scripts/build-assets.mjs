@@ -6,23 +6,23 @@ import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const out = (rel, svg) => {
-  const file = join(root, "assets", rel);
+  const file = join(root, "assets", DIR, rel);
   mkdirSync(dirname(file), { recursive: true });
   writeFileSync(file, svg.trim() + "\n");
 };
 
-const C = {
-  bg: "#0b1220",
-  bg2: "#111a2e",
-  line: "#1e293b",
-  teal: "#14b8a6",
-  cyan: "#22d3ee",
-  text: "#e5eaf3",
-  muted: "#8b98b1",
-  lightText: "#0f172a",
-  lightMuted: "#475569",
-  lightLine: "#e2e8f0",
+const THEMES = {
+  dark: {
+    bg: "#0b1220", bg2: "#111a2e", bg3: "#172036", line: "#1e293b",
+    teal: "#14b8a6", cyan: "#22d3ee", text: "#e5eaf3", fg: "#e5eaf3", muted: "#8b98b1",
+  },
+  light: {
+    bg: "#ffffff", bg2: "#f1f5f9", bg3: "#e2e8f0", line: "#cbd5e1",
+    teal: "#0d9488", cyan: "#0891b2", text: "#0f172a", fg: "#334155", muted: "#64748b",
+  },
 };
+let C = THEMES.dark; // current palette while building
+let DIR = "dark";     // assets/<DIR>/...
 const SANS = `ui-sans-serif,-apple-system,'Segoe UI',Inter,Roboto,Helvetica,Arial,sans-serif`;
 const MONO = `ui-monospace,'Cascadia Code','Fira Code',Consolas,'Liberation Mono',monospace`;
 const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -30,6 +30,7 @@ const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, 
 const wSans = (s, size) => Math.ceil(s.length * size * 0.58);
 const wMono = (s, size) => Math.ceil(s.length * size * 0.62);
 
+const build = () => {
 /* -------------------------------------------------------------- monogram */
 // Personal mark: an "A" cut from two gradient bars, used in the banner and footer.
 const MARK_GRAD = `<linearGradient id="markGrad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#14b8a6"/><stop offset="1" stop-color="#22d3ee"/></linearGradient>`;
@@ -49,7 +50,7 @@ out("mark.svg", `
 out("footer.svg", `
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="72" viewBox="0 0 1200 72" role="img" aria-label="Built in the open">
   <defs>
-    <linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#0b1220"/><stop offset="1" stop-color="#0b2a2f"/></linearGradient>
+    <linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="${C.bg2}"/><stop offset="1" stop-color="${C.bg3}"/></linearGradient>
     <linearGradient id="a" x1="0" x2="1"><stop offset="0" stop-color="${C.teal}"/><stop offset="1" stop-color="${C.cyan}"/></linearGradient>
   </defs>
   <rect width="1200" height="72" rx="14" fill="url(#g)"/>
@@ -85,36 +86,52 @@ const tile = (name, size, x = 0, y = 0, radius = size * 0.26) => `
 const TILE_GRAD = `<linearGradient id="tileGrad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="${C.teal}"/><stop offset="1" stop-color="${C.cyan}"/></linearGradient>`;
 
 /* -------------------------------------------------------------- headings */
-const heading = (slug, title, glyph) => {
-  for (const dark of [true, false]) {
-    const text = dark ? C.text : C.lightText;
-    const rule = dark ? C.line : C.lightLine;
-    out(`headings/${slug}${dark ? "-d" : ""}.svg`, `
-<svg xmlns="http://www.w3.org/2000/svg" width="720" height="52" viewBox="0 0 720 52" role="img" aria-label="${esc(title)}">
+// Duotone illustrations (ink + white + amber) for the section headings, 24-unit grid.
+const AMBER = "#fbbf24";
+const DUO = {
+  badge: `<rect x="4" y="4" width="16" height="17" rx="2.6" fill="${INK}"/><rect x="9.5" y="2" width="5" height="3.6" rx="1.2" fill="${AMBER}"/><circle cx="12" cy="11" r="2.7" fill="#fff"/><path d="M7.3 18.4c0-2.4 2.1-3.9 4.7-3.9s4.7 1.5 4.7 3.9z" fill="#fff"/>`,
+  cube: `<path d="M12 2.6l7.5 4.2L12 11 4.5 6.8z" fill="#fff"/><path d="M4.5 6.8v8.4l7.5 4.2V11z" fill="${INK}"/><path d="M19.5 6.8v8.4L12 19.4V11z" fill="${AMBER}"/><path d="M4.5 18.2l7.5 3.2 7.5-3.2" fill="none" stroke="${INK}" stroke-width="1.6" stroke-linecap="round" opacity="0.6"/>`,
+  trophy: `<path d="M7.5 3.5h9v5.2a4.5 4.5 0 01-9 0z" fill="${AMBER}"/><path d="M7.5 5H4.8c0 2.7 1.2 4.4 3.2 4.8M16.5 5h2.7c0 2.7-1.2 4.4-3.2 4.8" fill="none" stroke="${AMBER}" stroke-width="1.6" stroke-linecap="round"/><path d="M12 13.2v3" stroke="${INK}" stroke-width="2.2" stroke-linecap="round"/><rect x="8" y="16" width="8" height="2.6" rx="1.1" fill="${INK}"/><rect x="6" y="18.8" width="12" height="2.4" rx="1.2" fill="#fff"/><path d="M10.5 6.5l1-1.5 1 1.5" fill="none" stroke="${INK}" stroke-width="1.2" opacity="0.5"/>`,
+  trend: `<g fill="${INK}"><rect x="3.5" y="13" width="3.4" height="8" rx="1.1"/><rect x="8.8" y="10" width="3.4" height="11" rx="1.1"/><rect x="14.1" y="12" width="3.4" height="9" rx="1.1"/></g><path d="M4 9.5l5-4 4.6 3 5.4-5" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19.6" cy="3.2" r="2" fill="${AMBER}"/>`,
+  plane: `<path d="M3 10.8L21 3.5l-5.2 17-4.3-6.2z" fill="#fff"/><path d="M21 3.5L11.5 14.3" stroke="${INK}" stroke-width="1.5" stroke-linecap="round"/><path d="M3 10.8l8.5 3.5" stroke="${INK}" stroke-width="1.2" opacity="0.5"/><path d="M11.5 14.3l-.8 5.2 2.8-3.1" fill="${AMBER}"/>`,
+};
+const tileDuo = (name, size, x = 0, y = 0) => `
+  <g transform="translate(${x} ${y})">
+    <rect x="-3" y="-3" width="${size + 6}" height="${size + 6}" rx="${size * 0.3}" fill="${C.teal}" opacity="0.16"/>
+    <rect width="${size}" height="${size}" rx="${size * 0.26}" fill="url(#tileGrad)"/>
+    <g transform="translate(${size * 0.16} ${size * 0.16}) scale(${(size * 0.68) / 24})">${DUO[name]}</g>
+  </g>`;
+const heading = (slug, title, tagline, glyph) => {
+  {
+    const text = C.text, sub = C.muted, rule = C.line;
+    const tx = 58, tw = wSans(title, 27);
+    out(`headings/${slug}.svg`, `
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="60" viewBox="0 0 720 60" role="img" aria-label="${esc(title)}: ${esc(tagline)}">
   <defs>${TILE_GRAD}</defs>
-  ${tile(glyph, 36, 0, 8)}
-  <text x="52" y="35" font-family="${SANS}" font-size="26" font-weight="700" fill="${text}" letter-spacing="-0.3">${esc(title)}</text>
-  <rect x="${56 + wSans(title, 26)}" y="26" width="${Math.max(40, 720 - (56 + wSans(title, 26)))}" height="1.5" fill="${rule}"/>
+  ${tileDuo(glyph, 40, 4, 10)}
+  <text x="${tx}" y="39" font-family="${SANS}" font-size="27" font-weight="800" fill="${text}" letter-spacing="-0.5">${esc(title)}</text>
+  <text x="${tx + tw + 14}" y="38" font-family="${MONO}" font-size="12.5" fill="${sub}">${esc(tagline)}</text>
+  <rect x="${tx + tw + 20 + wMono(tagline, 12.5)}" y="30" width="${Math.max(30, 720 - (tx + tw + 20 + wMono(tagline, 12.5)))}" height="1.5" fill="${rule}"/>
 </svg>`);
   }
 };
-heading("about", "About", "person");
-heading("stack", "Stack", "layers");
-heading("work", "Featured work", "spark");
-heading("activity", "Activity", "pulse");
-heading("contact", "Contact", "mail");
+heading("about", "About", "// who I am", "badge");
+heading("stack", "Stack", "// what I build with", "cube");
+heading("work", "Featured work", "// what I've shipped", "trophy");
+heading("activity", "Activity", "// what I've been doing", "trend");
+heading("contact", "Contact", "// say hello", "plane");
 
 /* ------------------------------------------------------- project heading */
-for (const dark of [true, false]) {
-  out(`headings/h-muster${dark ? "-d" : ""}.svg`, `
+{
+  out(`headings/h-muster.svg`, `
 <svg xmlns="http://www.w3.org/2000/svg" width="720" height="64" viewBox="0 0 720 64" role="img" aria-label="Muster: one prompt, twelve models, side by side">
   <defs><linearGradient id="a" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="${C.teal}"/><stop offset="1" stop-color="${C.cyan}"/></linearGradient></defs>
   <rect x="0" y="8" width="48" height="48" rx="12" fill="url(#a)"/>
   <g fill="${INK}">
     <rect x="11" y="20" width="7" height="24" rx="2"/><rect x="20.5" y="26" width="7" height="18" rx="2"/><rect x="30" y="16" width="7" height="28" rx="2"/>
   </g>
-  <text x="64" y="32" font-family="${SANS}" font-size="28" font-weight="800" fill="${dark ? C.text : C.lightText}" letter-spacing="-0.4">Muster</text>
-  <text x="64" y="54" font-family="${MONO}" font-size="13" fill="${dark ? C.muted : C.lightMuted}">one prompt  →  up to 12 LLMs  →  answers side by side</text>
+  <text x="64" y="32" font-family="${SANS}" font-size="28" font-weight="800" fill="${C.text}" letter-spacing="-0.4">Muster</text>
+  <text x="64" y="54" font-family="${MONO}" font-size="13" fill="${C.muted}">one prompt  →  up to 12 LLMs  →  answers side by side</text>
 </svg>`);
 }
 
@@ -174,19 +191,39 @@ button("muster", "Explore Muster", C.teal, "#06201e");
 button("message", "Message me on LinkedIn", "#0a66c2");
 
 /* ------------------------------------------------------------ tech tiles */
-// One SVG per stack row: 64px tiles with a brand-coloured monogram and a label.
+// Original pictograms for each language / tool (24-unit grid), no wordmarks.
+const HEX = "M12 2.5l8.2 4.7v9.6L12 21.5l-8.2-4.7V7.2z";
+const TECH = {
+  js: `<path d="${HEX}" fill="#f7df1e"/><path d="M9.6 7.2c-1.7 0-2.1.7-2.1 1.9v1.5c0 .9-.5 1.3-1.4 1.4.9.1 1.4.5 1.4 1.4v1.5c0 1.2.4 1.9 2.1 1.9M14.4 7.2c1.7 0 2.1.7 2.1 1.9v1.5c0 .9.5 1.3 1.4 1.4-.9.1-1.4.5-1.4 1.4v1.5c0 1.2-.4 1.9-2.1 1.9" fill="none" stroke="#1f1a00" stroke-width="1.7" stroke-linecap="round"/>`,
+  node: `<path d="${HEX}" fill="none" stroke="#5fa04e" stroke-width="1.9" stroke-linejoin="round"/><path d="M12 8.2l-3.6 7.2M12 8.2l3.6 7.2M8.4 15.4h7.2" stroke="#5fa04e" stroke-width="1.4"/><g fill="#86efac"><circle cx="12" cy="8.2" r="2"/><circle cx="8.4" cy="15.4" r="2"/><circle cx="15.6" cy="15.4" r="2"/></g>`,
+  html: `<path d="M4 3h16l-1.4 15.6L12 21l-6.6-2.4z" fill="#e34f26"/><path d="M12 4.5v15" stroke="#ff6d3f" stroke-width="0.8" opacity="0.5"/><path d="M10 8.5L7.4 11.5 10 14.5M14 8.5l2.6 3-2.6 3" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>`,
+  css: `<path d="M4 3h16l-1.4 15.6L12 21l-6.6-2.4z" fill="#2965f1"/><path d="M8 8.3h8M8 11.5h6.5M8 14.7h4.5" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><circle cx="15.5" cy="14.7" r="1.4" fill="#93c5fd"/>`,
+  bash: `<rect x="2.5" y="3.5" width="19" height="17" rx="3" fill="#1f2937"/><rect x="2.5" y="3.5" width="19" height="4.5" rx="2.2" fill="#374151"/><path d="M6 11.2l3.2 2.6L6 16.4M11 16.6h5.5" fill="none" stroke="#4eaa25" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>`,
+  powershell: `<path d="M6.2 4h15.3l-3.7 16H2.5z" fill="#5391fe"/><path d="M8.6 9l4.2 3-4.2 3M12.8 16h4.2" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>`,
+  express: `<circle cx="4.5" cy="12" r="2.3" fill="${C.fg}"/><circle cx="19.5" cy="12" r="2.3" fill="${C.fg}"/><path d="M6.8 12h3.4l1.8-4 2 8 1.8-4h1.4" fill="none" stroke="${C.fg}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>`,
+  sqlite: `<path d="M4.5 6.5v11c0 1.8 3.4 3.2 7.5 3.2s7.5-1.4 7.5-3.2v-11z" fill="#38bdf8"/><path d="M4.5 12.2c0 1.8 3.4 3.2 7.5 3.2s7.5-1.4 7.5-3.2" fill="none" stroke="#0369a1" stroke-width="1.3"/><ellipse cx="12" cy="6.5" rx="7.5" ry="3.1" fill="#bae6fd"/>`,
+  npm: `<path d="M12 2.8l8.5 4.4v9.6L12 21.2l-8.5-4.4V7.2z" fill="#b91c1c"/><path d="M12 2.8L3.5 7.2 12 11.6l8.5-4.4z" fill="#ef4444"/><path d="M12 11.6v9.6" stroke="#7f1d1d" stroke-width="1.3"/><path d="M7.5 5.1l8.5 4.4" stroke="#fecaca" stroke-width="1.2" opacity="0.8"/>`,
+  api: `<path d="M8 5.2c-2 0-2.5.7-2.5 2.5v2c0 1-.6 1.7-1.6 2.3 1 .6 1.6 1.3 1.6 2.3v2c0 1.8.5 2.5 2.5 2.5M16 5.2c2 0 2.5.7 2.5 2.5v2c0 1 .6 1.7 1.6 2.3-1 .6-1.6 1.3-1.6 2.3v2c0 1.8-.5 2.5-2.5 2.5" fill="none" stroke="${C.teal}" stroke-width="1.8" stroke-linecap="round"/><path d="M9.6 10.4h4.8l-1.5-1.5M14.4 13.6H9.6l1.5 1.5" fill="none" stroke="#99f6e4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>`,
+  llm: `<path d="M5 7l7 5M5 17l7-5M12 12l7-6M12 12h7M12 12l7 6" stroke="${C.cyan}" stroke-width="1.3" opacity="0.6"/><g fill="${C.cyan}"><circle cx="5" cy="7" r="2.1"/><circle cx="5" cy="17" r="2.1"/><circle cx="19" cy="6" r="2.1"/><circle cx="19" cy="12" r="2.1"/><circle cx="19" cy="18" r="2.1"/></g><circle cx="12" cy="12" r="2.8" fill="#a5f3fc"/>`,
+  git: `<path d="M7 7.4v9.2M17 10.4c0 3.6-3.2 3.8-7.5 4.8" fill="none" stroke="#f05032" stroke-width="1.9" stroke-linecap="round"/><g fill="#f05032"><circle cx="7" cy="5" r="2.5"/><circle cx="7" cy="19" r="2.5"/><circle cx="17" cy="8" r="2.5"/></g>`,
+  github: `<path d="M5 4.5a2 2 0 012-2h12v15.5H7a2 2 0 00-2 2z" fill="${C.fg}"/><path d="M5 20a2 2 0 012-2h12v3.5H7a2 2 0 01-2-2z" fill="#94a3b8"/><path d="M9.5 6.5h6M9.5 9.5h6" stroke="#0f172a" stroke-width="1.5" stroke-linecap="round"/><circle cx="16" cy="13.5" r="1.4" fill="${C.teal}"/>`,
+  actions: `<path d="M12 3.5a8.5 8.5 0 108.5 8.5" fill="none" stroke="#2088ff" stroke-width="2.1" stroke-linecap="round"/><path d="M18.6 5.2l2.2 6.6-6.2-2.3z" fill="#2088ff"/><path d="M9.8 8.6v6.8l5.4-3.4z" fill="#93c5fd"/>`,
+  vscode: `<path d="M16.5 3L21 5.3v13.4L16.5 21 7.2 13.6 4.3 15.8 2.5 14.9V9.1l1.8-.9 2.9 2.2z" fill="#3fa7f3"/><path d="M16.5 3v18L7.2 13.6z" fill="#0b5fa5" opacity="0.55"/><path d="M16.5 7.2v9.6L10.5 12z" fill="#dbeafe" opacity="0.35"/>`,
+  markdown: `<rect x="2" y="5.5" width="20" height="13" rx="2.6" fill="none" stroke="#a3b3cc" stroke-width="1.8"/><path d="M5.5 15.5v-7l3 3.4 3-3.4v7" fill="none" stroke="#a3b3cc" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M16.8 8.5v6.2M14.3 12.5l2.5 2.8 2.5-2.8" fill="none" stroke="${C.teal}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>`,
+  windows: `<g fill="#38bdf8"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/></g><rect x="13" y="13" width="8" height="8" rx="2" fill="#0ea5e9"/>`,
+};
+// One SVG per stack row: 64px tiles with the pictogram and a label underneath.
 const techRow = (slug, items) => {
   const T = 64, gap = 12, pad = 14;
   const W = pad * 2 + items.length * T + (items.length - 1) * gap, H = T + 22;
-  const tiles = items.map(([mono, label, color], i) => {
+  const tiles = items.map(([key, label, color], i) => {
     const x = pad + i * (T + gap);
-    const fs = mono.length <= 2 ? 22 : mono.length === 3 ? 18 : 15;
     return `
     <g transform="translate(${x} 0)">
       <rect width="${T}" height="${T}" rx="16" fill="${C.bg2}" stroke="${C.line}"/>
       <rect x="1" y="1" width="${T - 2}" height="${T - 2}" rx="15" fill="none" stroke="${color}" stroke-opacity="0.35"/>
-      <circle cx="${T / 2}" cy="${T / 2}" r="22" fill="${color}" opacity="0.08"/>
-      <text x="${T / 2}" y="${T / 2 + fs * 0.36}" text-anchor="middle" font-family="${MONO}" font-size="${fs}" font-weight="700" fill="${color}">${esc(mono)}</text>
+      <circle cx="${T / 2}" cy="${T / 2}" r="22" fill="${color}" opacity="0.1"/>
+      <g transform="translate(14 14) scale(1.5)">${TECH[key]}</g>
       <text x="${T / 2}" y="${T + 16}" text-anchor="middle" font-family="${SANS}" font-size="11.5" font-weight="600" fill="${C.muted}">${esc(label)}</text>
     </g>`;
   }).join("");
@@ -196,34 +233,34 @@ const techRow = (slug, items) => {
 </svg>`);
 };
 techRow("languages", [
-  ["JS", "JavaScript", "#f7df1e"],
+  ["js", "JavaScript", "#f7df1e"],
   ["node", "Node.js", "#5fa04e"],
-  ["<>", "HTML", "#e34f26"],
-  ["{ }", "CSS", "#3b82f6"],
-  ["$_", "Bash", "#4eaa25"],
-  ["PS>", "PowerShell", "#5391fe"],
+  ["html", "HTML", "#e34f26"],
+  ["css", "CSS", "#3b82f6"],
+  ["bash", "Bash", "#4eaa25"],
+  ["powershell", "PowerShell", "#5391fe"],
 ]);
 techRow("backend", [
-  ["ex", "Express", "#e2e8f0"],
-  ["SQL", "SQLite", "#5cb7f0"],
+  ["express", "Express", C.fg],
+  ["sqlite", "SQLite", "#5cb7f0"],
   ["npm", "npm", "#cb3837"],
-  ["API", "REST APIs", C.teal],
-  ["LLM", "LLM SDKs", C.cyan],
+  ["api", "REST APIs", C.teal],
+  ["llm", "LLM SDKs", C.cyan],
 ]);
 techRow("workflow", [
   ["git", "Git", "#f05032"],
-  ["gh", "GitHub", "#e2e8f0"],
-  ["CI", "Actions", "#2088ff"],
-  ["VS", "VS Code", "#3fa7f3"],
-  ["md", "Markdown", "#a3b3cc"],
-  ["win", "Windows", "#38bdf8"],
+  ["github", "GitHub", C.fg],
+  ["actions", "Actions", "#2088ff"],
+  ["vscode", "VS Code", "#3fa7f3"],
+  ["markdown", "Markdown", "#a3b3cc"],
+  ["windows", "Windows", "#38bdf8"],
 ]);
 
 /* -------------------------------------------------------- provider grid */
 {
   const providers = [
     ["Claude", "Anthropic", "#d97757"], ["GPT", "OpenAI", "#9ca3af"], ["Gemini", "Google", "#4f8df7"],
-    ["Grok", "xAI", "#e5e7eb"], ["DeepSeek", "DeepSeek", "#4d6bfe"], ["Perplexity", "Perplexity", "#1fb8cd"],
+    ["Grok", "xAI", C.fg], ["DeepSeek", "DeepSeek", "#4d6bfe"], ["Perplexity", "Perplexity", "#1fb8cd"],
     ["Mistral", "Mistral AI", "#fa520f"], ["Llama", "via Groq", "#f55036"], ["Qwen", "Alibaba", "#8b7cf6"],
     ["Kimi", "Moonshot", "#c4b5fd"], ["Command", "Cohere", "#6ee7b7"], ["OpenRouter", "100s of models", C.teal],
   ];
@@ -255,17 +292,17 @@ techRow("workflow", [
 // anywhere a stock emoji would normally go.
 const EMOJI = {
   wave: `<g fill="#fbbf24"><rect x="7" y="11" width="10.5" height="9.5" rx="3.6"/><rect x="7" y="5" width="2.6" height="8" rx="1.3"/><rect x="10" y="3.4" width="2.6" height="9.6" rx="1.3"/><rect x="13" y="4" width="2.6" height="9" rx="1.3"/><rect x="16" y="6.2" width="2.6" height="7" rx="1.3"/><rect x="3.6" y="12.2" width="2.6" height="7.2" rx="1.3" transform="rotate(-38 4.9 15.8)"/></g><g stroke="${C.teal}" stroke-width="1.6" stroke-linecap="round" fill="none"><path d="M20.3 7.4l1.9-1.4M20.9 10.4h2.3"/></g>`,
-  rocket: `<path d="M12 2.6c3.1 2.6 4.6 6.2 4.6 10.8L14.1 17H9.9l-2.5-3.6C7.4 8.8 8.9 5.2 12 2.6z" fill="#e5eaf3"/><circle cx="12" cy="10.2" r="2.1" fill="${C.teal}"/><path d="M7.6 13.4L5 17.6l3.6-.9zM16.4 13.4L19 17.6l-3.6-.9z" fill="${C.cyan}"/><path d="M10 17.5h4L12 21.6z" fill="#fb923c"/>`,
+  rocket: `<path d="M12 2.6c3.1 2.6 4.6 6.2 4.6 10.8L14.1 17H9.9l-2.5-3.6C7.4 8.8 8.9 5.2 12 2.6z" fill="${C.fg}"/><circle cx="12" cy="10.2" r="2.1" fill="${C.teal}"/><path d="M7.6 13.4L5 17.6l3.6-.9zM16.4 13.4L19 17.6l-3.6-.9z" fill="${C.cyan}"/><path d="M10 17.5h4L12 21.6z" fill="#fb923c"/>`,
   sprout: `<path d="M12 21.2V11.5" stroke="#4ade80" stroke-width="2" stroke-linecap="round"/><path d="M12 12.6c-5.2 0-7.3-3.2-7.3-7.4 4.2 0 7.3 2.1 7.3 7.4z" fill="#22c55e"/><path d="M12 14.8c5.2 0 7.3-3.2 7.3-7.4-4.2 0-7.3 2.1-7.3 7.4z" fill="#4ade80"/><path d="M5.5 21.2h13" stroke="${C.muted}" stroke-width="1.6" stroke-linecap="round"/>`,
   chat: `<rect x="2.6" y="4.6" width="12.4" height="9" rx="3.2" fill="${C.teal}"/><path d="M5.6 13.4v3.2l3.6-3.2z" fill="${C.teal}"/><rect x="9.6" y="10" width="11.8" height="8.4" rx="3.2" fill="${C.cyan}"/><path d="M18.6 18.2v3.2l-3.6-3.2z" fill="${C.cyan}"/><g fill="${INK}"><circle cx="13" cy="14.2" r="1"/><circle cx="15.6" cy="14.2" r="1"/><circle cx="18.2" cy="14.2" r="1"/></g>`,
-  compass: `<circle cx="12" cy="12" r="9.2" fill="#111a2e" stroke="#8b98b1" stroke-width="1.5"/><path d="M15.8 8.2l-2.4 5.5-3.1-3.1z" fill="#f87171"/><path d="M8.2 15.8l2.1-5.2 3.1 3.1z" fill="#e5eaf3"/><circle cx="12" cy="12" r="1" fill="${INK}"/>`,
+  compass: `<circle cx="12" cy="12" r="9.2" fill="${C.bg}" stroke="#8b98b1" stroke-width="1.5"/><path d="M15.8 8.2l-2.4 5.5-3.1-3.1z" fill="#f87171"/><path d="M8.2 15.8l2.1-5.2 3.1 3.1z" fill="${C.fg}"/><circle cx="12" cy="12" r="1" fill="${INK}"/>`,
   bolt: `<path d="M13.6 2.4L5.4 13.6h5.6L9.4 21.6l8.6-11.6h-5.6z" fill="#fbbf24"/>`,
   shield: `<path d="M12 2.4l8.2 3.1v6.1c0 5-3.6 8.6-8.2 10.1-4.6-1.5-8.2-5.1-8.2-10.1V5.5z" fill="${C.teal}"/><rect x="8.9" y="10.6" width="6.2" height="5.2" rx="1.1" fill="${INK}"/><path d="M10 10.6V9.2a2 2 0 014 0v1.4" fill="none" stroke="${INK}" stroke-width="1.6"/>`,
   star: `<path d="M12 2.6l2.9 6 6.5.9-4.7 4.5 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.6 9.5l6.5-.9z" fill="#fbbf24"/>`,
   mail: `<rect x="2.6" y="5.4" width="18.8" height="13.4" rx="3" fill="${C.cyan}"/><path d="M3.4 7.6l8.6 6 8.6-6" fill="none" stroke="${INK}" stroke-width="1.7" stroke-linejoin="round"/>`,
   handshake: `<path d="M3.2 11l4.2-4.2 4.6 1.6L16 4.8l4.8 4.8-6.4 6.8-3-1.6-3 1.6z" fill="#fbbf24" stroke="#d97706" stroke-width="1.2" stroke-linejoin="round"/><path d="M9.6 14l2.6 2.6M12.2 11.4l2.6 2.6" stroke="#d97706" stroke-width="1.4" stroke-linecap="round"/>`,
   pin: `<path d="M12 21.6s-6.6-5.8-6.6-10.6a6.6 6.6 0 0113.2 0c0 4.8-6.6 10.6-6.6 10.6z" fill="#f87171"/><circle cx="12" cy="11" r="2.5" fill="#fff"/>`,
-  terminal: `<rect x="2.4" y="4.4" width="19.2" height="15.2" rx="3" fill="#111a2e" stroke="#8b98b1" stroke-width="1.4"/><path d="M6.4 9.4l3.2 2.6-3.2 2.6M11.8 15h5.4" fill="none" stroke="${C.teal}" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>`,
+  terminal: `<rect x="2.4" y="4.4" width="19.2" height="15.2" rx="3" fill="${C.bg}" stroke="#8b98b1" stroke-width="1.4"/><path d="M6.4 9.4l3.2 2.6-3.2 2.6M11.8 15h5.4" fill="none" stroke="${C.teal}" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>`,
   books: `<rect x="3.6" y="4" width="5" height="16.4" rx="1.2" fill="${C.teal}"/><rect x="9.6" y="6.4" width="5" height="14" rx="1.2" fill="${C.cyan}"/><path d="M15.2 7.6l4.4-1.1 3 12.6-4.4 1.1z" fill="#fbbf24"/>`,
   spark: `<path d="M12 2.8l2.1 6.6 6.6 2.1-6.6 2.1L12 20.2l-2.1-6.6-6.6-2.1 6.6-2.1z" fill="${C.cyan}"/><circle cx="19" cy="5" r="1.6" fill="#fbbf24"/><circle cx="5" cy="19" r="1.2" fill="#fbbf24"/>`,
 };
@@ -379,17 +416,17 @@ Object.keys(EMOJI).forEach(emoji);
       <text x="596" y="${78 + i * 26}" font-family="${MONO}" font-size="13.5" opacity="0"><tspan fill="${C.muted}">${esc(p)}</tspan><tspan fill="${col}">${esc(t)}</tspan>
         <animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="${0.5 + i * 0.45}s" fill="freeze"/></text>`).join("");
   const B = card(574, 0, 320, 250, `
-    <path d="M574 18a18 18 0 0118-18h284a18 18 0 0118 18v16H574z" fill="#172036"/>
+    <path d="M574 18a18 18 0 0118-18h284a18 18 0 0118 18v16H574z" fill="${C.bg3}"/>
     <circle cx="596" cy="17" r="5" fill="#f87171"/><circle cx="614" cy="17" r="5" fill="#fbbf24"/><circle cx="632" cy="17" r="5" fill="#34d399"/>
     <text x="734" y="21" text-anchor="middle" font-family="${MONO}" font-size="11.5" fill="${C.muted}">abbad@dev — muster</text>
     ${termLines}
     <rect x="596" y="196" width="8" height="15" fill="${C.teal}"><animate attributeName="opacity" values="1;0;1" dur="1.1s" repeatCount="indefinite"/></rect>`);
 
   // C: now building
-  const dotColors = ["#d97757", "#9ca3af", "#4f8df7", "#e5e7eb", "#4d6bfe", "#1fb8cd", "#fa520f", "#f55036", "#8b7cf6", "#c4b5fd", "#6ee7b7", C.teal];
+  const dotColors = ["#d97757", "#9ca3af", "#4f8df7", C.fg, "#4d6bfe", "#1fb8cd", "#fa520f", "#f55036", "#8b7cf6", "#c4b5fd", "#6ee7b7", C.teal];
   const dots = dotColors.map((c, i) => `<circle cx="${936 + (i % 6) * 26}" cy="${152 + Math.floor(i / 6) * 26}" r="7" fill="${c}"><animate attributeName="r" values="7;8.5;7" dur="2.4s" begin="${i * 0.15}s" repeatCount="indefinite"/></circle>`).join("");
   const Ccard = card(908, 0, 292, 250, `
-    ${label(936, 38, "NOW BUILDING")}
+    ${label(936, 38, "LATEST SHIP")}
     ${em("rocket", 30, 1140, 22)}
     <text x="936" y="84" font-family="${SANS}" font-size="26" font-weight="800" fill="${C.text}" letter-spacing="-0.4">Muster</text>
     <text x="936" y="106" font-family="${MONO}" font-size="12" fill="${C.teal}">one prompt → 12 LLMs, side by side</text>
@@ -427,4 +464,6 @@ Object.keys(EMOJI).forEach(emoji);
 </svg>`);
 }
 
-console.log("assets written");
+};
+for (const [name, theme] of Object.entries(THEMES)) { DIR = name; C = theme; build(); }
+console.log("assets written (dark + light)");

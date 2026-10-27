@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="85" height="26" viewBox="0 0 85 26" role="img" aria-label="Node.js">
+  <rect x="0.5" y="0.5" width="84" height="25" rx="13" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <circle cx="14" cy="13" r="4" fill="#5fa04e"/>
+  <text x="25" y="17.5" font-family="ui-sans-serif,-apple-system,'Segoe UI',Inter,Roboto,Helvetica,Arial,sans-serif" font-size="12.5" font-weight="600" fill="#0f172a">Node.js</text>
+</svg>
