@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="472" height="86" viewBox="0 0 472 86" role="img" aria-label="JavaScript, Node.js, HTML, CSS, Bash, PowerShell">
+  
+    <g transform="translate(14 0)">
+      <rect width="64" height="64" rx="16" fill="#111a2e" stroke="#1e293b"/>
+      <rect x="1" y="1" width="62" height="62" rx="15" fill="none" stroke="#f7df1e" stroke-opacity="0.35"/>
+      <circle cx="32" cy="32" r="22" fill="#f7df1e" opacity="0.08"/>
+      <text x="32" y="39.92" text-anchor="middle" font-family="ui-monospace,'Cascadia Code','Fira Code',Consolas,'Liberation Mono',monospace" font-size="22" font-weight="700" fill="#f7df1e">JS</text>
+      <text x="32" y="80" text-anchor="middle" font-family="ui-sans-serif,-apple-system,'Segoe UI',Inter,Roboto,Helvetica,Arial,sans-serif" font-size="11.5" font-weight="600" fill="#8b98b1">JavaScript</text>
+    </g>
+    <g transform="translate(90 0)">
+      <rect width="64" height="64" rx="16" fill="#111a2e" stroke="#1e293b"/>
+      <rect x="1" y="1" width="62" height="62" rx="15" fill="none" stroke="#5fa04e" stroke-opacity="0.35"/>
+      <circle cx="32" cy="32" r="22" fill="#5fa04e" opacity="0.08"/>
+      <text x="32" y="37.4" text-anchor="middle" font-family="ui-monospace,'Cascadia Code','Fira Code',Consolas,'Liberation Mono',monospace" font-size="15" font-weight="700" fill="#5fa04e">node</text>
+      <text x="32" y="80" text-anchor="middle" font-family="ui-sans-serif,-apple-system,'Segoe UI',Inter,Roboto,Helvetica,Arial,sans-serif" font-size="11.5" font-weight="600" fill="#8b98b1">Node.js</text>
+    </g>
+    <g transform="translate(166 0)">
+      <rect width="64" height="64" rx="16" fill="#111a2e" stroke="#1e293b"/>
+      <rect x="1" y="1" width="62" height="62" rx="15" fill="none" stroke="#e34f26" stroke-opacity="0.35"/>
+      <circle cx="32" cy="32" r="22" fill="#e34f26" opacity="0.08"/>
+      <text x="32" y="39.92" text-anchor="middle" font-family="ui-monospace,'Cascadia Code','Fira Code',Consolas,'Liberation Mono',monospace" font-size="22" font-weight="700" fill="#e34f26">&lt;&gt;</text>
+      <text x="32" y="80" text-anchor="middle" font-family="ui-sans-serif,-apple-system,'Segoe UI',Inter,Roboto,Helvetica,Arial,sans-serif" font-size="11.5" font-weight="600" fill="#8b98b1">HTML</text>
+    </g>
+    <g transform="translate(242 0)">
+      <rect width="64" height="64" rx="16" fill="#111a2e" stroke="#1e293b"/>
+      <rect x="1" y="1" width="62" height="62" rx="15" fill="none" stroke="#3b82f6" stroke-opacity="0.35"/>
+      <circle cx="32" cy="32" r="22" fill="#3b82f6" opacity="0.08"/>
+      <text x="32" y="38.48" text-anchor="middle" font-family="ui-monospace,'Cascadia Code','Fira Code',Consolas,'Liberation Mono',monospace" font-size="18" font-weight="700" fill="#3b82f6">{ }</text>
+      <text x="32" y="80" text-anchor="middle" font-family="ui-sans-serif,-apple-system,'Segoe UI',Inter,Roboto,Helvetica,Arial,sans-serif" font-size="11.5" font-weight="600" fill="#8b98b1">CSS</text>
+    </g>
+    <g transform="translate(318 0)">
+      <rect width="64" height="64" rx="16" fill="#111a2e" stroke="#1e293b"/>
+      <rect x="1" y="1" width="62" height="62" rx="15" fill="none" stroke="#4eaa25" stroke-opacity="0.35"/>
+      <circle cx="32" cy="32" r="22" fill="#4eaa25" opacity="0.08"/>
+      <text x="32" y="39.92" text-anchor="middle" font-family="ui-monospace,'Cascadia Code','Fira Code',Consolas,'Liberation Mono',monospace" font-size="22" font-weight="700" fill="#4eaa25">$_</text>
+      <text x="32" y="80" text-anchor="middle" font-family="ui-sans-serif,-apple-system,'Segoe UI',Inter,Roboto,Helvetica,Arial,sans-serif" font-size="11.5" font-weight="600" fill="#8b98b1">Bash</text>
+    </g>
+    <g transform="translate(394 0)">
+      <rect width="64" height="64" rx="16" fill="#111a2e" stroke="#1e293b"/>
+      <rect x="1" y="1" width="62" height="62" rx="15" fill="none" stroke="#5391fe" stroke-opacity="0.35"/>
+      <circle cx="32" cy="32" r="22" fill="#5391fe" opacity="0.08"/>
+      <text x="32" y="38.48" text-anchor="middle" font-family="ui-monospace,'Cascadia Code','Fira Code',Consolas,'Liberation Mono',monospace" font-size="18" font-weight="700" fill="#5391fe">PS&gt;</text>
+      <text x="32" y="80" text-anchor="middle" font-family="ui-sans-serif,-apple-system,'Segoe UI',Inter,Roboto,Helvetica,Arial,sans-serif" font-size="11.5" font-weight="600" fill="#8b98b1">PowerShell</text>
+    </g>
+</svg>

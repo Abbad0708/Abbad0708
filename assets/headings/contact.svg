@@ -1,7 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="720" height="52" viewBox="0 0 720 52" role="img" aria-label="Contact">
-  <defs><linearGradient id="a" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#14b8a6"/><stop offset="1" stop-color="#22d3ee"/></linearGradient></defs>
-  <rect x="0" y="8" width="36" height="36" rx="9" fill="url(#a)"/>
-  <text x="18" y="33" text-anchor="middle" font-family="ui-monospace,'Cascadia Code','Fira Code',Consolas,'Liberation Mono',monospace" font-size="17" font-weight="700" fill="#06201e">@</text>
+  <defs><linearGradient id="tileGrad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#14b8a6"/><stop offset="1" stop-color="#22d3ee"/></linearGradient></defs>
+  
+  <g transform="translate(0 8)">
+    <rect width="36" height="36" rx="9.36" fill="url(#tileGrad)"/>
+    <g transform="translate(6.12 6.12) scale(0.9900000000000001)" fill="none" stroke="#06201e" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="6" width="17" height="12.5" rx="2.5"/><path d="M4 7.5l8 6 8-6"/></g>
+  </g>
   <text x="52" y="35" font-family="ui-sans-serif,-apple-system,'Segoe UI',Inter,Roboto,Helvetica,Arial,sans-serif" font-size="26" font-weight="700" fill="#0f172a" letter-spacing="-0.3">Contact</text>
   <rect x="162" y="26" width="558" height="1.5" fill="#e2e8f0"/>
 </svg>
