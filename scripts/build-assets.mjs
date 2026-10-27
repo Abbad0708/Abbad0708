@@ -73,41 +73,16 @@ const tile = (name, size, x = 0, y = 0, radius = size * 0.26) => `
 const TILE_GRAD = `<linearGradient id="tileGrad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="${C.teal}"/><stop offset="1" stop-color="${C.cyan}"/></linearGradient>`;
 
 /* -------------------------------------------------------------- headings */
-// Duotone illustrations (ink + white + amber) for the section headings, 24-unit grid.
-const AMBER = "#fbbf24";
-const DUO = {
-  badge: `<rect x="4" y="4" width="16" height="17" rx="2.6" fill="${INK}"/><rect x="9.5" y="2" width="5" height="3.6" rx="1.2" fill="${AMBER}"/><circle cx="12" cy="11" r="2.7" fill="#fff"/><path d="M7.3 18.4c0-2.4 2.1-3.9 4.7-3.9s4.7 1.5 4.7 3.9z" fill="#fff"/>`,
-  cube: `<path d="M12 2.6l7.5 4.2L12 11 4.5 6.8z" fill="#fff"/><path d="M4.5 6.8v8.4l7.5 4.2V11z" fill="${INK}"/><path d="M19.5 6.8v8.4L12 19.4V11z" fill="${AMBER}"/><path d="M4.5 18.2l7.5 3.2 7.5-3.2" fill="none" stroke="${INK}" stroke-width="1.6" stroke-linecap="round" opacity="0.6"/>`,
-  trophy: `<path d="M7.5 3.5h9v5.2a4.5 4.5 0 01-9 0z" fill="${AMBER}"/><path d="M7.5 5H4.8c0 2.7 1.2 4.4 3.2 4.8M16.5 5h2.7c0 2.7-1.2 4.4-3.2 4.8" fill="none" stroke="${AMBER}" stroke-width="1.6" stroke-linecap="round"/><path d="M12 13.2v3" stroke="${INK}" stroke-width="2.2" stroke-linecap="round"/><rect x="8" y="16" width="8" height="2.6" rx="1.1" fill="${INK}"/><rect x="6" y="18.8" width="12" height="2.4" rx="1.2" fill="#fff"/><path d="M10.5 6.5l1-1.5 1 1.5" fill="none" stroke="${INK}" stroke-width="1.2" opacity="0.5"/>`,
-  trend: `<g fill="${INK}"><rect x="3.5" y="13" width="3.4" height="8" rx="1.1"/><rect x="8.8" y="10" width="3.4" height="11" rx="1.1"/><rect x="14.1" y="12" width="3.4" height="9" rx="1.1"/></g><path d="M4 9.5l5-4 4.6 3 5.4-5" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19.6" cy="3.2" r="2" fill="${AMBER}"/>`,
-  plane: `<path d="M3 10.8L21 3.5l-5.2 17-4.3-6.2z" fill="#fff"/><path d="M21 3.5L11.5 14.3" stroke="${INK}" stroke-width="1.5" stroke-linecap="round"/><path d="M3 10.8l8.5 3.5" stroke="${INK}" stroke-width="1.2" opacity="0.5"/><path d="M11.5 14.3l-.8 5.2 2.8-3.1" fill="${AMBER}"/>`,
-  rocket: `<path d="M12 2.5c3.2 2.6 4.8 6.3 4.8 11L14.4 17H9.6l-2.4-3.5C7.2 8.8 8.8 5.1 12 2.5z" fill="#fff"/><circle cx="12" cy="10.2" r="2.1" fill="${INK}"/><path d="M7.4 13.3L4.8 17.6l3.7-.9zM16.6 13.3l2.6 4.3-3.7-.9z" fill="${AMBER}"/><path d="M10 17.4h4L12 21.5z" fill="${AMBER}"/>`,
-  briefcase: `<rect x="3" y="7.5" width="18" height="12.5" rx="2.6" fill="${INK}"/><path d="M9 7.5V5.6A1.6 1.6 0 0110.6 4h2.8A1.6 1.6 0 0115 5.6v1.9" fill="none" stroke="${INK}" stroke-width="1.8"/><rect x="3" y="11.2" width="18" height="1.8" fill="#fff" opacity="0.9"/><rect x="9.8" y="10.2" width="4.4" height="3.8" rx="1" fill="${AMBER}"/>`,
-  cap: `<path d="M12 4l10 4.6-10 4.6L2 8.6z" fill="#fff"/><path d="M6 11.3v4.2c0 1.6 2.7 2.9 6 2.9s6-1.3 6-2.9v-4.2L12 14z" fill="${INK}"/><path d="M20.4 9.2v5.6" stroke="${AMBER}" stroke-width="1.8" stroke-linecap="round"/><circle cx="20.4" cy="16.4" r="1.7" fill="${AMBER}"/>`,
+// Section headings: one stroked line icon in an accent colour beside bold 24px text. 42px tall.
+const AMBER = "#F59E0B";
+const heading = (slug, title, color, icon) => {
+  const w = 42 + Math.ceil(title.length * 24 * 0.56) + 10;
+  out(`headings/${slug}.svg`, `
+<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="42" viewBox="0 0 ${w} 42" fill="none" role="img" aria-label="${esc(title)}"><g transform="translate(2.0,6.0) scale(1.25)" stroke="${color}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">${icon}</g><text x="42" y="29.4" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="24" font-weight="700" fill="${C.text}">${esc(title)}</text></svg>`);
 };
-const tileDuo = (name, size, x = 0, y = 0) => `
-  <g transform="translate(${x} ${y})">
-    <rect x="-3" y="-3" width="${size + 6}" height="${size + 6}" rx="${size * 0.3}" fill="${C.teal}" opacity="0.16"/>
-    <rect width="${size}" height="${size}" rx="${size * 0.26}" fill="url(#tileGrad)"/>
-    <g transform="translate(${size * 0.16} ${size * 0.16}) scale(${(size * 0.68) / 24})">${DUO[name]}</g>
-  </g>`;
-const heading = (slug, title, tagline, glyph) => {
-  {
-    const text = C.text, sub = C.muted, rule = C.line;
-    const tx = 58, tw = wSans(title, 27);
-    out(`headings/${slug}.svg`, `
-<svg xmlns="http://www.w3.org/2000/svg" width="720" height="60" viewBox="0 0 720 60" role="img" aria-label="${esc(title)}: ${esc(tagline)}">
-  <defs>${TILE_GRAD}</defs>
-  ${tileDuo(glyph, 40, 4, 10)}
-  <text x="${tx}" y="39" font-family="${SANS}" font-size="27" font-weight="800" fill="${text}" letter-spacing="-0.5">${esc(title)}</text>
-  <text x="${tx + tw + 14}" y="38" font-family="${MONO}" font-size="12.5" fill="${sub}">${esc(tagline)}</text>
-  <rect x="${tx + tw + 20 + wMono(tagline, 12.5)}" y="30" width="${Math.max(30, 720 - (tx + tw + 20 + wMono(tagline, 12.5)))}" height="1.5" fill="${rule}"/>
-</svg>`);
-  }
-};
-heading("about", "About", "// who I am", "badge");
-heading("work", "Featured work", "// what I've shipped", "rocket");
-heading("stack", "Stack", "// what I build with", "cube");
+heading("about", "About", "#14B8A6", `<circle cx="12" cy="12" r="9"/><path d="M15.6 8.4l-2.2 4.9-4.9 2.2 2.2-4.9z"/><circle cx="12" cy="12" r="0.6" fill="#14B8A6" stroke="none"/>`);
+heading("stack", "Tech Stack", "#6366F1", `<path d="M12 3 21 8 12 13 3 8Z"/><path d="M3 12 12 17 21 12"/><path d="M3 16 12 21 21 16"/>`);
+heading("work", "Featured Work", AMBER, `<path d="M12 2C13 8 16 11 22 12 16 13 13 16 12 22 11 16 8 13 2 12 8 11 11 8 12 2Z" fill="${AMBER}" stroke="none"/>`);
 
 // Flat contact badges in the reference profile's exact style: 20px, square corners, solid brand
 // colour, white logo and Verdana text; a 28px uppercase call-to-action for the bottom.
@@ -167,12 +142,18 @@ const lum = (h) => {
   const x = h.replace("#", ""); const [r, g, b] = [0, 2, 4].map((i) => parseInt(x.slice(i, i + 2), 16) / 255).map((v) => (v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4));
   return 0.2126 * r + 0.7152 * g + 0.0722 * b;
 };
-for (const [key, { title, hex, path }] of Object.entries(BRAND)) {
-  const fill = DIR === "dark" && lum(hex) < 0.12 ? C.text : hex;
+for (const [key, entry] of Object.entries(BRAND)) {
+  const { title } = entry;
+  if (entry.inner) { // full-colour original artwork; currentColor follows the theme's text colour
+    out(`stack/${key}.svg`, `
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="${entry.viewBox}" fill="currentColor" color="${C.text}" role="img" aria-label="${esc(title)}">${entry.inner}</svg>`);
+    continue;
+  }
+  const fill = DIR === "dark" && lum(entry.hex) < 0.12 ? C.text : entry.hex;
   out(`stack/${key}.svg`, `
-<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" role="img" aria-label="${esc(title)}"><path fill="${fill}" d="${path}"/></svg>`);
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" role="img" aria-label="${esc(title)}"><path fill="${fill}" d="${entry.path}"/></svg>`);
 }
-for (const key of ["powershell", "vscode", "windows", "sql", "ml", "api", "llm", "prompt", "openai", "excel", "tableau", "powerbi"]) {
+for (const key of ["powershell", "vscode", "windows", "sql", "ml", "api", "llm", "prompt", "excel", "tableau", "powerbi"]) {
   if (BRAND[key]) continue;
   out(`stack/${key}.svg`, `
 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" role="img" aria-hidden="true">${TECH[key]}</svg>`);

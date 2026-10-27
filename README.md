@@ -14,7 +14,7 @@
 
 <br/>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/headings/about.svg" /><img src="assets/light/headings/about.svg" alt="About" width="720" /></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/headings/about.svg" /><img src="assets/light/headings/about.svg" height="42" alt="About" /></picture>
 
 I work on the part of machine learning that decides whether a number can be trusted: the splits, the labels, and what the model is actually learning. I am an ICS student in Lahore, and this summer I was an ML engineering intern at FlyRank AI, where my ranker replaced a hand-written rule in production.
 
@@ -26,7 +26,7 @@ I work on the part of machine learning that decides whether a number can be trus
 
 <br/>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/headings/stack.svg" /><img src="assets/light/headings/stack.svg" alt="Stack" width="720" /></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/headings/stack.svg" /><img src="assets/light/headings/stack.svg" height="42" alt="Tech Stack" /></picture>
 
 <table>
   <tr>
@@ -103,7 +103,7 @@ I work on the part of machine learning that decides whether a number can be trus
 
 <br/>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/headings/work.svg" /><img src="assets/light/headings/work.svg" alt="Featured work" width="720"/></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/headings/work.svg" /><img src="assets/light/headings/work.svg" height="42" alt="Featured Work" /></picture>
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/headings/h-muster.svg" /><img src="assets/light/headings/h-muster.svg" height="36" alt="Muster · LLM Comparison Tool"/></picture>
 
