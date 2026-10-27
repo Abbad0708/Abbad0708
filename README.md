@@ -8,33 +8,64 @@
 
 <p align="center">
 <a href="https://www.linkedin.com/in/muhammad-abbadurrehman/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/b-linkedin.svg" /><img src="assets/light/badges/b-linkedin.svg" alt="LinkedIn" height="34" /></picture></a>&nbsp;&nbsp;
-<a href="mailto:m.abbad0708@gmail.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/b-email.svg" /><img src="assets/light/badges/b-email.svg" alt="Email m.abbad0708@gmail.com" height="34" /></picture></a>
+<a href="mailto:m.abbad0708@gmail.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/b-email.svg" /><img src="assets/light/badges/b-email.svg" alt="Email m.abbad0708@gmail.com" height="34" /></picture></a>&nbsp;&nbsp;
+<img src="https://komarev.com/ghpvc/?username=Abbad0708&style=for-the-badge&color=14b8a6&labelColor=0b1220&label=profile+views" alt="Profile views" height="34" />
 </p>
 
 <br/>
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/headings/about.svg" /><img src="assets/light/headings/about.svg" alt="About" width="720" /></picture>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/emoji/wave.svg" /><img src="assets/light/emoji/wave.svg" width="28" height="28" align="top" alt="" /></picture>&nbsp; **Hi, I'm Abbad.** An ICS student in Lahore who turns curiosity into software people can actually run. This summer I was an ML engineering intern at **FlyRank AI**, where I built the model that decides which of 30,000 decaying pages an editor should look at first. Before that I built **Muster**, a self-hosted tool that puts twelve LLMs side by side so you can measure them instead of arguing about them.
+I work on the part of machine learning that decides whether a number can be trusted: the splits, the labels, and what the model is actually learning. I am an ICS student in Lahore, and this summer I was an ML engineering intern at FlyRank AI, where my ranker replaced a hand-written rule in production.
 
-I like honest validation, small surface areas, few dependencies, and data that stays on the user's own machine.
+```text
+→  Applied ML on real product data   ·  ranking, leakage-proof validation, Python, DuckDB
+→  Self-hosted developer tools        ·  Muster puts 12 LLMs side by side, no build step, chats stay local
+→  Learning next                      ·  C++, deeper Python, and the maths underneath the models
+```
+
+<br/>
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/headings/stack.svg" /><img src="assets/light/headings/stack.svg" alt="Stack" width="720" /></picture>
 
 <table>
   <tr>
-    <td width="40" valign="top"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/emoji/bolt.svg" /><img src="assets/light/emoji/bolt.svg" width="28" height="28" alt="" /></picture></td>
-    <td><strong>Latest</strong> &nbsp;·&nbsp; a content-decay ranker at FlyRank AI: 0.80 precision@50 against the 0.61 rule it replaced</td>
+    <td width="50%" valign="top">
+      <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/cat-data.svg" /><img src="assets/light/stack/cat-data.svg" width="18" height="18" align="absmiddle" alt=""/></picture>&nbsp; <strong>Data &amp; Machine Learning</strong></p>
+      <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/python.svg" /><img src="assets/light/stack/python.svg" width="40" height="40" alt="Python" title="Python"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/sql.svg" /><img src="assets/light/stack/sql.svg" width="40" height="40" alt="SQL" title="SQL"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/duckdb.svg" /><img src="assets/light/stack/duckdb.svg" width="40" height="40" alt="DuckDB" title="DuckDB"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/ml.svg" /><img src="assets/light/stack/ml.svg" width="40" height="40" alt="ML models" title="ML models"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/cpp.svg" /><img src="assets/light/stack/cpp.svg" width="40" height="40" alt="C++" title="C++"/></picture></p>
+    </td>
+    <td width="50%" valign="top">
+      <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/cat-web.svg" /><img src="assets/light/stack/cat-web.svg" width="18" height="18" align="absmiddle" alt=""/></picture>&nbsp; <strong>Web &amp; Shell</strong></p>
+      <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/js.svg" /><img src="assets/light/stack/js.svg" width="40" height="40" alt="JavaScript" title="JavaScript"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/node.svg" /><img src="assets/light/stack/node.svg" width="40" height="40" alt="Node.js" title="Node.js"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/html.svg" /><img src="assets/light/stack/html.svg" width="40" height="40" alt="HTML" title="HTML"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/css.svg" /><img src="assets/light/stack/css.svg" width="40" height="40" alt="CSS" title="CSS"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/bash.svg" /><img src="assets/light/stack/bash.svg" width="40" height="40" alt="Bash" title="Bash"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/powershell.svg" /><img src="assets/light/stack/powershell.svg" width="40" height="40" alt="PowerShell" title="PowerShell"/></picture></p>
+    </td>
   </tr>
   <tr>
-    <td valign="top"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/emoji/rocket.svg" /><img src="assets/light/emoji/rocket.svg" width="28" height="28" alt="" /></picture></td>
-    <td><strong>Shipped</strong> &nbsp;·&nbsp; <a href="https://github.com/Abbad0708/Muster">Muster</a>, one prompt to up to 12 LLMs, answers side by side, chats stored locally</td>
-  </tr>
-  <tr>
-    <td valign="top"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/emoji/sprout.svg" /><img src="assets/light/emoji/sprout.svg" width="28" height="28" alt="" /></picture></td>
-    <td><strong>Learning</strong> &nbsp;·&nbsp; C++, deeper Python and applied ML, local-first application design</td>
-  </tr>
-  <tr>
-    <td valign="top"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/emoji/chat.svg" /><img src="assets/light/emoji/chat.svg" width="28" height="28" alt="" /></picture></td>
-    <td><strong>Ask me about</strong> &nbsp;·&nbsp; why a 0.96 validation score can be a bug, comparing LLM providers fairly, SQLite and DuckDB as the whole database</td>
+    <td width="50%" valign="top">
+      <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/cat-backend.svg" /><img src="assets/light/stack/cat-backend.svg" width="18" height="18" align="absmiddle" alt=""/></picture>&nbsp; <strong>Backend &amp; Data</strong></p>
+      <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/express.svg" /><img src="assets/light/stack/express.svg" width="40" height="40" alt="Express" title="Express"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/sqlite.svg" /><img src="assets/light/stack/sqlite.svg" width="40" height="40" alt="SQLite" title="SQLite"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/npm.svg" /><img src="assets/light/stack/npm.svg" width="40" height="40" alt="npm" title="npm"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/api.svg" /><img src="assets/light/stack/api.svg" width="40" height="40" alt="REST APIs" title="REST APIs"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/llm.svg" /><img src="assets/light/stack/llm.svg" width="40" height="40" alt="LLM SDKs" title="LLM SDKs"/></picture></p>
+    </td>
+    <td width="50%" valign="top">
+      <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/cat-workflow.svg" /><img src="assets/light/stack/cat-workflow.svg" width="18" height="18" align="absmiddle" alt=""/></picture>&nbsp; <strong>Tools &amp; Workflow</strong></p>
+      <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/git.svg" /><img src="assets/light/stack/git.svg" width="40" height="40" alt="Git" title="Git"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/github.svg" /><img src="assets/light/stack/github.svg" width="40" height="40" alt="GitHub" title="GitHub"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/actions.svg" /><img src="assets/light/stack/actions.svg" width="40" height="40" alt="GitHub Actions" title="GitHub Actions"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/vscode.svg" /><img src="assets/light/stack/vscode.svg" width="40" height="40" alt="VS Code" title="VS Code"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/markdown.svg" /><img src="assets/light/stack/markdown.svg" width="40" height="40" alt="Markdown" title="Markdown"/></picture>&nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/windows.svg" /><img src="assets/light/stack/windows.svg" width="40" height="40" alt="Windows" title="Windows"/></picture></p>
+    </td>
   </tr>
 </table>
 
@@ -105,55 +136,6 @@ I like honest validation, small surface areas, few dependencies, and data that s
 </p>
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/emoji/terminal.svg" /><img src="assets/light/emoji/terminal.svg" width="28" height="28" align="top" alt="" /></picture>&nbsp; **Version 1 is out and open source.** `npm install && npm start`, open `localhost:3000`, add the API keys you have, start comparing.
-
-<br/>
-
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/headings/stack.svg" /><img src="assets/light/headings/stack.svg" alt="Stack" width="720" /></picture>
-
-<table>
-  <tr>
-    <td width="130" valign="middle"><strong>Data &amp; ML</strong></td>
-    <td valign="middle">
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/python.svg" /><img src="assets/light/stack/python.svg" width="36" height="36" align="absmiddle" alt="" /></picture> Python &nbsp;&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/sql.svg" /><img src="assets/light/stack/sql.svg" width="36" height="36" align="absmiddle" alt="" /></picture> SQL &nbsp;&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/duckdb.svg" /><img src="assets/light/stack/duckdb.svg" width="36" height="36" align="absmiddle" alt="" /></picture> DuckDB &nbsp;&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/ml.svg" /><img src="assets/light/stack/ml.svg" width="36" height="36" align="absmiddle" alt="" /></picture> ML models &nbsp;&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/cpp.svg" /><img src="assets/light/stack/cpp.svg" width="36" height="36" align="absmiddle" alt="" /></picture> C++
-    </td>
-  </tr>
-  <tr>
-    <td valign="middle"><strong>Web &amp; shell</strong></td>
-    <td valign="middle">
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/js.svg" /><img src="assets/light/stack/js.svg" width="36" height="36" align="absmiddle" alt="" /></picture> JavaScript &nbsp;&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/node.svg" /><img src="assets/light/stack/node.svg" width="36" height="36" align="absmiddle" alt="" /></picture> Node.js &nbsp;&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/html.svg" /><img src="assets/light/stack/html.svg" width="36" height="36" align="absmiddle" alt="" /></picture> HTML &nbsp;&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/css.svg" /><img src="assets/light/stack/css.svg" width="36" height="36" align="absmiddle" alt="" /></picture> CSS &nbsp;&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/bash.svg" /><img src="assets/light/stack/bash.svg" width="36" height="36" align="absmiddle" alt="" /></picture> Bash &nbsp;&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/powershell.svg" /><img src="assets/light/stack/powershell.svg" width="36" height="36" align="absmiddle" alt="" /></picture> PowerShell
-    </td>
-  </tr>
-  <tr>
-    <td valign="middle"><strong>Backend</strong></td>
-    <td valign="middle">
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/express.svg" /><img src="assets/light/stack/express.svg" width="36" height="36" align="absmiddle" alt="" /></picture> Express &nbsp;&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/sqlite.svg" /><img src="assets/light/stack/sqlite.svg" width="36" height="36" align="absmiddle" alt="" /></picture> SQLite &nbsp;&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/npm.svg" /><img src="assets/light/stack/npm.svg" width="36" height="36" align="absmiddle" alt="" /></picture> npm &nbsp;&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/api.svg" /><img src="assets/light/stack/api.svg" width="36" height="36" align="absmiddle" alt="" /></picture> REST APIs &nbsp;&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/llm.svg" /><img src="assets/light/stack/llm.svg" width="36" height="36" align="absmiddle" alt="" /></picture> LLM SDKs
-    </td>
-  </tr>
-  <tr>
-    <td valign="middle"><strong>Workflow</strong></td>
-    <td valign="middle">
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/git.svg" /><img src="assets/light/stack/git.svg" width="36" height="36" align="absmiddle" alt="" /></picture> Git &nbsp;&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/github.svg" /><img src="assets/light/stack/github.svg" width="36" height="36" align="absmiddle" alt="" /></picture> GitHub &nbsp;&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/actions.svg" /><img src="assets/light/stack/actions.svg" width="36" height="36" align="absmiddle" alt="" /></picture> Actions &nbsp;&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/vscode.svg" /><img src="assets/light/stack/vscode.svg" width="36" height="36" align="absmiddle" alt="" /></picture> VS Code &nbsp;&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/markdown.svg" /><img src="assets/light/stack/markdown.svg" width="36" height="36" align="absmiddle" alt="" /></picture> Markdown &nbsp;&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/windows.svg" /><img src="assets/light/stack/windows.svg" width="36" height="36" align="absmiddle" alt="" /></picture> Windows
-    </td>
-  </tr>
-</table>
 
 <br/>
 
