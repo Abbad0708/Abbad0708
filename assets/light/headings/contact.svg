@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="60" viewBox="0 0 720 60" role="img" aria-label="Contact: // say hello">
+  <defs><linearGradient id="tileGrad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#0d9488"/><stop offset="1" stop-color="#0891b2"/></linearGradient></defs>
+  
+  <g transform="translate(4 10)">
+    <rect x="-3" y="-3" width="46" height="46" rx="12" fill="#0d9488" opacity="0.16"/>
+    <rect width="40" height="40" rx="10.4" fill="url(#tileGrad)"/>
+    <g transform="translate(6.4 6.4) scale(1.1333333333333335)"><path d="M3 10.8L21 3.5l-5.2 17-4.3-6.2z" fill="#fff"/><path d="M21 3.5L11.5 14.3" stroke="#06201e" stroke-width="1.5" stroke-linecap="round"/><path d="M3 10.8l8.5 3.5" stroke="#06201e" stroke-width="1.2" opacity="0.5"/><path d="M11.5 14.3l-.8 5.2 2.8-3.1" fill="#fbbf24"/></g>
+  </g>
+  <text x="58" y="39" font-family="ui-sans-serif,-apple-system,'Segoe UI',Inter,Roboto,Helvetica,Arial,sans-serif" font-size="27" font-weight="800" fill="#0f172a" letter-spacing="-0.5">Contact</text>
+  <text x="182" y="38" font-family="ui-monospace,'Cascadia Code','Fira Code',Consolas,'Liberation Mono',monospace" font-size="12.5" fill="#64748b">// say hello</text>
+  <rect x="281" y="30" width="439" height="1.5" fill="#cbd5e1"/>
+</svg>

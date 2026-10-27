@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="60" viewBox="0 0 720 60" role="img" aria-label="Stack: // what I build with">
+  <defs><linearGradient id="tileGrad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#14b8a6"/><stop offset="1" stop-color="#22d3ee"/></linearGradient></defs>
+  
+  <g transform="translate(4 10)">
+    <rect x="-3" y="-3" width="46" height="46" rx="12" fill="#14b8a6" opacity="0.16"/>
+    <rect width="40" height="40" rx="10.4" fill="url(#tileGrad)"/>
+    <g transform="translate(6.4 6.4) scale(1.1333333333333335)"><path d="M12 2.6l7.5 4.2L12 11 4.5 6.8z" fill="#fff"/><path d="M4.5 6.8v8.4l7.5 4.2V11z" fill="#06201e"/><path d="M19.5 6.8v8.4L12 19.4V11z" fill="#fbbf24"/><path d="M4.5 18.2l7.5 3.2 7.5-3.2" fill="none" stroke="#06201e" stroke-width="1.6" stroke-linecap="round" opacity="0.6"/></g>
+  </g>
+  <text x="58" y="39" font-family="ui-sans-serif,-apple-system,'Segoe UI',Inter,Roboto,Helvetica,Arial,sans-serif" font-size="27" font-weight="800" fill="#e5eaf3" letter-spacing="-0.5">Stack</text>
+  <text x="151" y="38" font-family="ui-monospace,'Cascadia Code','Fira Code',Consolas,'Liberation Mono',monospace" font-size="12.5" fill="#8b98b1">// what I build with</text>
+  <rect x="312" y="30" width="408" height="1.5" fill="#1e293b"/>
+</svg>
