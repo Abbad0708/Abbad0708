@@ -103,32 +103,43 @@ I work on the part of machine learning that decides whether a number can be trus
 
 <br/>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/headings/work.svg" /><img src="assets/light/headings/work.svg" alt="Featured work" width="720" /></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/headings/work.svg" /><img src="assets/light/headings/work.svg" alt="Featured work" width="720"/></picture>
 
-<a href="https://github.com/Abbad0708/Muster"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/headings/h-muster.svg" /><img src="assets/light/headings/h-muster.svg" alt="Muster: one prompt, up to 12 LLMs, answers side by side" width="720" /></picture></a>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/headings/h-muster.svg" /><img src="assets/light/headings/h-muster.svg" height="36" alt="Muster · LLM Comparison Tool"/></picture>
 
-*To muster: to gather and assemble.* A local, single-user web app for comparing language models honestly. Every model answers in its own column, and on follow-up turns each model sees **only its own history**, never the other models' answers, so the comparison stays a fair test instead of a group chat.
+*A self-hosted web app that sends one prompt to up to twelve LLMs and lays the answers out side by side, so model choice is measured instead of argued.*
 
-- Twelve providers through four adapters: Claude, GPT, Gemini, Grok, DeepSeek, Perplexity, Mistral, Llama (Groq), Qwen, Kimi, Command and OpenRouter
-- Answers render as real Markdown, Perplexity citations become links, truncated cards say so, and a single failed model can be retried alone
-- Every chat lives in one SQLite file on disk and is fully searchable; no sign-in, no telemetry, no build step
-- Plain HTML and JavaScript on Node 22 and Express, with a custom DOM-based Markdown renderer and tests that use mock providers and a headless browser
+Wired **12 providers** (Claude, GPT, Gemini, Grok, DeepSeek, Perplexity, Mistral, Llama via Groq, Qwen, Kimi, Command and OpenRouter) through **4 adapters** on a **Node.js 22** and **Express** backend, with every chat kept in a local **SQLite** file and **full-text search** across all prompts and answers. On follow-up turns each model sees **only its own history**, never the others' replies, so the comparison stays a **fair test**. Answers render as real **Markdown** through a custom **DOM-based renderer** (no `innerHTML`), **Perplexity citations** become links, cards that hit a token limit are flagged, and a single failed model can be **retried alone**. Plain HTML and JavaScript frontend with **no build step**; tests run against **mock providers** and a **headless browser**.
 
-<p>
-  <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/m-providers.svg" /><img src="assets/light/badges/m-providers.svg" alt="12 providers" height="28" /></picture>
-  <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/m-build.svg" /><img src="assets/light/badges/m-build.svg" alt="No build step" height="28" /></picture>
-  <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/m-data.svg" /><img src="assets/light/badges/m-data.svg" alt="Chats stored locally" height="28" /></picture>
-</p>
-<p>
-  <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/t-node.svg" /><img src="assets/light/badges/t-node.svg" alt="Node.js" height="26" /></picture>
-  <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/t-express.svg" /><img src="assets/light/badges/t-express.svg" alt="Express" height="26" /></picture>
-  <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/t-sqlite.svg" /><img src="assets/light/badges/t-sqlite.svg" alt="node:sqlite" height="26" /></picture>
-  <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/t-vanilla.svg" /><img src="assets/light/badges/t-vanilla.svg" alt="Vanilla JavaScript" height="26" /></picture>
-  <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/t-html.svg" /><img src="assets/light/badges/t-html.svg" alt="HTML and CSS" height="26" /></picture>
-  <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/t-llm.svg" /><img src="assets/light/badges/t-llm.svg" alt="LLM provider SDKs" height="26" /></picture>
-</p>
+![Providers 12](assets/light/badges/m-providers.svg)
+![Build step none](assets/light/badges/m-build.svg)
+![Chats stored locally](assets/light/badges/m-local.svg)
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/emoji/terminal.svg" /><img src="assets/light/emoji/terminal.svg" width="28" height="28" align="top" alt="" /></picture>&nbsp; **Version 1 is out and open source.** `npm install && npm start`, open `localhost:3000`, add the API keys you have, start comparing.
+![Node.js](assets/light/badges/t-node.svg)
+![Express](assets/light/badges/t-express.svg)
+![SQLite](assets/light/badges/t-sqlite.svg)
+![JavaScript](assets/light/badges/t-javascript.svg)
+
+> <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/emoji/terminal.svg" /><img src="assets/light/emoji/terminal.svg" width="20" height="20" align="absmiddle" alt=""/></picture> Open source, version 1 released: [github.com/Abbad0708/Muster](https://github.com/Abbad0708/Muster)
+
+<br/>
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/headings/h-ranker.svg" /><img src="assets/light/headings/h-ranker.svg" height="36" alt="Content-Decay Ranker · FlyRank AI"/></picture>
+
+*A ranked review queue that tells editors which of 30,000 decaying pages to open first, replacing the hand-written rule that was running in production.*
+
+Ranked **30,000 pages from 32 client sites** on anonymised **Search Console** and **Analytics** data. The first model scored **0.96** and was thrown out: random row splits let the same client sit on both sides, so it was learning **who the client was**, not whether the page was dying. Split **by client** and it fell to **0.80**, the honest number. A feature built deliberately from the label window scored a perfect **1.000**, proof the harness catches leaks. Rebuilt the label **forward-looking** on the full **79-million-row** release in **DuckDB** to confirm the framing held on data never trained on. Final, on identical client-grouped splits: **0.80 precision@50** for the **random forest** against **0.61** for the production rule and a **0.49** base rate, winning **7 splits of 8**, roughly **12 more genuinely declining pages per editor-week**. Every row ships with a **reason code** so editors can argue back, plus **retrain and review triggers** with exact thresholds.
+
+![precision@50 0.80](assets/light/badges/m-p50.svg)
+![Production rule 0.61](assets/light/badges/m-rule.svg)
+![Splits won 7 of 8](assets/light/badges/m-splits.svg)
+
+![Python](assets/light/badges/t-python.svg)
+![DuckDB](assets/light/badges/t-duckdb.svg)
+![Random forest](assets/light/badges/t-rf.svg)
+![Search Console data](assets/light/badges/t-gsc.svg)
+
+> <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/emoji/briefcase.svg" /><img src="assets/light/emoji/briefcase.svg" width="20" height="20" align="absmiddle" alt=""/></picture> Built in a professional setting (ML engineering internship, Jul–Aug 2026)
 
 <br/>
 

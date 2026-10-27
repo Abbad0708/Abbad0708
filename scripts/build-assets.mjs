@@ -110,58 +110,6 @@ heading("work", "Featured work", "// what I've shipped", "rocket");
 heading("stack", "Stack", "// what I build with", "cube");
 heading("contact", "Contact", "// say hello", "plane");
 
-/* ------------------------------------------------------- project headings */
-// Title lockup for a featured project: a gradient tile with its own mark, name and one-line pitch.
-const projectHeading = (slug, title, pitch, markSvg) => out(`headings/h-${slug}.svg`, `
-<svg xmlns="http://www.w3.org/2000/svg" width="720" height="64" viewBox="0 0 720 64" role="img" aria-label="${esc(title)}: ${esc(pitch)}">
-  <defs>${TILE_GRAD}</defs>
-  <rect x="0" y="8" width="48" height="48" rx="12" fill="url(#tileGrad)"/>
-  <g fill="${INK}">${markSvg}</g>
-  <text x="64" y="32" font-family="${SANS}" font-size="28" font-weight="800" fill="${C.text}" letter-spacing="-0.4">${esc(title)}</text>
-  <text x="64" y="54" font-family="${MONO}" font-size="13" fill="${C.muted}">${esc(pitch)}</text>
-</svg>`);
-projectHeading("muster", "Muster", "one prompt  →  up to 12 LLMs  →  answers side by side",
-  `<rect x="11" y="20" width="7" height="24" rx="2"/><rect x="20.5" y="26" width="7" height="18" rx="2"/><rect x="30" y="16" width="7" height="28" rx="2"/>`);
-
-/* ------------------------------------------------------------ chips */
-// Two-tone metric chip: LABEL | value
-const metric = (slug, label, value) => {
-  const h = 28, size = 12;
-  const lw = wSans(label, size) + 20, vw = wMono(value, 13) + 20;
-  out(`badges/m-${slug}.svg`, `
-<svg xmlns="http://www.w3.org/2000/svg" width="${lw + vw}" height="${h}" viewBox="0 0 ${lw + vw} ${h}" role="img" aria-label="${esc(label)}: ${esc(value)}">
-  <defs><linearGradient id="a" x1="0" x2="1"><stop offset="0" stop-color="${C.teal}"/><stop offset="1" stop-color="${C.cyan}"/></linearGradient><clipPath id="r"><rect width="${lw + vw}" height="${h}" rx="7"/></clipPath></defs>
-  <g clip-path="url(#r)">
-    <rect width="${lw}" height="${h}" fill="${C.bg2}"/>
-    <rect x="${lw}" width="${vw}" height="${h}" fill="url(#a)"/>
-  </g>
-  <rect x="0.5" y="0.5" width="${lw + vw - 1}" height="${h - 1}" rx="7" fill="none" stroke="${C.line}"/>
-  <text x="${lw / 2}" y="18.5" text-anchor="middle" font-family="${SANS}" font-size="${size}" font-weight="600" fill="${C.muted}" letter-spacing="0.6">${esc(label.toUpperCase())}</text>
-  <text x="${lw + vw / 2}" y="18.5" text-anchor="middle" font-family="${MONO}" font-size="13" font-weight="700" fill="#06201e">${esc(value)}</text>
-</svg>`);
-};
-metric("providers", "providers", "12");
-metric("build", "build step", "none");
-metric("data", "chats stored", "locally");
-
-// Tech chip with a coloured dot
-const tech = (slug, label, dot) => {
-  const h = 26, size = 12.5, w = wSans(label, size) + 34;
-  out(`badges/t-${slug}.svg`, `
-<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" role="img" aria-label="${esc(label)}">
-  <rect x="0.5" y="0.5" width="${w - 1}" height="${h - 1}" rx="13" fill="${C.bg2}" stroke="${C.line}"/>
-  <circle cx="14" cy="13" r="4" fill="${dot}"/>
-  <text x="25" y="17.5" font-family="${SANS}" font-size="${size}" font-weight="600" fill="${C.text}">${esc(label)}</text>
-</svg>`);
-};
-tech("node", "Node.js", "#5fa04e");
-tech("sqlite", "node:sqlite", "#5cb7f0");
-tech("vanilla", "Vanilla JS", "#f7df1e");
-tech("express", "Express", C.fg);
-tech("html", "HTML + CSS", "#e34f26");
-tech("llm", "LLM provider SDKs", C.cyan);
-
-
 // Flat contact badges in the reference profile's exact style: 20px, square corners, solid brand
 // colour, white logo and Verdana text; a 28px uppercase call-to-action for the bottom.
 {
@@ -244,6 +192,48 @@ const CAT = {
 for (const [k, body] of Object.entries(CAT)) out(`stack/cat-${k}.svg`, `
 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="img" aria-hidden="true"><g fill="none" stroke="${C.teal}" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">${body}</g></svg>`);
 
+/* ---------------------------------------------- featured work (sample style) */
+// Project headings: 36px, a stroked line icon in an accent colour, bold 21px title.
+const projectHeading = (slug, title, color, icon) => {
+  const w = 38 + Math.ceil(title.length * 21 * 0.55) + 12;
+  out(`headings/h-${slug}.svg`, `
+<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="36" viewBox="0 0 ${w} 36" fill="none" role="img" aria-label="${esc(title)}"><g transform="translate(2.0,5.0) scale(1.0833)" stroke="${color}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">${icon}</g><text x="38" y="25.4" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="21" font-weight="700" fill="${C.text}">${esc(title)}</text></svg>`);
+};
+projectHeading("muster", "Muster · LLM Comparison Tool", "#14B8A6", `<rect x="4" y="11" width="3.5" height="9" rx="1"/><rect x="10.25" y="7" width="3.5" height="13" rx="1"/><rect x="16.5" y="4" width="3.5" height="16" rx="1"/>`);
+projectHeading("ranker", "Content-Decay Ranker · FlyRank AI", "#F59E0B", `<path d="M3 12h3.5l2-5.5 3.2 11 2-5.5H21"/>`);
+
+// Metric badges: grey label | teal value, 20px, Verdana, like the sample.
+const VERDANA = "Verdana,Geneva,'DejaVu Sans',sans-serif";
+const mflat = (slug, label, value) => {
+  const lt = Math.round(label.length * 6.4), vt = Math.round(value.length * 6.4);
+  const lw = lt + 16, vw = vt + 16, w = lw + vw;
+  out(`badges/m-${slug}.svg`, `
+<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="20" role="img" aria-label="${esc(label)}: ${esc(value)}"><title>${esc(label)}: ${esc(value)}</title><rect width="${lw}" height="20" fill="#555555"/><rect x="${lw}" width="${vw}" height="20" fill="#1abc9c"/><g fill="#fff" font-family="${VERDANA}" font-size="11"><text x="${lw / 2}" y="14.2" text-anchor="middle" textLength="${lt}" lengthAdjust="spacingAndGlyphs">${esc(label)}</text><text x="${lw + vw / 2}" y="14.2" text-anchor="middle" textLength="${vt}" lengthAdjust="spacingAndGlyphs">${esc(value)}</text></g></svg>`);
+};
+mflat("providers", "Providers", "12");
+mflat("build", "Build step", "none");
+mflat("local", "Chats stored", "locally");
+mflat("p50", "precision@50", "0.80");
+mflat("rule", "Production rule", "0.61");
+mflat("splits", "Splits won", "7 of 8");
+
+// Tech badges: solid brand colour, white (or black) logo and Verdana text, 20px.
+const tflat = (slug, label, color, path, ink = "#fff") => {
+  const tl = Math.round(label.length * 6.6), w = 24 + tl + 8;
+  out(`badges/t-${slug}.svg`, `
+<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="20" role="img" aria-label="${esc(label)}"><title>${esc(label)}</title><rect width="${w}" height="20" fill="${color}"/><g transform="translate(6,3.0) scale(0.5833)" fill="${ink}"><path d="${path}"/></g><text x="24" y="13.7" fill="${ink}" font-family="${VERDANA}" font-size="11" textLength="${tl}" lengthAdjust="spacingAndGlyphs">${esc(label)}</text></svg>`);
+};
+const SPARK = "M12 2l2.2 6.3 6.3 2.2-6.3 2.2L12 19l-2.2-6.3L3.5 10.5l6.3-2.2z";
+const TREE = "M12 2a2.5 2.5 0 110 5 2.5 2.5 0 010-5zM6 10.5a2.5 2.5 0 110 5 2.5 2.5 0 010-5zm12 0a2.5 2.5 0 110 5 2.5 2.5 0 010-5zM4 19a2 2 0 110 4 2 2 0 010-4zm5 0a2 2 0 110 4 2 2 0 010-4zm6 0a2 2 0 110 4 2 2 0 010-4zm5 0a2 2 0 110 4 2 2 0 010-4zM11.3 6.8l-4 3.1 1 1.2 4-3.1zm1.4 0l-1 1.2 4 3.1 1-1.2zM5.3 15.5l-1 3 1.6.5 1-3zm1.4 0l-1.6.5 1 3 1.6-.5zm10.6 0l-1 3 1.6.5 1-3zm1.4 0l-1.6.5 1 3 1.6-.5z";
+tflat("node", "Node.js", "#5FA04E", BRAND.node.path);
+tflat("express", "Express", "#0A0A0A", BRAND.express.path);
+tflat("sqlite", "SQLite", "#003B57", BRAND.sqlite.path);
+tflat("javascript", "JavaScript", "#F7DF1E", BRAND.js.path, "#000");
+tflat("python", "Python", "#3776AB", BRAND.python.path);
+tflat("duckdb", "DuckDB", "#FFF000", BRAND.duckdb.path, "#000");
+tflat("rf", "Random forest", "#8B5CF6", TREE);
+tflat("gsc", "Search Console data", "#4285F4", SPARK);
+
 /* ------------------------------------------------------------------ emoji */
 // A bespoke, multi-colour "emoji" set (32px) drawn on the same dark tile, used
 // anywhere a stock emoji would normally go.
@@ -261,6 +251,7 @@ const EMOJI = {
   pin: `<path d="M12 21.6s-6.6-5.8-6.6-10.6a6.6 6.6 0 0113.2 0c0 4.8-6.6 10.6-6.6 10.6z" fill="#f87171"/><circle cx="12" cy="11" r="2.5" fill="#fff"/>`,
   terminal: `<rect x="2.4" y="4.4" width="19.2" height="15.2" rx="3" fill="${C.bg}" stroke="#8b98b1" stroke-width="1.4"/><path d="M6.4 9.4l3.2 2.6-3.2 2.6M11.8 15h5.4" fill="none" stroke="${C.teal}" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>`,
   books: `<rect x="3.6" y="4" width="5" height="16.4" rx="1.2" fill="${C.teal}"/><rect x="9.6" y="6.4" width="5" height="14" rx="1.2" fill="${C.cyan}"/><path d="M15.2 7.6l4.4-1.1 3 12.6-4.4 1.1z" fill="#fbbf24"/>`,
+  briefcase: `<rect x="3" y="8" width="18" height="12" rx="2.4" fill="#8b5e3c"/><path d="M9 8V6a1.6 1.6 0 011.6-1.6h2.8A1.6 1.6 0 0115 6v2" fill="none" stroke="#8b5e3c" stroke-width="1.8"/><rect x="3" y="12" width="18" height="1.8" fill="#fbbf24"/><rect x="10" y="11" width="4" height="3.6" rx="0.9" fill="#fde68a"/>`,
   spark: `<path d="M12 2.8l2.1 6.6 6.6 2.1-6.6 2.1L12 20.2l-2.1-6.6-6.6-2.1 6.6-2.1z" fill="${C.cyan}"/><circle cx="19" cy="5" r="1.6" fill="#fbbf24"/><circle cx="5" cy="19" r="1.2" fill="#fbbf24"/>`,
 };
 const emoji = (slug) => out(`emoji/${slug}.svg`, `
