@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="270" viewBox="0 0 1200 270" role="img" aria-label="Muhammad Abbad ur Rehman. ML intern at FlyRank AI, ICS student in Lahore. Builds Muster, one prompt to 12 LLMs side by side.">
+  <defs><linearGradient id="tileGrad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#14b8a6"/><stop offset="1" stop-color="#22d3ee"/></linearGradient><linearGradient id="markGrad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#14b8a6"/><stop offset="1" stop-color="#22d3ee"/></linearGradient></defs>
+  <rect x="0.5" y="0.5" width="1199" height="269" rx="20" fill="#111a2e" stroke="#1e293b"/>
+  <path d="M20 269 h1160" stroke="url(#tileGrad)" stroke-width="3" stroke-linecap="round"/>
+  
+  <g transform="translate(56 103) scale(1.3333333333333333)">
+    <rect width="48" height="48" rx="13" fill="#0b1220" stroke="#1e293b"/>
+    <path d="M14 36 L24 11 L34 36" fill="none" stroke="url(#markGrad)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M18.5 27.5h11" stroke="#e5eaf3" stroke-width="3.2" stroke-linecap="round"/>
+    <circle cx="24" cy="11" r="2.6" fill="#22d3ee"/>
+  </g>
+  <text x="148" y="92" font-family="ui-sans-serif,-apple-system,'Segoe UI',Inter,Roboto,Helvetica,Arial,sans-serif" font-size="44" font-weight="700" fill="#e5eaf3" letter-spacing="-1">Muhammad</text>
+  <text x="148" y="140" font-family="ui-sans-serif,-apple-system,'Segoe UI',Inter,Roboto,Helvetica,Arial,sans-serif" font-size="44" font-weight="700" fill="url(#tileGrad)" letter-spacing="-1">Abbad Ur Rehman</text>
+  <text x="148" y="178" font-family="ui-sans-serif,-apple-system,'Segoe UI',Inter,Roboto,Helvetica,Arial,sans-serif" font-size="19" fill="#8b98b1">ML intern at FlyRank AI  ·  ICS student, Lahore</text>
+  <text x="148" y="210" font-family="ui-monospace,'Cascadia Code','Fira Code',Consolas,'Liberation Mono',monospace" font-size="14" fill="#14b8a6">builds Muster: one prompt → 12 LLMs → side by side</text>
+</svg>

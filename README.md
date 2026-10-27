@@ -4,138 +4,192 @@
   Each one is switched for the viewer's theme with <picture>.
 -->
 
-<div align="center">
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/banner.svg" /><img src="assets/light/banner.svg" alt="Muhammad Abbad ur Rehman. ML intern at FlyRank AI, ICS student in Lahore. Builds Muster, one prompt to 12 LLMs side by side." width="100%" /></picture>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/hero.svg" /><img src="assets/light/hero.svg" alt="Muhammad Abbad ur Rehman: Computer Science student who builds small, self-hosted developer tools. Latest ship: Muster, one prompt to 12 LLMs side by side. 12 providers, 0 build steps, 100% local, open source." width="100%" /></picture>
-
-<br/><br/>
-
+<p align="center">
 <a href="https://www.linkedin.com/in/muhammad-abbadurrehman/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/b-linkedin.svg" /><img src="assets/light/badges/b-linkedin.svg" alt="LinkedIn" height="34" /></picture></a>&nbsp;&nbsp;
-<a href="https://x.com/M_Abbad0708"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/b-x.svg" /><img src="assets/light/badges/b-x.svg" alt="X / Twitter" height="34" /></picture></a>&nbsp;&nbsp;
-<a href="https://github.com/Abbad0708/Muster"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/b-muster.svg" /><img src="assets/light/badges/b-muster.svg" alt="Explore Muster" height="34" /></picture></a>&nbsp;&nbsp;
-<img src="https://komarev.com/ghpvc/?username=Abbad0708&style=flat-square&color=14b8a6&label=profile+views" alt="Profile views" height="22" />
-
-</div>
+<a href="mailto:m.abbad0708@gmail.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/b-email.svg" /><img src="assets/light/badges/b-email.svg" alt="Email m.abbad0708@gmail.com" height="34" /></picture></a>
+</p>
 
 <br/>
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/headings/about.svg" /><img src="assets/light/headings/about.svg" alt="About" width="720" /></picture>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/emoji/wave.svg" /><img src="assets/light/emoji/wave.svg" width="30" height="30" align="top" alt="" /></picture>&nbsp; **Hi, I'm Abbad.** A Computer Science student who turns curiosity about new technology into software people can actually run. My current obsession is **tooling around large language models**: instead of arguing about which model is "best", I built the instrument that lets you put twelve of them next to each other and see for yourself.
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/emoji/wave.svg" /><img src="assets/light/emoji/wave.svg" width="28" height="28" align="top" alt="" /></picture>&nbsp; **Hi, I'm Abbad.** An ICS student in Lahore who turns curiosity into software people can actually run. This summer I was an ML engineering intern at **FlyRank AI**, where I built the model that decides which of 30,000 decaying pages an editor should look at first. Before that I built **Muster**, a self-hosted tool that puts twelve LLMs side by side so you can measure them instead of arguing about them.
 
-I like small surface areas, few dependencies, data that stays on your own machine, and projects you can start with a single `npm start`.
+I like honest validation, small surface areas, few dependencies, and data that stays on the user's own machine.
 
 <table>
   <tr>
-    <td width="40" valign="top"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/emoji/rocket.svg" /><img src="assets/light/emoji/rocket.svg" width="30" height="30" alt="" /></picture></td>
-    <td><strong>Shipped</strong> &nbsp;·&nbsp; <a href="https://github.com/Abbad0708/Muster">Muster</a>, a self-hosted app that sends one prompt to up to 12 LLMs and lays the answers out side by side</td>
+    <td width="40" valign="top"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/emoji/bolt.svg" /><img src="assets/light/emoji/bolt.svg" width="28" height="28" alt="" /></picture></td>
+    <td><strong>Latest</strong> &nbsp;·&nbsp; a content-decay ranker at FlyRank AI: 0.80 precision@50 against the 0.61 rule it replaced</td>
   </tr>
   <tr>
-    <td valign="top"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/emoji/sprout.svg" /><img src="assets/light/emoji/sprout.svg" width="30" height="30" alt="" /></picture></td>
-    <td><strong>Learning</strong> &nbsp;·&nbsp; local-first application design, provider SDKs and streaming APIs, and tests that catch real bugs rather than decorate a repo</td>
+    <td valign="top"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/emoji/rocket.svg" /><img src="assets/light/emoji/rocket.svg" width="28" height="28" alt="" /></picture></td>
+    <td><strong>Shipped</strong> &nbsp;·&nbsp; <a href="https://github.com/Abbad0708/Muster">Muster</a>, one prompt to up to 12 LLMs, answers side by side, chats stored locally</td>
   </tr>
   <tr>
-    <td valign="top"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/emoji/chat.svg" /><img src="assets/light/emoji/chat.svg" width="30" height="30" alt="" /></picture></td>
-    <td><strong>Ask me about</strong> &nbsp;·&nbsp; comparing LLM providers fairly, Node.js without a build step, SQLite as an app database</td>
+    <td valign="top"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/emoji/sprout.svg" /><img src="assets/light/emoji/sprout.svg" width="28" height="28" alt="" /></picture></td>
+    <td><strong>Learning</strong> &nbsp;·&nbsp; C++, deeper Python and applied ML, local-first application design</td>
   </tr>
   <tr>
-    <td valign="top"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/emoji/compass.svg" /><img src="assets/light/emoji/compass.svg" width="30" height="30" alt="" /></picture></td>
-    <td><strong>Working principle</strong> &nbsp;·&nbsp; if it needs a sign-in, a cloud account and a bundler before it does anything useful, it is not finished yet</td>
+    <td valign="top"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/emoji/chat.svg" /><img src="assets/light/emoji/chat.svg" width="28" height="28" alt="" /></picture></td>
+    <td><strong>Ask me about</strong> &nbsp;·&nbsp; why a 0.96 validation score can be a bug, comparing LLM providers fairly, SQLite and DuckDB as the whole database</td>
   </tr>
 </table>
 
 <br/>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/headings/stack.svg" /><img src="assets/light/headings/stack.svg" alt="Stack" width="720" /></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/headings/experience.svg" /><img src="assets/light/headings/experience.svg" alt="Experience" width="720" /></picture>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack-map.svg" /><img src="assets/light/stack-map.svg" alt="Stack map. Languages: JavaScript, Node.js, HTML, CSS, Bash, PowerShell. Backend: Express, SQLite, npm, REST APIs, LLM SDKs. Workflow: Git, GitHub, Actions, VS Code, Markdown, Windows." width="100%" /></picture>
+<table>
+  <tr>
+    <td width="200" valign="top">
+      <strong>FlyRank AI</strong><br/>
+      ML Engineering Intern<br/>
+      <sub>Jul – Aug 2026</sub>
+    </td>
+    <td valign="top">
+      <p>About 10,000 pages in FlyRank's dataset were losing impressions while still pulling real traffic, and an editor clears maybe 50 a week. The list never empties, so the only thing anyone controls is what sits at the top of it. I built the thing that decides the order.</p>
+      <ul>
+        <li>Ranked review queue over <strong>30,000 pages from 32 client sites</strong>, on anonymised Search Console and Analytics data.</li>
+        <li>First version scored 0.96 and I threw it out: random row splits let the same client sit on both sides, so the model was learning <em>who the client was</em>, not whether the page was dying. Split by client and it fell to 0.80. That 0.16 was never mine to keep.</li>
+        <li>Fed the harness a feature built from the label window on purpose. It returned a perfect 1.000, which is what a leak should look like when validation is working.</li>
+        <li>Rebuilt the label forward-looking on the full 79-million-row release in DuckDB to confirm the framing held on data I had never trained on.</li>
+        <li>Final, on identical client-grouped splits: <strong>0.80 precision@50</strong> for the random forest, 0.61 for the hand-written rule in production, 0.49 base rate. Won 7 splits of 8. Roughly 12 more genuinely declining pages per editor-week.</li>
+        <li>Shipped with reason codes on every row so editors can argue back, plus retrain and review triggers with exact thresholds, so it is clear when to stop trusting it.</li>
+        <li>Known limits, stated up front: weakest on the highest-traffic pages, and nothing proves a refresh brings traffic back. It orders a reading list, and does that well.</li>
+      </ul>
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/ranker-chart.svg" /><img src="assets/light/ranker-chart.svg" alt="Precision at 50 on client-grouped splits: random forest 0.80, rule in production 0.61, base rate 0.49" width="460" /></picture>
+      <p>
+        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/t-python.svg" /><img src="assets/light/badges/t-python.svg" alt="Python" height="26" /></picture>
+        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/t-duckdb.svg" /><img src="assets/light/badges/t-duckdb.svg" alt="DuckDB, 79M rows" height="26" /></picture>
+        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/t-rf.svg" /><img src="assets/light/badges/t-rf.svg" alt="Random forest" height="26" /></picture>
+      </p>
+      <p><sub>Built in a professional setting; the code and data belong to FlyRank AI.</sub></p>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <strong>Allah Wale Foundation</strong><br/>
+      AWT Youth Fellow<br/>
+      <sub>Jul – Aug 2025 · Lahore</sub>
+    </td>
+    <td valign="top">
+      <p>Selected for the AWT Youth Fellowship, a leadership and personal-development programme built around experiential learning, mentorship and social-impact projects. Designed a Social Action Project on improving access to education; sessions on public speaking, leadership and communication; an exposure visit to the Civil Services Academy.</p>
+    </td>
+  </tr>
+</table>
 
 <br/>
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/headings/work.svg" /><img src="assets/light/headings/work.svg" alt="Featured work" width="720" /></picture>
 
+<a href="https://github.com/Abbad0708/Muster"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/headings/h-muster.svg" /><img src="assets/light/headings/h-muster.svg" alt="Muster: one prompt, up to 12 LLMs, answers side by side" width="720" /></picture></a>
+
+*To muster: to gather and assemble.* A local, single-user web app for comparing language models honestly. Every model answers in its own column, and on follow-up turns each model sees **only its own history**, never the other models' answers, so the comparison stays a fair test instead of a group chat.
+
+- Twelve providers through four adapters: Claude, GPT, Gemini, Grok, DeepSeek, Perplexity, Mistral, Llama (Groq), Qwen, Kimi, Command and OpenRouter
+- Answers render as real Markdown, Perplexity citations become links, truncated cards say so, and a single failed model can be retried alone
+- Every chat lives in one SQLite file on disk and is fully searchable; no sign-in, no telemetry, no build step
+- Plain HTML and JavaScript on Node 22 and Express, with a custom DOM-based Markdown renderer and tests that use mock providers and a headless browser
+
+<p>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/m-providers.svg" /><img src="assets/light/badges/m-providers.svg" alt="12 providers" height="28" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/m-build.svg" /><img src="assets/light/badges/m-build.svg" alt="No build step" height="28" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/m-data.svg" /><img src="assets/light/badges/m-data.svg" alt="Chats stored locally" height="28" /></picture>
+  &nbsp;
+  <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/t-node.svg" /><img src="assets/light/badges/t-node.svg" alt="Node.js" height="26" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/t-sqlite.svg" /><img src="assets/light/badges/t-sqlite.svg" alt="node:sqlite" height="26" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/t-vanilla.svg" /><img src="assets/light/badges/t-vanilla.svg" alt="Vanilla JavaScript" height="26" /></picture>
+</p>
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/emoji/terminal.svg" /><img src="assets/light/emoji/terminal.svg" width="28" height="28" align="top" alt="" /></picture>&nbsp; **Version 1 is out and open source.** `npm install && npm start`, open `localhost:3000`, add the API keys you have, start comparing.
+
+<br/>
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/headings/stack.svg" /><img src="assets/light/headings/stack.svg" alt="Stack" width="720" /></picture>
+
 <table>
   <tr>
-    <td width="58%" valign="top">
-      <a href="https://github.com/Abbad0708/Muster">
-        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/headings/h-muster.svg" /><img src="assets/light/headings/h-muster.svg" alt="Muster: one prompt, up to 12 LLMs, answers side by side" width="100%" /></picture>
-      </a>
-      <p><em>To muster: to gather and assemble.</em></p>
-      <p>A local, single-user web app for comparing language models honestly. Every model answers in its own column, and on follow-up turns each model sees <strong>only its own history</strong>, never the other models' answers, so the comparison stays a fair test instead of a group chat.</p>
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/muster-flow.svg" /><img src="assets/light/muster-flow.svg" alt="How it works: one prompt goes to Muster, which fans out through four adapters to twelve providers; each model only sees its own history" width="100%" /></picture>
-      <p>Answers render as real Markdown (tables, code, headings), Perplexity citations become links, cards that hit a token limit say so, and a single failed model can be retried without re-running the rest. Every chat lives in one SQLite file on disk and is fully searchable.</p>
-      <p>
-        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/m-providers.svg" /><img src="assets/light/badges/m-providers.svg" alt="12 providers" height="28" /></picture>
-        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/m-adapters.svg" /><img src="assets/light/badges/m-adapters.svg" alt="4 adapters" height="28" /></picture>
-        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/m-build.svg" /><img src="assets/light/badges/m-build.svg" alt="No build step" height="28" /></picture>
-        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/m-data.svg" /><img src="assets/light/badges/m-data.svg" alt="Chats stored locally" height="28" /></picture>
-        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/m-runtime.svg" /><img src="assets/light/badges/m-runtime.svg" alt="Node 22+" height="28" /></picture>
-      </p>
-      <p>
-        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/t-node.svg" /><img src="assets/light/badges/t-node.svg" alt="Node.js" height="26" /></picture>
-        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/t-express.svg" /><img src="assets/light/badges/t-express.svg" alt="Express" height="26" /></picture>
-        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/t-sqlite.svg" /><img src="assets/light/badges/t-sqlite.svg" alt="node:sqlite" height="26" /></picture>
-        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/t-vanilla.svg" /><img src="assets/light/badges/t-vanilla.svg" alt="Vanilla JavaScript" height="26" /></picture>
-        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/t-markdown.svg" /><img src="assets/light/badges/t-markdown.svg" alt="Custom DOM-based Markdown renderer" height="26" /></picture>
-        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/t-tests.svg" /><img src="assets/light/badges/t-tests.svg" alt="Tests with mock providers and a headless browser" height="26" /></picture>
-      </p>
-      <table>
-        <tr>
-          <td width="34" valign="top"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/emoji/terminal.svg" /><img src="assets/light/emoji/terminal.svg" width="30" height="30" alt="" /></picture></td>
-          <td><strong>Version 1 is out and open source.</strong> Clone it, run <code>npm install &amp;&amp; npm start</code>, open <code>localhost:3000</code>, add the API keys you have, and start comparing.</td>
-        </tr>
-      </table>
+    <td width="130" valign="middle"><strong>Data &amp; ML</strong></td>
+    <td valign="middle">
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/python.svg" /><img src="assets/light/stack/python.svg" width="36" height="36" align="absmiddle" alt="" /></picture> Python &nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/sql.svg" /><img src="assets/light/stack/sql.svg" width="36" height="36" align="absmiddle" alt="" /></picture> SQL &nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/duckdb.svg" /><img src="assets/light/stack/duckdb.svg" width="36" height="36" align="absmiddle" alt="" /></picture> DuckDB &nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/ml.svg" /><img src="assets/light/stack/ml.svg" width="36" height="36" align="absmiddle" alt="" /></picture> ML models &nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/cpp.svg" /><img src="assets/light/stack/cpp.svg" width="36" height="36" align="absmiddle" alt="" /></picture> C++
     </td>
-    <td width="42%" valign="top" align="center">
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/providers.svg" /><img src="assets/light/providers.svg" alt="Providers wired into Muster: Claude, GPT, Gemini, Grok, DeepSeek, Perplexity, Mistral, Llama via Groq, Qwen, Kimi, Command and OpenRouter" width="100%" /></picture>
-      <br/><br/>
-      <picture><source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/github/last-commit/Abbad0708/Muster?style=flat-square&color=14b8a6&labelColor=0b1220&label=last%20commit" /><img src="https://img.shields.io/github/last-commit/Abbad0708/Muster?style=flat-square&color=14b8a6&labelColor=0b1220&label=last%20commit" alt="Last commit" /></picture>
-      <picture><source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/github/stars/Abbad0708/Muster?style=flat-square&color=14b8a6&labelColor=0b1220" /><img src="https://img.shields.io/github/stars/Abbad0708/Muster?style=flat-square&color=14b8a6&labelColor=0b1220" alt="Stars" /></picture>
+  </tr>
+  <tr>
+    <td valign="middle"><strong>Web &amp; shell</strong></td>
+    <td valign="middle">
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/js.svg" /><img src="assets/light/stack/js.svg" width="36" height="36" align="absmiddle" alt="" /></picture> JavaScript &nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/node.svg" /><img src="assets/light/stack/node.svg" width="36" height="36" align="absmiddle" alt="" /></picture> Node.js &nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/html.svg" /><img src="assets/light/stack/html.svg" width="36" height="36" align="absmiddle" alt="" /></picture> HTML &nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/css.svg" /><img src="assets/light/stack/css.svg" width="36" height="36" align="absmiddle" alt="" /></picture> CSS &nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/bash.svg" /><img src="assets/light/stack/bash.svg" width="36" height="36" align="absmiddle" alt="" /></picture> Bash &nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/powershell.svg" /><img src="assets/light/stack/powershell.svg" width="36" height="36" align="absmiddle" alt="" /></picture> PowerShell
+    </td>
+  </tr>
+  <tr>
+    <td valign="middle"><strong>Backend</strong></td>
+    <td valign="middle">
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/express.svg" /><img src="assets/light/stack/express.svg" width="36" height="36" align="absmiddle" alt="" /></picture> Express &nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/sqlite.svg" /><img src="assets/light/stack/sqlite.svg" width="36" height="36" align="absmiddle" alt="" /></picture> SQLite &nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/npm.svg" /><img src="assets/light/stack/npm.svg" width="36" height="36" align="absmiddle" alt="" /></picture> npm &nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/api.svg" /><img src="assets/light/stack/api.svg" width="36" height="36" align="absmiddle" alt="" /></picture> REST APIs &nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/llm.svg" /><img src="assets/light/stack/llm.svg" width="36" height="36" align="absmiddle" alt="" /></picture> LLM SDKs
+    </td>
+  </tr>
+  <tr>
+    <td valign="middle"><strong>Workflow</strong></td>
+    <td valign="middle">
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/git.svg" /><img src="assets/light/stack/git.svg" width="36" height="36" align="absmiddle" alt="" /></picture> Git &nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/github.svg" /><img src="assets/light/stack/github.svg" width="36" height="36" align="absmiddle" alt="" /></picture> GitHub &nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/actions.svg" /><img src="assets/light/stack/actions.svg" width="36" height="36" align="absmiddle" alt="" /></picture> Actions &nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/vscode.svg" /><img src="assets/light/stack/vscode.svg" width="36" height="36" align="absmiddle" alt="" /></picture> VS Code &nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/markdown.svg" /><img src="assets/light/stack/markdown.svg" width="36" height="36" align="absmiddle" alt="" /></picture> Markdown &nbsp;&nbsp;
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/windows.svg" /><img src="assets/light/stack/windows.svg" width="36" height="36" align="absmiddle" alt="" /></picture> Windows
     </td>
   </tr>
 </table>
 
 <br/>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/headings/activity.svg" /><img src="assets/light/headings/activity.svg" alt="Activity" width="720" /></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/headings/education.svg" /><img src="assets/light/headings/education.svg" alt="Education" width="720" /></picture>
 
-<div align="center">
-
-<a href="https://github.com/Abbad0708">
-  <picture><source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api?username=Abbad0708&show_icons=true&hide_border=true&bg_color=0b1220&title_color=14b8a6&icon_color=14b8a6&text_color=e5eaf3&ring_color=14b8a6&hide_title=true" /><img height="165" src="https://github-readme-stats.vercel.app/api?username=Abbad0708&show_icons=true&hide_border=true&bg_color=f1f5f9&title_color=0d9488&icon_color=0d9488&text_color=0f172a&ring_color=0d9488&hide_title=true" alt="GitHub statistics" /></picture>
-</a>
-<a href="https://github.com/Abbad0708">
-  <picture><source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=Abbad0708&layout=compact&hide_border=true&bg_color=0b1220&title_color=14b8a6&text_color=e5eaf3&langs_count=6&hide_title=true" /><img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Abbad0708&layout=compact&hide_border=true&bg_color=f1f5f9&title_color=0d9488&text_color=0f172a&langs_count=6&hide_title=true" alt="Most used languages" /></picture>
-</a>
-
-<br/><br/>
-
-<a href="https://github.com/Abbad0708">
-  <picture><source media="(prefers-color-scheme: dark)" srcset="https://github-readme-streak-stats.herokuapp.com?user=Abbad0708&hide_border=true&background=0b1220&ring=14b8a6&fire=14b8a6&currStreakLabel=14b8a6&sideLabels=e5eaf3&currStreakNum=f8fafc&sideNums=f8fafc&dates=8b98b1&stroke=1e293b" /><img src="https://github-readme-streak-stats.herokuapp.com?user=Abbad0708&hide_border=true&background=f1f5f9&ring=0d9488&fire=0d9488&currStreakLabel=0d9488&sideLabels=0f172a&currStreakNum=0f172a&sideNums=0f172a&dates=64748b&stroke=cbd5e1" alt="Contribution streak" /></picture>
-</a>
-
-<br/><br/>
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Abbad0708/Abbad0708/output/github-snake-dark.svg" />
-  <img src="https://raw.githubusercontent.com/Abbad0708/Abbad0708/output/github-snake.svg" alt="Contribution graph, regenerated nightly" width="100%" />
-</picture>
-
-</div>
+<table>
+  <tr>
+    <td width="200" valign="top">
+      <strong>Govt. Islamia Graduate College</strong><br/>
+      Civil Lines, Lahore<br/>
+      <sub>2024 – 2026</sub>
+    </td>
+    <td valign="top">
+      <p><strong>Intermediate in Computer Science (ICS), with Physics.</strong></p>
+      <p>
+        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/m-c-g-ai.svg" /><img src="assets/light/badges/m-c-g-ai.svg" alt="Google AI Essentials" height="28" /></picture>
+        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/m-c-g-prompt.svg" /><img src="assets/light/badges/m-c-g-prompt.svg" alt="Google Prompting Essentials" height="28" /></picture>
+        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/m-c-g-python.svg" /><img src="assets/light/badges/m-c-g-python.svg" alt="Google Crash Course on Python" height="28" /></picture>
+        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/m-c-nasa101.svg" /><img src="assets/light/badges/m-c-nasa101.svg" alt="NASA Open Science 101" height="28" /></picture>
+        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/m-c-nasa-ess.svg" /><img src="assets/light/badges/m-c-nasa-ess.svg" alt="NASA Open Science Essentials" height="28" /></picture>
+      </p>
+    </td>
+  </tr>
+</table>
 
 <br/>
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/headings/contact.svg" /><img src="assets/light/headings/contact.svg" alt="Contact" width="720" /></picture>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/emoji/handshake.svg" /><img src="assets/light/emoji/handshake.svg" width="30" height="30" align="top" alt="" /></picture>&nbsp; I'm open to collaborating on developer tools, LLM experiments and open-source projects where a student who ships can be useful. LinkedIn is the fastest way to reach me; for anything about Muster, open an issue and I'll see it.
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/emoji/handshake.svg" /><img src="assets/light/emoji/handshake.svg" width="28" height="28" align="top" alt="" /></picture>&nbsp; Open to ML and data internships, developer-tool collaborations and open-source projects where a student who ships can be useful. LinkedIn is the fastest way to reach me; for anything about Muster, open an issue.
 
-<div align="center">
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/emoji/pin.svg" /><img src="assets/light/emoji/pin.svg" width="28" height="28" align="top" alt="" /></picture>&nbsp; Lahore, Pakistan · UTC+5
 
-<a href="https://www.linkedin.com/in/muhammad-abbadurrehman/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/b-message.svg" /><img src="assets/light/badges/b-message.svg" alt="Message me on LinkedIn" height="34" /></picture></a>&nbsp;&nbsp;
-<a href="https://github.com/Abbad0708/Muster/issues/new"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/b-muster.svg" /><img src="assets/light/badges/b-muster.svg" alt="Open a Muster issue" height="34" /></picture></a>
-
-<br/><br/>
+<p align="center">
+<a href="https://www.linkedin.com/in/muhammad-abbadurrehman/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/b-message.svg" /><img src="assets/light/badges/b-linkedin.svg" alt="Message me on LinkedIn" height="34" /></picture></a>&nbsp;&nbsp;
+<a href="mailto:m.abbad0708@gmail.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/badges/b-email.svg" /><img src="assets/light/badges/b-email.svg" alt="Email m.abbad0708@gmail.com" height="34" /></picture></a>
+</p>
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/footer.svg" /><img src="assets/light/footer.svg" alt="" width="100%" /></picture>
-
-</div>

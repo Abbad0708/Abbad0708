@@ -94,6 +94,8 @@ const DUO = {
   trophy: `<path d="M7.5 3.5h9v5.2a4.5 4.5 0 01-9 0z" fill="${AMBER}"/><path d="M7.5 5H4.8c0 2.7 1.2 4.4 3.2 4.8M16.5 5h2.7c0 2.7-1.2 4.4-3.2 4.8" fill="none" stroke="${AMBER}" stroke-width="1.6" stroke-linecap="round"/><path d="M12 13.2v3" stroke="${INK}" stroke-width="2.2" stroke-linecap="round"/><rect x="8" y="16" width="8" height="2.6" rx="1.1" fill="${INK}"/><rect x="6" y="18.8" width="12" height="2.4" rx="1.2" fill="#fff"/><path d="M10.5 6.5l1-1.5 1 1.5" fill="none" stroke="${INK}" stroke-width="1.2" opacity="0.5"/>`,
   trend: `<g fill="${INK}"><rect x="3.5" y="13" width="3.4" height="8" rx="1.1"/><rect x="8.8" y="10" width="3.4" height="11" rx="1.1"/><rect x="14.1" y="12" width="3.4" height="9" rx="1.1"/></g><path d="M4 9.5l5-4 4.6 3 5.4-5" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19.6" cy="3.2" r="2" fill="${AMBER}"/>`,
   plane: `<path d="M3 10.8L21 3.5l-5.2 17-4.3-6.2z" fill="#fff"/><path d="M21 3.5L11.5 14.3" stroke="${INK}" stroke-width="1.5" stroke-linecap="round"/><path d="M3 10.8l8.5 3.5" stroke="${INK}" stroke-width="1.2" opacity="0.5"/><path d="M11.5 14.3l-.8 5.2 2.8-3.1" fill="${AMBER}"/>`,
+  briefcase: `<rect x="3" y="7.5" width="18" height="12.5" rx="2.6" fill="${INK}"/><path d="M9 7.5V5.6A1.6 1.6 0 0110.6 4h2.8A1.6 1.6 0 0115 5.6v1.9" fill="none" stroke="${INK}" stroke-width="1.8"/><rect x="3" y="11.2" width="18" height="1.8" fill="#fff" opacity="0.9"/><rect x="9.8" y="10.2" width="4.4" height="3.8" rx="1" fill="${AMBER}"/>`,
+  cap: `<path d="M12 4l10 4.6-10 4.6L2 8.6z" fill="#fff"/><path d="M6 11.3v4.2c0 1.6 2.7 2.9 6 2.9s6-1.3 6-2.9v-4.2L12 14z" fill="${INK}"/><path d="M20.4 9.2v5.6" stroke="${AMBER}" stroke-width="1.8" stroke-linecap="round"/><circle cx="20.4" cy="16.4" r="1.7" fill="${AMBER}"/>`,
 };
 const tileDuo = (name, size, x = 0, y = 0) => `
   <g transform="translate(${x} ${y})">
@@ -116,24 +118,24 @@ const heading = (slug, title, tagline, glyph) => {
   }
 };
 heading("about", "About", "// who I am", "badge");
-heading("stack", "Stack", "// what I build with", "cube");
+heading("experience", "Experience", "// where I've worked", "briefcase");
 heading("work", "Featured work", "// what I've shipped", "trophy");
-heading("activity", "Activity", "// what I've been doing", "trend");
+heading("stack", "Stack", "// what I build with", "cube");
+heading("education", "Education", "// what I've studied", "cap");
 heading("contact", "Contact", "// say hello", "plane");
 
-/* ------------------------------------------------------- project heading */
-{
-  out(`headings/h-muster.svg`, `
-<svg xmlns="http://www.w3.org/2000/svg" width="720" height="64" viewBox="0 0 720 64" role="img" aria-label="Muster: one prompt, twelve models, side by side">
-  <defs><linearGradient id="a" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="${C.teal}"/><stop offset="1" stop-color="${C.cyan}"/></linearGradient></defs>
-  <rect x="0" y="8" width="48" height="48" rx="12" fill="url(#a)"/>
-  <g fill="${INK}">
-    <rect x="11" y="20" width="7" height="24" rx="2"/><rect x="20.5" y="26" width="7" height="18" rx="2"/><rect x="30" y="16" width="7" height="28" rx="2"/>
-  </g>
-  <text x="64" y="32" font-family="${SANS}" font-size="28" font-weight="800" fill="${C.text}" letter-spacing="-0.4">Muster</text>
-  <text x="64" y="54" font-family="${MONO}" font-size="13" fill="${C.muted}">one prompt  →  up to 12 LLMs  →  answers side by side</text>
+/* ------------------------------------------------------- project headings */
+// Title lockup for a featured project: a gradient tile with its own mark, name and one-line pitch.
+const projectHeading = (slug, title, pitch, markSvg) => out(`headings/h-${slug}.svg`, `
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="64" viewBox="0 0 720 64" role="img" aria-label="${esc(title)}: ${esc(pitch)}">
+  <defs>${TILE_GRAD}</defs>
+  <rect x="0" y="8" width="48" height="48" rx="12" fill="url(#tileGrad)"/>
+  <g fill="${INK}">${markSvg}</g>
+  <text x="64" y="32" font-family="${SANS}" font-size="28" font-weight="800" fill="${C.text}" letter-spacing="-0.4">${esc(title)}</text>
+  <text x="64" y="54" font-family="${MONO}" font-size="13" fill="${C.muted}">${esc(pitch)}</text>
 </svg>`);
-}
+projectHeading("muster", "Muster", "one prompt  →  up to 12 LLMs  →  answers side by side",
+  `<rect x="11" y="20" width="7" height="24" rx="2"/><rect x="20.5" y="26" width="7" height="18" rx="2"/><rect x="30" y="16" width="7" height="28" rx="2"/>`);
 
 /* ------------------------------------------------------------ chips */
 // Two-tone metric chip: LABEL | value
@@ -153,10 +155,14 @@ const metric = (slug, label, value) => {
 </svg>`);
 };
 metric("providers", "providers", "12");
-metric("adapters", "adapters", "4");
 metric("build", "build step", "none");
 metric("data", "chats stored", "locally");
-metric("runtime", "runtime", "Node 22+");
+// Certifications: ISSUER | course
+metric("c-nasa101", "NASA", "Open Science 101");
+metric("c-nasa-ess", "NASA", "Open Science Essentials");
+metric("c-g-ai", "Google", "AI Essentials");
+metric("c-g-prompt", "Google", "Prompting Essentials");
+metric("c-g-python", "Google", "Crash Course on Python");
 
 // Tech chip with a coloured dot
 const tech = (slug, label, dot) => {
@@ -169,11 +175,11 @@ const tech = (slug, label, dot) => {
 </svg>`);
 };
 tech("node", "Node.js", "#5fa04e");
-tech("express", "Express", "#f8fafc");
 tech("sqlite", "node:sqlite", "#5cb7f0");
 tech("vanilla", "Vanilla JS", "#f7df1e");
-tech("markdown", "Custom Markdown renderer", C.cyan);
-tech("tests", "Mock providers + headless tests", C.teal);
+tech("python", "Python", "#3b82f6");
+tech("duckdb", "DuckDB (79M rows)", "#facc15");
+tech("rf", "Random forest", "#a78bfa");
 
 // Contact buttons
 const button = (slug, label, bg, fg = "#ffffff") => {
@@ -186,9 +192,8 @@ const button = (slug, label, bg, fg = "#ffffff") => {
 </svg>`);
 };
 button("linkedin", "LinkedIn", "#0a66c2");
-button("x", "X / Twitter", "#0f172a");
-button("muster", "Explore Muster", C.teal, "#06201e");
 button("message", "Message me on LinkedIn", "#0a66c2");
+button("email", "m.abbad0708@gmail.com", C.teal, "#06201e");
 
 /* ------------------------------------------------------------ tech tiles */
 // Original pictograms for each language / tool (24-unit grid), no wordmarks.
@@ -211,68 +216,41 @@ const TECH = {
   vscode: `<path d="M16.5 3L21 5.3v13.4L16.5 21 7.2 13.6 4.3 15.8 2.5 14.9V9.1l1.8-.9 2.9 2.2z" fill="#3fa7f3"/><path d="M16.5 3v18L7.2 13.6z" fill="#0b5fa5" opacity="0.55"/><path d="M16.5 7.2v9.6L10.5 12z" fill="#dbeafe" opacity="0.35"/>`,
   markdown: `<rect x="2" y="5.5" width="20" height="13" rx="2.6" fill="none" stroke="#a3b3cc" stroke-width="1.8"/><path d="M5.5 15.5v-7l3 3.4 3-3.4v7" fill="none" stroke="#a3b3cc" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M16.8 8.5v6.2M14.3 12.5l2.5 2.8 2.5-2.8" fill="none" stroke="${C.teal}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>`,
   windows: `<g fill="#38bdf8"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/></g><rect x="13" y="13" width="8" height="8" rx="2" fill="#0ea5e9"/>`,
+  python: `<path d="M12 2.5c-4 0-4.6 1.8-4.6 3.3v2h4.8v.7H5.4C3.6 8.5 2.5 9.9 2.5 12s1.1 3.5 2.9 3.5h1.8v-2.4c0-1.9 1.6-3.4 3.5-3.4h4.5c1.6 0 2.9-1.3 2.9-2.9V5.8C18.1 4 16 2.5 12 2.5z" fill="#3b82f6"/><circle cx="9.6" cy="5.3" r="1" fill="#fff"/><path d="M12 21.5c4 0 4.6-1.8 4.6-3.3v-2h-4.8v-.7h6.8c1.8 0 2.9-1.4 2.9-3.5s-1.1-3.5-2.9-3.5h-1.8v2.4c0 1.9-1.6 3.4-3.5 3.4H8.8c-1.6 0-2.9 1.3-2.9 2.9v1C5.9 20 8 21.5 12 21.5z" fill="#fbbf24"/><circle cx="14.4" cy="18.7" r="1" fill="#fff"/>`,
+  cpp: `<path d="${HEX}" fill="#5c8dbc"/><path d="M10.2 9.2a3.4 3.4 0 100 5.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/><path d="M13.6 10.2v3.6M11.8 12h3.6M17.4 10.2v3.6M15.6 12h3.6" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>`,
+  sql: `<rect x="3" y="4" width="18" height="16" rx="2.5" fill="none" stroke="#f59e0b" stroke-width="1.8"/><path d="M3 9.2h18M9 9.2V20M15 9.2V20M3 14.6h18" stroke="#f59e0b" stroke-width="1.4"/><path d="M5.5 4h13A2.5 2.5 0 0121 6.5v2.7H3V6.5A2.5 2.5 0 015.5 4z" fill="#f59e0b"/>`,
+  duckdb: `<path d="M4.5 7v10.2c0 1.7 3.4 3.1 7.5 3.1s7.5-1.4 7.5-3.1V7z" fill="#facc15"/><path d="M4.5 12.2c0 1.7 3.4 3.1 7.5 3.1s7.5-1.4 7.5-3.1" fill="none" stroke="#a16207" stroke-width="1.2"/><ellipse cx="12" cy="7" rx="7.5" ry="3" fill="#fef08a"/><circle cx="15" cy="7" r="1.1" fill="#a16207"/>`,
+  ml: `<path d="M12 5L6.5 13M12 5l5.5 8M6.5 13L4 19.5M6.5 13L9 19.5M17.5 13L15 19.5M17.5 13l2.5 6.5" stroke="#a78bfa" stroke-width="1.3"/><circle cx="12" cy="5" r="2.5" fill="#a78bfa"/><circle cx="6.5" cy="13" r="2.4" fill="#a78bfa"/><circle cx="17.5" cy="13" r="2.4" fill="#a78bfa"/><g fill="#c4b5fd"><circle cx="4" cy="19.8" r="1.8"/><circle cx="9" cy="19.8" r="1.8"/><circle cx="15" cy="19.8" r="1.8"/><circle cx="20" cy="19.8" r="1.8"/></g>`,
 };
-// The stack as a metro map: one line per category, one station per tool.
-{
-  const W = 1200, H = 340, step = 170, x0 = 150;
-  const lines = [
-    { name: "LANGUAGES", color: C.teal, y: 70, first: 0, items: [["js", "JavaScript"], ["node", "Node.js"], ["html", "HTML"], ["css", "CSS"], ["bash", "Bash"], ["powershell", "PowerShell"]] },
-    { name: "BACKEND", color: C.cyan, y: 170, first: 1, items: [["express", "Express"], ["sqlite", "SQLite"], ["npm", "npm"], ["api", "REST APIs"], ["llm", "LLM SDKs"]] },
-    { name: "WORKFLOW", color: AMBER, y: 270, first: 0, items: [["git", "Git"], ["github", "GitHub"], ["actions", "Actions"], ["vscode", "VS Code"], ["markdown", "Markdown"], ["windows", "Windows"]] },
-  ];
-  const tracks = lines.map((l, i) => {
-    const xs = l.items.map((_, k) => x0 + (l.first + k) * step);
-    const end = xs[xs.length - 1] + 56;
-    const stations = l.items.map(([key, label], k) => `
-      <circle cx="${xs[k]}" cy="${l.y}" r="24" fill="${C.bg2}" stroke="${l.color}" stroke-width="4"/>
-      <g transform="translate(${xs[k] - 15} ${l.y - 15}) scale(1.25)">${TECH[key]}</g>
-      <text x="${xs[k]}" y="${l.y + 44}" text-anchor="middle" font-family="${SANS}" font-size="12.5" font-weight="600" fill="${C.text}">${esc(label)}</text>`).join("");
-    return `
-    <path d="M124 ${l.y} H ${end}" fill="none" stroke="${l.color}" stroke-width="8" stroke-linecap="round" opacity="0.9"/>
-    <rect x="16" y="${l.y - 13}" width="104" height="26" rx="13" fill="${l.color}"/>
-    <text x="68" y="${l.y + 4.5}" text-anchor="middle" font-family="${SANS}" font-size="11" font-weight="800" fill="${INK}" letter-spacing="1.2">${l.name}</text>
-    <circle r="5" fill="${C.fg}" stroke="${l.color}" stroke-width="2"><animateMotion dur="${9 + i * 2}s" repeatCount="indefinite" path="M124 ${l.y} H ${end}"/></circle>
-    ${stations}`;
-  }).join("");
-  // Node.js and Express share a station column: an interchange.
-  const ix = x0 + step;
-  out("stack-map.svg", `
-<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Stack map. Languages: JavaScript, Node.js, HTML, CSS, Bash, PowerShell. Backend: Express, SQLite, npm, REST APIs, LLM SDKs. Workflow: Git, GitHub, Actions, VS Code, Markdown, Windows.">
-  <rect x="0.5" y="0.5" width="${W - 1}" height="${H - 1}" rx="20" fill="${C.bg}" stroke="${C.line}"/>
-  <rect x="${ix - 16}" y="70" width="32" height="100" rx="16" fill="none" stroke="${C.muted}" stroke-width="3" opacity="0.55"/>
-  ${tracks}
-  <text x="${W - 24}" y="${H - 14}" text-anchor="end" font-family="${MONO}" font-size="10.5" fill="${C.muted}">interchange: Node.js ↔ Express</text>
+// One small icon per tool (44px tile) for the stack rows in the README.
+for (const key of Object.keys(TECH)) {
+  out(`stack/${key}.svg`, `
+<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" role="img" aria-hidden="true">
+  <rect x="0.5" y="0.5" width="43" height="43" rx="11" fill="${C.bg2}" stroke="${C.line}"/>
+  <g transform="translate(8 8) scale(1.1667)">${TECH[key]}</g>
 </svg>`);
 }
 
-/* -------------------------------------------------------- provider grid */
+/* ----------------------------------------------------- flyrank bar chart */
+// One measure (precision@50) across three approaches: single hue, direct labels, no legend.
 {
-  const providers = [
-    ["Claude", "Anthropic", "#d97757"], ["GPT", "OpenAI", "#9ca3af"], ["Gemini", "Google", "#4f8df7"],
-    ["Grok", "xAI", C.fg], ["DeepSeek", "DeepSeek", "#4d6bfe"], ["Perplexity", "Perplexity", "#1fb8cd"],
-    ["Mistral", "Mistral AI", "#fa520f"], ["Llama", "via Groq", "#f55036"], ["Qwen", "Alibaba", "#8b7cf6"],
-    ["Kimi", "Moonshot", "#c4b5fd"], ["Command", "Cohere", "#6ee7b7"], ["OpenRouter", "100s of models", C.teal],
-  ];
-  const cols = 3, cw = 150, ch = 46, gap = 10, pad = 14;
-  const W = pad * 2 + cols * cw + (cols - 1) * gap;
-  const rows = Math.ceil(providers.length / cols);
-  const H = pad * 2 + 30 + rows * ch + (rows - 1) * gap;
-  const tiles = providers.map(([name, by, color], i) => {
-    const x = pad + (i % cols) * (cw + gap), y = pad + 30 + Math.floor(i / cols) * (ch + gap);
+  const rows = [["Random forest (mine)", 0.80, true], ["Rule already in production", 0.61, false], ["Base rate", 0.49, false]];
+  const W = 460, H = 196, left = 20, labelW = 190, barX = left + labelW, barMax = W - barX - 64, top = 52, rowH = 36, bh = 16;
+  const bars = rows.map(([label, v, mine], i) => {
+    const y = top + i * rowH, w = Math.round(barMax * v);
     return `
-    <g transform="translate(${x} ${y})">
-      <rect width="${cw}" height="${ch}" rx="9" fill="${C.bg}" stroke="${C.line}"/>
-      <circle cx="16" cy="23" r="4.5" fill="${color}"/>
-      <text x="29" y="20" font-family="${SANS}" font-size="13" font-weight="700" fill="${C.text}">${esc(name)}</text>
-      <text x="29" y="35" font-family="${MONO}" font-size="10.5" fill="${C.muted}">${esc(by)}</text>
-    </g>`;
+    <text x="${left}" y="${y + bh / 2 + 4.5}" font-family="${SANS}" font-size="12.5" font-weight="${mine ? 700 : 500}" fill="${C.text}">${esc(label)}</text>
+    <rect x="${barX}" y="${y}" width="${barMax}" height="${bh}" rx="4" fill="${C.line}" opacity="0.45"/>
+    <rect x="${barX}" y="${y}" width="${w}" height="${bh}" rx="4" fill="${C.teal}" opacity="${mine ? 1 : 0.55}"/>
+    <text x="${barX + w + 8}" y="${y + bh / 2 + 4.5}" font-family="${MONO}" font-size="12.5" font-weight="700" fill="${C.text}">${v.toFixed(2)}</text>`;
   }).join("");
-  out("providers.svg", `
-<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Twelve LLM providers supported by Muster">
-  <rect width="${W}" height="${H}" rx="14" fill="${C.bg2}" stroke="${C.line}"/>
-  <text x="${pad}" y="${pad + 16}" font-family="${SANS}" font-size="11.5" font-weight="700" fill="${C.muted}" letter-spacing="1.2">PROVIDERS WIRED IN</text>
-  <text x="${W - pad}" y="${pad + 16}" text-anchor="end" font-family="${MONO}" font-size="11.5" fill="${C.teal}">12 / 4 adapters</text>
-  ${tiles}
+  const ticks = [0, 0.25, 0.5, 0.75, 1].map((t) => `<line x1="${barX + barMax * t}" y1="${top - 6}" x2="${barX + barMax * t}" y2="${top + rows.length * rowH - 14}" stroke="${C.line}" stroke-width="1" opacity="0.6"/>`).join("");
+  out("ranker-chart.svg", `
+<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Precision at 50 on client-grouped splits: random forest 0.80, rule in production 0.61, base rate 0.49.">
+  <rect x="0.5" y="0.5" width="${W - 1}" height="${H - 1}" rx="14" fill="${C.bg2}" stroke="${C.line}"/>
+  <text x="${left}" y="26" font-family="${SANS}" font-size="12" font-weight="700" fill="${C.muted}" letter-spacing="1.2">PRECISION@50  ·  CLIENT-GROUPED SPLITS</text>
+  ${ticks}${bars}
+  <text x="${left}" y="${H - 16}" font-family="${MONO}" font-size="11" fill="${C.muted}">won 7 of 8 splits  ·  30,000 pages  ·  32 client sites</text>
 </svg>`);
 }
 
@@ -319,113 +297,22 @@ Object.keys(EMOJI).forEach(emoji);
 </svg>`);
 }
 
-/* ------------------------------------------------------------ muster flow */
-// How Muster works: one prompt fans out through four adapters to twelve providers,
-// and each model only ever sees its own history.
+/* ----------------------------------------------------------------- banner */
+// A flat, quiet banner: name, one line of context, the monogram. Nothing moves.
 {
-  const W = 640, H = 230;
-  const box = (x, y, w, h, label, sub, accent = false) => `
-    <rect x="${x}" y="${y}" width="${w}" height="${h}" rx="12" fill="${accent ? "url(#tileGrad)" : C.bg2}" stroke="${accent ? "none" : C.line}"/>
-    <text x="${x + w / 2}" y="${y + h / 2 - (sub ? 4 : -5)}" text-anchor="middle" font-family="${SANS}" font-size="14" font-weight="700" fill="${accent ? INK : C.text}">${esc(label)}</text>
-    ${sub ? `<text x="${x + w / 2}" y="${y + h / 2 + 14}" text-anchor="middle" font-family="${MONO}" font-size="11" fill="${accent ? INK : C.muted}" opacity="${accent ? 0.75 : 1}">${esc(sub)}</text>` : ""}`;
-  const midY = 96;
-  // adapters (4) and providers (12) as stacked pills on the right
-  const adapters = [0, 1, 2, 3].map((i) => {
-    const y = 28 + i * 40;
-    return `<path d="M312 ${midY} C340 ${midY} 340 ${y + 14} 368 ${y + 14}" fill="none" stroke="${C.teal}" stroke-width="1.5" opacity="0.7"/>
-            <rect x="368" y="${y}" width="86" height="28" rx="8" fill="${C.bg2}" stroke="${C.line}"/>
-            <text x="411" y="${y + 18}" text-anchor="middle" font-family="${MONO}" font-size="11" fill="${C.text}">adapter ${i + 1}</text>`;
-  }).join("");
-  const providers = [...Array(12).keys()].map((i) => {
-    const a = Math.floor(i / 3), y = 28 + a * 40 + 14, py = 16 + i * 13.5;
-    return `<path d="M454 ${y} C490 ${y} 490 ${py} 526 ${py}" fill="none" stroke="${C.cyan}" stroke-width="1.2" opacity="0.55"/>
-            <circle cx="530" cy="${py}" r="3.2" fill="${C.cyan}"/>`;
-  }).join("");
-  out("muster-flow.svg", `
-<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="One prompt goes to Muster, which fans out through four adapters to twelve providers. Each model only sees its own history.">
-  <defs>${TILE_GRAD}
-    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5 0 10z" fill="${C.teal}"/></marker>
-  </defs>
-  <rect x="0.5" y="0.5" width="${W - 1}" height="${H - 1}" rx="14" fill="${C.bg}" stroke="${C.line}"/>
-  <text x="18" y="22" font-family="${SANS}" font-size="11.5" font-weight="700" fill="${C.muted}" letter-spacing="1.2">HOW IT WORKS</text>
-
-  ${box(18, midY - 24, 112, 48, "one prompt", "you type once")}
-  <line x1="130" y1="${midY}" x2="186" y2="${midY}" stroke="${C.teal}" stroke-width="1.8" marker-end="url(#arr)"/>
-  ${box(188, midY - 26, 124, 52, "Muster", "fan-out + stream", true)}
-  ${adapters}
-  ${providers}
-  <text x="548" y="${midY - 2}" font-family="${SANS}" font-size="13" font-weight="700" fill="${C.text}">12</text>
-  <text x="548" y="${midY + 14}" font-family="${MONO}" font-size="10.5" fill="${C.muted}">providers</text>
-
-  <rect x="18" y="186" width="${W - 36}" height="28" rx="8" fill="${C.bg2}" stroke="${C.line}"/>
-  ${tile("check", 18, 26, 191)}
-  <text x="52" y="204.5" font-family="${SANS}" font-size="12.5" fill="${C.text}">On follow-ups each model sees <tspan font-weight="700">only its own history</tspan>, so the comparison stays a fair test.</text>
+  const W = 1200, H = 270;
+  out("banner.svg", `
+<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Muhammad Abbad ur Rehman. ML intern at FlyRank AI, ICS student in Lahore. Builds Muster, one prompt to 12 LLMs side by side.">
+  <defs>${TILE_GRAD}${MARK_GRAD}</defs>
+  <rect x="0.5" y="0.5" width="${W - 1}" height="${H - 1}" rx="20" fill="${C.bg2}" stroke="${C.line}"/>
+  <path d="M20 ${H - 1} h${W - 40}" stroke="url(#tileGrad)" stroke-width="3" stroke-linecap="round"/>
+  ${mark(64, 56, 103)}
+  <text x="148" y="92" font-family="${SANS}" font-size="44" font-weight="700" fill="${C.text}" letter-spacing="-1">Muhammad</text>
+  <text x="148" y="140" font-family="${SANS}" font-size="44" font-weight="700" fill="url(#tileGrad)" letter-spacing="-1">Abbad Ur Rehman</text>
+  <text x="148" y="178" font-family="${SANS}" font-size="19" fill="${C.muted}">ML intern at FlyRank AI  ·  ICS student, Lahore</text>
+  <text x="148" y="210" font-family="${MONO}" font-size="14" fill="${C.teal}">builds Muster: one prompt → 12 LLMs → side by side</text>
 </svg>`);
 }
-
-/* ------------------------------------------------------------------- hero */
-// Profile hero: oversized typography on the left, Muster's provider orbit on the right.
-{
-  const W = 1200, H = 380, cx = 940, cy = 186;
-  const providers = [
-    ["Claude", "#d97757"], ["GPT", "#9ca3af"], ["Gemini", "#4f8df7"], ["Grok", C.fg],
-    ["DeepSeek", "#4d6bfe"], ["Perplexity", "#1fb8cd"], ["Mistral", "#fa520f"], ["Llama", "#f55036"],
-    ["Qwen", "#8b7cf6"], ["Kimi", "#c4b5fd"], ["Command", "#6ee7b7"], ["OpenRouter", C.teal],
-  ];
-  const ring = (r, items, dur, reverse) => {
-    const dots = items.map(([name, col], i) => {
-      const a = (i / items.length) * Math.PI * 2 - Math.PI / 2;
-      const x = (cx + r * Math.cos(a)).toFixed(1), y = (cy + r * Math.sin(a)).toFixed(1);
-      return `<circle cx="${x}" cy="${y}" r="9" fill="${col}" stroke="${C.bg2}" stroke-width="2.5"><title>${esc(name)}</title></circle>`;
-    }).join("");
-    return `
-    <circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${C.line}" stroke-width="1.5" stroke-dasharray="2 7" stroke-linecap="round"/>
-    <g>${dots}<animateTransform attributeName="transform" type="rotate" from="${reverse ? 360 : 0} ${cx} ${cy}" to="${reverse ? 0 : 360} ${cx} ${cy}" dur="${dur}s" repeatCount="indefinite"/></g>`;
-  };
-  const chip = (x, y, t) => {
-    const w = wMono(t, 11.5) + 20;
-    return [`<rect x="${x}" y="${y}" width="${w}" height="24" rx="12" fill="${C.bg}" stroke="${C.line}"/><text x="${x + w / 2}" y="${y + 16}" text-anchor="middle" font-family="${MONO}" font-size="11.5" fill="${C.teal}">${esc(t)}</text>`, w];
-  };
-  let x = 48, chips = "";
-  for (const t of ["12 providers", "0 build steps", "100% local", "open source"]) { const [svg, w] = chip(x, 318, t); chips += svg; x += w + 8; }
-
-  out("hero.svg", `
-<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Muhammad Abbad ur Rehman: Computer Science student who builds small, self-hosted developer tools. Latest ship: Muster, one prompt to 12 LLMs side by side.">
-  <defs>
-    ${TILE_GRAD}${MARK_GRAD}
-    <radialGradient id="orbitGlow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="${C.teal}" stop-opacity="0.22"/><stop offset="1" stop-color="${C.teal}" stop-opacity="0"/></radialGradient>
-    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" fill="none" stroke="${C.line}" stroke-width="0.6" opacity="0.55"/></pattern>
-    <clipPath id="heroClip"><rect width="${W}" height="${H}" rx="22"/></clipPath>
-  </defs>
-  <g clip-path="url(#heroClip)">
-    <rect width="${W}" height="${H}" fill="${C.bg2}"/>
-    <rect width="${W}" height="${H}" fill="url(#grid)"/>
-    <circle cx="${cx}" cy="${cy}" r="200" fill="url(#orbitGlow)"/>
-  </g>
-  <rect x="0.5" y="0.5" width="${W - 1}" height="${H - 1}" rx="22" fill="none" stroke="${C.line}"/>
-
-  <!-- identity -->
-  ${mark(38, 48, 40)}
-  <text x="98" y="58" font-family="${MONO}" font-size="12" fill="${C.muted}" letter-spacing="1.6">ABBAD0708  ·  COMPUTER SCIENCE STUDENT</text>
-  <text x="98" y="76" font-family="${MONO}" font-size="12" fill="${C.teal}">software that runs on your own machine</text>
-
-  <text x="46" y="156" font-family="${SANS}" font-size="66" font-weight="900" fill="${C.text}" letter-spacing="-2.5">MUHAMMAD</text>
-  <text x="46" y="220" font-family="${SANS}" font-size="66" font-weight="900" fill="url(#tileGrad)" letter-spacing="-2.5">ABBAD</text>
-  <text x="46" y="284" font-family="${SANS}" font-size="66" font-weight="900" fill="none" stroke="${C.text}" stroke-width="1.6" letter-spacing="-2.5">UR REHMAN</text>
-  ${chips}
-
-  <!-- orbit -->
-  ${ring(128, providers.slice(4), 46, false)}
-  ${ring(78, providers.slice(0, 4), 28, true)}
-  <circle cx="${cx}" cy="${cy}" r="40" fill="url(#tileGrad)"/>
-  <g fill="${INK}" transform="translate(${cx - 17} ${cy - 16})">
-    <rect x="0" y="8" width="8" height="24" rx="2.5"/><rect x="13" y="14" width="8" height="18" rx="2.5"/><rect x="26" y="0" width="8" height="32" rx="2.5"/>
-  </g>
-  <text x="${cx}" y="${cy + 160}" text-anchor="middle" font-family="${SANS}" font-size="14" font-weight="700" fill="${C.text}">Muster</text>
-  <text x="${cx}" y="${cy + 178}" text-anchor="middle" font-family="${MONO}" font-size="11.5" fill="${C.muted}">one prompt → 12 LLMs → side by side</text>
-</svg>`);
-}
-
 
 };
 for (const [name, theme] of Object.entries(THEMES)) { DIR = name; C = theme; build(); }
