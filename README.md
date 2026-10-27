@@ -6,7 +6,7 @@
 
 <div align="center">
 
-<img src="assets/banner.svg" alt="Muhammad Abbad ur Rehman: Computer Science student who builds small, self-hosted developer tools" width="100%" />
+<img src="assets/bento.svg" alt="Muhammad Abbad ur Rehman: Computer Science student who builds small, self-hosted developer tools. Now building Muster, one prompt to 12 LLMs side by side. 12 providers, 0 build steps, 100% local data. Open to collaborating on dev tools and LLM experiments." width="100%" />
 
 <br/><br/>
 
@@ -14,10 +14,6 @@
 <a href="https://x.com/M_Abbad0708"><img src="assets/badges/b-x.svg" alt="X / Twitter" height="34" /></a>&nbsp;&nbsp;
 <a href="https://github.com/Abbad0708/Muster"><img src="assets/badges/b-muster.svg" alt="Explore Muster" height="34" /></a>&nbsp;&nbsp;
 <img src="https://komarev.com/ghpvc/?username=Abbad0708&style=flat-square&color=14b8a6&label=profile+views" alt="Profile views" height="22" />
-
-<br/><br/>
-
-<img src="assets/facts.svg" alt="Computer Science student. Builds self-hosted developer tools. Local-first, no build step, few dependencies. Open to collaboration." width="100%" />
 
 </div>
 
