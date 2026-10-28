@@ -41,7 +41,7 @@ const heading = (slug, title, color, icon) => {
 };
 heading("about", "About", "#0EA5E9", `<circle cx="12" cy="12" r="9"/><circle cx="12" cy="10" r="3"/><path d="M6.2 18.2c1.2-2.4 3.3-3.6 5.8-3.6s4.6 1.2 5.8 3.6"/>`);
 heading("stack", "Tech Stack", "#A855F7", `<rect x="6" y="6" width="12" height="12" rx="2"/><rect x="9.5" y="9.5" width="5" height="5" rx="1"/><path d="M9 6V3M15 6V3M9 21v-3M15 21v-3M6 9H3M6 15H3M21 9h-3M21 15h-3"/>`);
-heading("work", "Featured Work", "#F97316", `<path d="M5 15.5c-1.5-4 0-9.5 3.5-12 3.5 2.5 5 8 3.5 12z" transform="translate(3.5 0)"/><path d="M8.5 11.5c1.1 0 2 .9 2 2M8.5 11.5c-1.6.6-2.6 2.2-2.9 4.2l2.4-.6M15.4 11.5c1.6.6 2.6 2.2 2.9 4.2l-2.4-.6" /><circle cx="12" cy="8.5" r="1.5"/><path d="M10.5 18.5c0 1.4.6 2.3 1.5 3 .9-.7 1.5-1.6 1.5-3"/>`);
+heading("work", "Featured Work", "#F97316", `<rect x="3" y="7.5" width="18" height="12.5" rx="2.5"/><path d="M9 7.5V6a1.5 1.5 0 011.5-1.5h3A1.5 1.5 0 0115 6v1.5M3 12.5h18M10.5 12.5v2.5h3v-2.5"/>`);
 
 // Flat contact badges in the reference profile's exact style: 20px, square corners, solid brand
 // colour, white logo and Verdana text; a 28px uppercase call-to-action for the bottom.
