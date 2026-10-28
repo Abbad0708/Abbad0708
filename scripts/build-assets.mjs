@@ -39,9 +39,9 @@ const heading = (slug, title, color, icon) => {
   out(`headings/${slug}.svg`, `
 <svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="42" viewBox="0 0 ${w} 42" fill="none" role="img" aria-label="${esc(title)}"><g transform="translate(2.0,6.0) scale(1.25)" stroke="${color}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">${icon}</g><text x="42" y="29.4" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="24" font-weight="700" fill="${C.text}">${esc(title)}</text></svg>`);
 };
-heading("about", "About", "#14B8A6", `<circle cx="12" cy="12" r="9"/><path d="M15.6 8.4l-2.2 4.9-4.9 2.2 2.2-4.9z"/><circle cx="12" cy="12" r="0.6" fill="#14B8A6" stroke="none"/>`);
-heading("stack", "Tech Stack", "#6366F1", `<path d="M12 3 21 8 12 13 3 8Z"/><path d="M3 12 12 17 21 12"/><path d="M3 16 12 21 21 16"/>`);
-heading("work", "Featured Work", AMBER, `<path d="M12 2C13 8 16 11 22 12 16 13 13 16 12 22 11 16 8 13 2 12 8 11 11 8 12 2Z" fill="${AMBER}" stroke="none"/>`);
+heading("about", "About", "#0EA5E9", `<circle cx="12" cy="12" r="9"/><circle cx="12" cy="10" r="3"/><path d="M6.2 18.2c1.2-2.4 3.3-3.6 5.8-3.6s4.6 1.2 5.8 3.6"/>`);
+heading("stack", "Tech Stack", "#A855F7", `<rect x="6" y="6" width="12" height="12" rx="2"/><rect x="9.5" y="9.5" width="5" height="5" rx="1"/><path d="M9 6V3M15 6V3M9 21v-3M15 21v-3M6 9H3M6 15H3M21 9h-3M21 15h-3"/>`);
+heading("work", "Featured Work", "#F97316", `<path d="M5 15.5c-1.5-4 0-9.5 3.5-12 3.5 2.5 5 8 3.5 12z" transform="translate(3.5 0)"/><path d="M8.5 11.5c1.1 0 2 .9 2 2M8.5 11.5c-1.6.6-2.6 2.2-2.9 4.2l2.4-.6M15.4 11.5c1.6.6 2.6 2.2 2.9 4.2l-2.4-.6" /><circle cx="12" cy="8.5" r="1.5"/><path d="M10.5 18.5c0 1.4.6 2.3 1.5 3 .9-.7 1.5-1.6 1.5-3"/>`);
 
 // Flat contact badges in the reference profile's exact style: 20px, square corners, solid brand
 // colour, white logo and Verdana text; a 28px uppercase call-to-action for the bottom.
@@ -81,7 +81,6 @@ const TECH = {
   actions: `<path d="M12 3.5a8.5 8.5 0 108.5 8.5" fill="none" stroke="#2088ff" stroke-width="2.1" stroke-linecap="round"/><path d="M18.6 5.2l2.2 6.6-6.2-2.3z" fill="#2088ff"/><path d="M9.8 8.6v6.8l5.4-3.4z" fill="#93c5fd"/>`,
   vscode: `<path d="M16.5 3L21 5.3v13.4L16.5 21 7.2 13.6 4.3 15.8 2.5 14.9V9.1l1.8-.9 2.9 2.2z" fill="#3fa7f3"/><path d="M16.5 3v18L7.2 13.6z" fill="#0b5fa5" opacity="0.55"/><path d="M16.5 7.2v9.6L10.5 12z" fill="#dbeafe" opacity="0.35"/>`,
   markdown: `<rect x="2" y="5.5" width="20" height="13" rx="2.6" fill="none" stroke="#a3b3cc" stroke-width="1.8"/><path d="M5.5 15.5v-7l3 3.4 3-3.4v7" fill="none" stroke="#a3b3cc" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M16.8 8.5v6.2M14.3 12.5l2.5 2.8 2.5-2.8" fill="none" stroke="${C.teal}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>`,
-  windows: `<g fill="#38bdf8"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/></g><rect x="13" y="13" width="8" height="8" rx="2" fill="#0ea5e9"/>`,
   python: `<path d="M12 2.5c-4 0-4.6 1.8-4.6 3.3v2h4.8v.7H5.4C3.6 8.5 2.5 9.9 2.5 12s1.1 3.5 2.9 3.5h1.8v-2.4c0-1.9 1.6-3.4 3.5-3.4h4.5c1.6 0 2.9-1.3 2.9-2.9V5.8C18.1 4 16 2.5 12 2.5z" fill="#3b82f6"/><circle cx="9.6" cy="5.3" r="1" fill="#fff"/><path d="M12 21.5c4 0 4.6-1.8 4.6-3.3v-2h-4.8v-.7h6.8c1.8 0 2.9-1.4 2.9-3.5s-1.1-3.5-2.9-3.5h-1.8v2.4c0 1.9-1.6 3.4-3.5 3.4H8.8c-1.6 0-2.9 1.3-2.9 2.9v1C5.9 20 8 21.5 12 21.5z" fill="#fbbf24"/><circle cx="14.4" cy="18.7" r="1" fill="#fff"/>`,
   cpp: `<path d="${HEX}" fill="#5c8dbc"/><path d="M10.2 9.2a3.4 3.4 0 100 5.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/><path d="M13.6 10.2v3.6M11.8 12h3.6M17.4 10.2v3.6M15.6 12h3.6" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>`,
   sql: `<rect x="3" y="4" width="18" height="16" rx="2.5" fill="none" stroke="#f59e0b" stroke-width="1.8"/><path d="M3 9.2h18M9 9.2V20M15 9.2V20M3 14.6h18" stroke="#f59e0b" stroke-width="1.4"/><path d="M5.5 4h13A2.5 2.5 0 0121 6.5v2.7H3V6.5A2.5 2.5 0 015.5 4z" fill="#f59e0b"/>`,
@@ -89,8 +88,6 @@ const TECH = {
   prompt: `<path d="M3 5.5h18v11H10l-4.5 3.5v-3.5H3z" fill="#0b1220" stroke="${C.teal}" stroke-width="1.7" stroke-linejoin="round"/><path d="M7.5 9.5l2.5 1.8-2.5 1.8M12 13.2h4.5" fill="none" stroke="${C.teal}" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>`,
   openai: `<path d="M12 3.2l7.6 4.4v8.8L12 20.8l-7.6-4.4V7.6z" fill="none" stroke="#10a37f" stroke-width="2" stroke-linejoin="round"/><path d="M12 7.5l3.9 2.25v4.5L12 16.5l-3.9-2.25v-4.5z" fill="#10a37f"/>`,
   excel: `<path d="M3 5a2 2 0 012-2h8l8 3v13l-8 3H5a2 2 0 01-2-2z" fill="#217346"/><path d="M13 3l8 3v13l-8 3z" fill="#1a5c38"/><path d="M6 8.5l2.4 3.5L6 15.5h2l1.4-2.2 1.4 2.2h2l-2.4-3.5 2.4-3.5h-2L9.4 10.6 8 8.5z" fill="#fff"/><path d="M15 8h4v2h-4zM15 11h4v2h-4zM15 14h4v2h-4z" fill="#8fd4ae" opacity="0.9"/>`,
-  tableau: `<rect x="10.70" y="5.80" width="2.6" height="12.40" fill="#E97627"/><rect x="5.80" y="10.70" width="12.40" height="2.6" fill="#E97627"/><rect x="11.15" y="0.50" width="1.7" height="5.40" fill="#1F447E"/><rect x="9.30" y="2.35" width="5.40" height="1.7" fill="#1F447E"/><rect x="11.15" y="18.10" width="1.7" height="5.40" fill="#1F447E"/><rect x="9.30" y="19.95" width="5.40" height="1.7" fill="#1F447E"/><rect x="2.35" y="9.30" width="1.7" height="5.40" fill="#7099A6"/><rect x="0.50" y="11.15" width="5.40" height="1.7" fill="#7099A6"/><rect x="19.95" y="9.30" width="1.7" height="5.40" fill="#7099A6"/><rect x="18.10" y="11.15" width="5.40" height="1.7" fill="#7099A6"/><rect x="4.05" y="2.90" width="1.1" height="3.40" fill="#C72035"/><rect x="2.90" y="4.05" width="3.40" height="1.1" fill="#C72035"/><rect x="18.85" y="2.90" width="1.1" height="3.40" fill="#C72035"/><rect x="17.70" y="4.05" width="3.40" height="1.1" fill="#C72035"/><rect x="4.05" y="17.70" width="1.1" height="3.40" fill="#C72035"/><rect x="2.90" y="18.85" width="3.40" height="1.1" fill="#C72035"/><rect x="18.85" y="17.70" width="1.1" height="3.40" fill="#C72035"/><rect x="17.70" y="18.85" width="3.40" height="1.1" fill="#C72035"/>`,
-  powerbi: `<g fill="#F2C811"><rect x="4" y="13" width="4" height="8" rx="1"/><rect x="10" y="8" width="4" height="13" rx="1"/><rect x="16" y="3" width="4" height="18" rx="1"/></g><rect x="4" y="13" width="4" height="8" rx="1" fill="#e0b000" opacity="0.5"/>`,
   ml: `<path d="M12 5L6.5 13M12 5l5.5 8M6.5 13L4 19.5M6.5 13L9 19.5M17.5 13L15 19.5M17.5 13l2.5 6.5" stroke="#a78bfa" stroke-width="1.3"/><circle cx="12" cy="5" r="2.5" fill="#a78bfa"/><circle cx="6.5" cy="13" r="2.4" fill="#a78bfa"/><circle cx="17.5" cy="13" r="2.4" fill="#a78bfa"/><g fill="#c4b5fd"><circle cx="4" cy="19.8" r="1.8"/><circle cx="9" cy="19.8" r="1.8"/><circle cx="15" cy="19.8" r="1.8"/><circle cx="20" cy="19.8" r="1.8"/></g>`,
 };
 // Stack icons. Brand logos come from scripts/brand-icons.json (Simple Icons, CC0), vendored so
@@ -112,7 +109,7 @@ for (const [key, entry] of Object.entries(BRAND)) {
   out(`stack/${key}.svg`, `
 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" role="img" aria-label="${esc(title)}"><path fill="${fill}" d="${entry.path}"/></svg>`);
 }
-for (const key of ["powershell", "windows", "sql", "ml", "api", "llm", "prompt", "excel", "tableau", "powerbi"]) {
+for (const key of ["powershell", "sql", "ml", "api", "llm", "prompt", "excel"]) {
   if (BRAND[key]) continue;
   out(`stack/${key}.svg`, `
 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" role="img" aria-hidden="true">${TECH[key]}</svg>`);
@@ -120,13 +117,13 @@ for (const key of ["powershell", "windows", "sql", "ml", "api", "llm", "prompt",
 
 // Small line icons for the stack category headers.
 const CAT = {
-  code: `<path d="M9 6.5L4.5 12 9 17.5M15 6.5l4.5 5.5-4.5 5.5"/>`,
-  ds: `<path d="M6 6l12 12M18 6L6 18"/><circle cx="12" cy="12" r="2.2" fill="${C.teal}" stroke="none"/>`,
-  db: `<ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"/>`,
-  globe: `<circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c3 3 3 14 0 17M12 3.5c-3 3-3 14 0 17"/>`,
-  spark: `<path d="M12 3.5l1.8 5.2 5.2 1.8-5.2 1.8L12 17.5l-1.8-5.2L5 10.5l5.2-1.8z"/><path d="M19 17.5v3M17.5 19h3"/>`,
-  chart: `<path d="M4 20h16M7 16v-5M12 16V6M17 16v-8"/>`,
-  gear: `<circle cx="12" cy="12" r="3"/><path d="M12 3v2.5M12 18.5V21M3 12h2.5M18.5 12H21M5.6 5.6l1.8 1.8M16.6 16.6l1.8 1.8M5.6 18.4l1.8-1.8M16.6 7.4l1.8-1.8"/>`,
+  code: `<path d="M8 4.5C6 4.5 5.5 5.3 5.5 7v2.2c0 1-.6 1.6-1.6 1.8 1 .2 1.6.8 1.6 1.8V15c0 1.7.5 2.5 2.5 2.5M16 4.5c2 0 2.5.8 2.5 2.5v2.2c0 1 .6 1.6 1.6 1.8-1 .2-1.6.8-1.6 1.8V15c0 1.7-.5 2.5-2.5 2.5"/>`,
+  ds: `<circle cx="6" cy="7" r="2"/><circle cx="6" cy="17" r="2"/><circle cx="18" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><path d="M8 7.8l2.3 2.6M8 16.2l2.3-2.6M14 12h2"/>`,
+  db: `<rect x="3.5" y="4.5" width="17" height="15" rx="2"/><path d="M3.5 9.5h17M3.5 14.5h17M9.5 9.5v10M15.5 9.5v10"/>`,
+  globe: `<rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M3 8.5h18M6.5 6.3h.01M9 6.3h.01"/><path d="M8 14l2 2-2 2M12 18h4"/>`,
+  spark: `<path d="M12 3.5v2.5M12 18v2.5M3.5 12H6M18 12h2.5M6 6l1.8 1.8M16.2 16.2L18 18M6 18l1.8-1.8M16.2 7.8L18 6"/><circle cx="12" cy="12" r="3.5"/>`,
+  chart: `<path d="M12 3.5a8.5 8.5 0 108.5 8.5H12z"/><path d="M12 3.5V12h8.5" opacity="0.6"/>`,
+  gear: `<path d="M14.7 6.3a4 4 0 00-5 5L4 17a1.8 1.8 0 002.5 2.5l5.7-5.7a4 4 0 005-5l-2.4 2.4-2.3-.6-.6-2.3z"/>`,
 };
 for (const [k, body] of Object.entries(CAT)) out(`stack/cat-${k}.svg`, `
 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="img" aria-hidden="true"><g fill="none" stroke="${C.teal}" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">${body}</g></svg>`);
