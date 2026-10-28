@@ -84,9 +84,7 @@ I work on the part of machine learning that decides whether a number can be trus
     </td>
     <td width="50%" valign="top">
       <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/cat-chart.svg" /><img src="assets/light/stack/cat-chart.svg" width="18" height="18" align="absmiddle" alt=""/></picture>&nbsp; <strong>Analytics &amp; BI</strong></p>
-      <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/excel.svg" /><img src="assets/light/stack/excel.svg" width="36" height="36" alt="Microsoft Excel" title="Microsoft Excel"/></picture>&nbsp;&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/tableau.svg" /><img src="assets/light/stack/tableau.svg" width="36" height="36" alt="Tableau (basics)" title="Tableau (basics)"/></picture>&nbsp;&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/powerbi.svg" /><img src="assets/light/stack/powerbi.svg" width="36" height="36" alt="Power BI (basics)" title="Power BI (basics)"/></picture></p>
+      <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/excel.svg" /><img src="assets/light/stack/excel.svg" width="36" height="36" alt="Microsoft Excel" title="Microsoft Excel"/></picture></p>
     </td>
   </tr>
   <tr>
@@ -94,8 +92,7 @@ I work on the part of machine learning that decides whether a number can be trus
       <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/cat-gear.svg" /><img src="assets/light/stack/cat-gear.svg" width="18" height="18" align="absmiddle" alt=""/></picture>&nbsp; <strong>Tools</strong></p>
       <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/git.svg" /><img src="assets/light/stack/git.svg" width="36" height="36" alt="Git" title="Git"/></picture>&nbsp;&nbsp;
       <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/github.svg" /><img src="assets/light/stack/github.svg" width="36" height="36" alt="GitHub" title="GitHub"/></picture>&nbsp;&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/vscode.svg" /><img src="assets/light/stack/vscode.svg" width="36" height="36" alt="VS Code" title="VS Code"/></picture>&nbsp;&nbsp;
-      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/windows.svg" /><img src="assets/light/stack/windows.svg" width="36" height="36" alt="Windows" title="Windows"/></picture></p>
+      <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack/vscode.svg" /><img src="assets/light/stack/vscode.svg" width="36" height="36" alt="VS Code" title="VS Code"/></picture></p>
     </td>
   </tr>
 </table>
