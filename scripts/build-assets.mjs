@@ -135,8 +135,8 @@ const projectHeading = (slug, title, color, icon) => {
   out(`headings/h-${slug}.svg`, `
 <svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="36" viewBox="0 0 ${w} 36" fill="none" role="img" aria-label="${esc(title)}"><g transform="translate(2.0,5.0) scale(1.0833)" stroke="${color}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">${icon}</g><text x="38" y="25.4" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="21" font-weight="700" fill="${C.text}">${esc(title)}</text></svg>`);
 };
-projectHeading("muster", "Muster · LLM Comparison Tool", "#14B8A6", `<rect x="4" y="11" width="3.5" height="9" rx="1"/><rect x="10.25" y="7" width="3.5" height="13" rx="1"/><rect x="16.5" y="4" width="3.5" height="16" rx="1"/>`);
-projectHeading("ranker", "Content-Decay Ranker · FlyRank AI", "#F59E0B", `<path d="M3 12h3.5l2-5.5 3.2 11 2-5.5H21"/>`);
+projectHeading("muster", "Muster · LLM Comparison Tool", "#14B8A6", `<rect x="3" y="5" width="5" height="14" rx="1.3"/><rect x="9.5" y="5" width="5" height="14" rx="1.3"/><rect x="16" y="5" width="5" height="14" rx="1.3"/><path d="M4.5 8.5h2M11 8.5h2M17.5 8.5h2" opacity="0.7"/>`);
+projectHeading("ranker", "Content-Decay Ranker · FlyRank AI", "#F59E0B", `<path d="M3.5 6.5h12M3.5 12h8.5M3.5 17.5h5"/><path d="M19 6v12M16.2 15.2L19 18l2.8-2.8"/>`);
 
 // Metric badges: grey label | teal value, 20px, Verdana, like the sample.
 const VERDANA = "Verdana,Geneva,'DejaVu Sans',sans-serif";
